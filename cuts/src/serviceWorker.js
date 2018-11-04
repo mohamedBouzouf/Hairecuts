@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives
@@ -7,6 +8,19 @@
 
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
+=======
+// This optional code is used to register a service worker.
+// register() is not called by default.
+
+// This lets the app load faster on subsequent visits in production, and gives
+// it offline capabilities. However, it also means that developers (and users)
+// will only see deployed updates on subsequent visits to a page, after all the
+// existing tabs open on the page have been closed, since previously cached
+// resources are updated in the background.
+
+// To learn more about the benefits of this model and instructions on how to
+// opt-in, read http://bit.ly/CRA-PWA.
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
 
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
@@ -18,32 +32,64 @@ const isLocalhost = Boolean(
   )
 );
 
+<<<<<<< HEAD
 export function register() {
+=======
+export function register(config) {
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location);
     if (publicUrl.origin !== window.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
+<<<<<<< HEAD
       // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374
+=======
+      // serve assets; see https://github.com/facebook/create-react-app/issues/2374
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
       return;
     }
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
+<<<<<<< HEAD
       if (!isLocalhost) {
         // Is not local host. Just register service worker
         registerValidSW(swUrl);
       } else {
         // This is running on localhost. Lets check if a service worker still exists or not.
         checkValidServiceWorker(swUrl);
+=======
+      if (isLocalhost) {
+        // This is running on localhost. Let's check if a service worker still exists or not.
+        checkValidServiceWorker(swUrl, config);
+
+        // Add some additional logging to localhost, pointing developers to the
+        // service worker/PWA documentation.
+        navigator.serviceWorker.ready.then(() => {
+          console.log(
+            'This web app is being served cache-first by a service ' +
+            'worker. To learn more, visit http://bit.ly/CRA-PWA'
+          );
+        });
+      } else {
+        // Is not localhost. Just register service worker
+        console.log("wont register sw. Current env:", process.env.NODE_ENV);
+        registerValidSW(swUrl, config);
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
       }
     });
   }
 }
+<<<<<<< HEAD
 
 function registerValidSW(swUrl) {
+=======
+console.log("sw register");
+function registerValidSW(swUrl, config) {
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
@@ -52,16 +98,39 @@ function registerValidSW(swUrl) {
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
+<<<<<<< HEAD
               // At this point, the old content will have been purged and
               // the fresh content will have been added to the cache.
               // It's the perfect time to display a "New content is
               // available; please refresh." message in your web app.
               console.log('New content is available; please refresh.');
+=======
+              // At this point, the updated precached content has been fetched,
+              // but the previous service worker will still serve the older
+              // content until all client tabs are closed.
+              console.log(
+                'New content is available and will be used when all ' +
+                'tabs for this page are closed. See http://bit.ly/CRA-PWA.'
+              );
+
+              // Execute callback
+              if (config && config.onUpdate) {
+                config.onUpdate(registration);
+              }
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
             } else {
               // At this point, everything has been precached.
               // It's the perfect time to display a
               // "Content is cached for offline use." message.
               console.log('Content is cached for offline use.');
+<<<<<<< HEAD
+=======
+
+              // Execute callback
+              if (config && config.onSuccess) {
+                config.onSuccess(registration);
+              }
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
             }
           }
         };
@@ -72,7 +141,11 @@ function registerValidSW(swUrl) {
     });
 }
 
+<<<<<<< HEAD
 function checkValidServiceWorker(swUrl) {
+=======
+function checkValidServiceWorker(swUrl, config) {
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
@@ -89,7 +162,11 @@ function checkValidServiceWorker(swUrl) {
         });
       } else {
         // Service worker found. Proceed as normal.
+<<<<<<< HEAD
         registerValidSW(swUrl);
+=======
+        registerValidSW(swUrl, config);
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
       }
     })
     .catch(() => {
@@ -105,4 +182,8 @@ export function unregister() {
       registration.unregister();
     });
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 33921deaca4bfbdcd3844bd76c55a51b34b40b07
