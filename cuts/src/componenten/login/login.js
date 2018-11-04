@@ -6,13 +6,13 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <div className="card-body mb-3 cardcolor">
+                <div className="cardcolor">
                     <form action="">
                         <div className="form-group">
                             <input type="email" className="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
                         </div>
                         <div className="form-group">
-                            <input type="password" className="form-control" id="InputPassword1" placeholder="Password" />
+                            <input type="password" className="form-control" id="InputPassword" placeholder="Password" />
                         </div>
                         <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
                     </form>
