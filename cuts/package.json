@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.3.2",
+    "antd": "^3.10.4",
     "bootstrap": "^4.0.0-alpha.6",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
