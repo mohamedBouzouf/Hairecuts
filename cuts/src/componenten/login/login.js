@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'antd';
 import './login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -14,7 +15,8 @@ class Login extends Component {
                         <div className="form-group">
                             <input type="password" className="form-control" id="InputPassword" placeholder="Password" />
                         </div>
-                        <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button>
+                        {/* <button type="submit" className="btn btn-primary btn-lg btn-block">Login</button> */}
+                        <Button type="primary">Login</Button>
                     </form>
                 </div>
             </div>

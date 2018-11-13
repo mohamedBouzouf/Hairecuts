@@ -1,3 +1,5 @@
+@import '~react-agenda/build/styles.css';
+@import '~react-datetime/css/react-datetime.css';
 .App {
   text-align: center;
 }
@@ -8,7 +10,7 @@
 }
 
 .login-background {
-  background: url("cuts.JPG") no-repeat center;
+  /* background: url("cuts.JPG") rgb(214, 214, 214) no-repeat center;*/
   background-size: 50ch;
   min-height: 100vh;
   display: flex;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Login from './componenten/login/login';
+// import Login from './componenten/login/login';
+import Barber from './componenten/barber/barber'
 
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     return (
       <div className="login-background">
         <div className="container">
-          <Login />
+          <Barber />
         </div>
       </div>
     );
