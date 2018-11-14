@@ -14,10 +14,8 @@ import Register from './componenten/register/register';
 class App extends Component {
   render() {
     return (
-      <div className="login-background">
-        <div className="container">
-          <Register />
-        </div>
+      <div>
+        <Register />
       </div>
     );
   }
