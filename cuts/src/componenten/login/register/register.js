@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Divider, Image, Dimmer } from 'semantic-ui-react'
 
-import './login.css';
+import '../login.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const options = [
@@ -20,7 +20,7 @@ class Register extends Component {
             <div className="login-background">
                 <div className="container">
                     <div style={{ marginBottom: '50px' }}>
-                        <Image src={require('../../cuts.JPG')}
+                        <Image src={require('../../../cuts.JPG')}
                             size='small' verticalAlign='top'
                             centered circular />
                     </div>

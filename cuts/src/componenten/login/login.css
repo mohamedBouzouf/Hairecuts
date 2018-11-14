@@ -9,3 +9,9 @@
     flex: 1 1 auto;
     padding: 1.25rem;
 }
+
+.loginContainer{
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
