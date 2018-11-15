@@ -9,6 +9,7 @@
     padding: 1.25rem;
 }
 .loginContainer{
-    position: relative;
+    position: fixed;
     top: 150px;
+    width: 100%;
 }

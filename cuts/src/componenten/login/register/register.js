@@ -19,11 +19,11 @@ class Register extends Component {
         return (
             <div className="login-background">
                 <div className="container">
-                    <div style={{ marginBottom: '50px' }}>
+                    <div style={{ marginBottom: '20px' }}>
                         <Header><h1>Register</h1></Header>
                     </div>
                     <Divider className="divcolor" />
-                    <div style={{ marginTop: '50px', marginBottom: '50px', textAlign: 'left' }}>
+                    <div style={{ marginTop: '20px', marginBottom: '20px', textAlign: 'left' }}>
                         <Form>
                             <Form.Group
                                 widths='equal'>
