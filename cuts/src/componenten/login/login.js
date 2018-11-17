@@ -34,17 +34,7 @@ class Login extends Component {
                         </Grid.Column>
                         <Grid.Column width={13}><Divider /></Grid.Column>
                     </Grid>
-                    <Modal dimmer={dimmer} open={open} onClose={this.close}>
-                        <Modal.Header>Login</Modal.Header>
-                        <Modal.Content image>
-                            <Form.Group widths='equal'>
-                                <Form.Input fluid icon='user circle' iconPosition='left' label='First name' placeholder='First name' />
-                                <Form.Input fluid icon='key' iconPosition='left' label='Last name' placeholder='Last name' />
-                            </Form.Group>
-                            <div style={{ marginBottom: '60xp' }}> <Form.Button primary onClick={this.close}>Submit</Form.Button>
-                            </div>
-                        </Modal.Content>
-                    </Modal>
+
 
                 </div>
             </div>
