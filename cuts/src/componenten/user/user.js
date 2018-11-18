@@ -40,39 +40,41 @@ class User extends Component {
                 <div style={{ marginTop: '20px', marginBottom: '20px', textAlign: 'left' }}>
                     <List>
                         <List.Item><h3>Berton <br /> Lutina Mulamba</h3></List.Item>
-                        <List.Item><h5>Lid sinds 17 Januari 2018</h5></List.Item>
+                        <List.Item><h3>Lid sinds 17 Januari 2018</h3></List.Item>
                         <List.Item>Aantal keren aangemeld: 10</List.Item>
                     </List>
                     <Divider />
                     <WingBlank>
-                        <Carousel
-                            autoplay={false}
-                            infinite
-                            beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
-                            afterChange={index => console.log('slide to', index)}
-                        >
-                            {this.state.data.map(val => (
-                                <a
-                                    key={val}
-                                    href={`${val.url}`}
-                                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                                >
-                                    <img
-                                        src={`${val.photo}`}
-                                        alt=""
-                                        style={{ width: '100%', verticalAlign: 'top' }}
-                                        onLoad={() => {
-                                            // fire window resize event to change height
-                                            window.dispatchEvent(new Event('resize'));
-                                            this.setState({ imgHeight: 'auto' });
-                                        }}
-                                    />
-                                </a>
-                            ))}
-                        </Carousel>
+                        <div style={{ boxShadow: '0 8px 6px -6px black' }}>
+                            <Carousel
+                                autoplay={false}
+                                infinite
+                                beforeChange={(from, to) => console.log(`slide from ${from} to ${to}`)}
+                                afterChange={index => console.log('slide to', index)}
+                            >
+                                {this.state.data.map(val => (
+                                    <a
+                                        key={val}
+                                        href={`${val.url}`}
+                                        style={{ display: 'inline-block', width: '50%', height: this.state.imgHeight }}
+                                    >
+                                        <img
+                                            src={`${val.photo}`}
+                                            alt=""
+                                            style={{ width: '50%', verticalAlign: 'top' }}
+                                            onLoad={() => {
+                                                // fire window resize event to change height
+                                                window.dispatchEvent(new Event('resize'));
+                                                this.setState({ imgHeight: 'auto' });
+                                            }}
+                                        />
+                                    </a>
+                                ))}
+                            </Carousel>
+                        </div>
                     </WingBlank>
                     <Divider />
-                    <h3 style={{ textAlign: 'center' }}>Cuts</h3>
+                    <h3 style={{ textAlign: 'center' }}>My Cuts</h3>
                 </div>
             </div>
         )
