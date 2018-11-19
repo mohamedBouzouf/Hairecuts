@@ -7,7 +7,7 @@ firebase.initializeApp({
   apiKey: "AIzaSyAzcyQsDTCyhxahD05J0_wttH9r_cKy52c",
   authDomain: "haircuts-64748.firebaseapp.com",
 })
-class App extends Component {
+class Authenication extends Component {
 
   state = {isSignedIn: false}
   uiConfig = {
@@ -66,4 +66,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Authenication;
