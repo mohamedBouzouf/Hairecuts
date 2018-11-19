@@ -4,8 +4,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "semantic-ui-css/semantic.min.css";
-import Authentication from './login/Authentication';
-import User from './user/user';
+// import Authentication from './login/Authentication';
+// import User from './user/user';
 
 import {
   App,
@@ -28,12 +28,15 @@ import {
   BlockFooter
 } from 'framework7-react';
 
+import routes from '../routes';
+
 export default function (props) {
   // Framework7 parameters here
   const f7params = {
     id: 'io.framework7.testapp', // App bundle ID
     name: 'Framework7', // App name
     theme: 'auto' // Automatic theme detection
+    , routes
   };
 
   return (
