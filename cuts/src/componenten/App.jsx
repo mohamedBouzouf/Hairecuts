@@ -29,6 +29,7 @@ import {
 } from 'framework7-react';
 
 import routes from '../routes';
+import '../../src/css/firebaseui-styling.global.css'
 
 export default function (props) {
   // Framework7 parameters here
@@ -45,7 +46,7 @@ export default function (props) {
       <Statusbar />
 
       {/* Left Panel */}
-      <Panel left cover themeDark>
+      <Panel left cover>
         <View url="/panel-left/" />
       </Panel>
 

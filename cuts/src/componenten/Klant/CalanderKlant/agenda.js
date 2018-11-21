@@ -1,11 +1,11 @@
 // import React...
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 
 // ... and fullcalendar-reactwrapper.
 import FullCalendar from 'fullcalendar-reactwrapper';
 
-class AgendaBarber
+class AgendaUser
     extends Component {
     constructor(props) {
         super(props);
@@ -54,7 +54,6 @@ class AgendaBarber
     }
 
     render() {
-        console.log(this.state.events)
         return (
             <div id="example-component">
                 <FullCalendar
@@ -64,7 +63,7 @@ class AgendaBarber
                         center: 'title',
                         right: 'month,basicWeek,basicDay'
                     }}
-                    defaultDate={'2017-05-12'}
+                    defaultDate={'2017-09-12'}
                     navLinks={true} // can click day/week names to navigate views
                     editable={true}
                     eventLimit={true} // allow "more" link when too many events
@@ -75,4 +74,4 @@ class AgendaBarber
     }
 }
 
-export default AgendaBarber
+export default AgendaUser

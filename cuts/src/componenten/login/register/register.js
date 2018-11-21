@@ -1,76 +1,80 @@
-import React, { Component } from 'react'
-import { Form, Divider, Header } from 'semantic-ui-react'
+import React from 'react';
+import {
+    Page,
+    // Navbar,
+    List,
+    // LoginScreen,
+    LoginScreenTitle,
+    ListInput,
+    BlockFooter,
+    ListButton
+    // ListItem,
+    // Input,
+    // Label,
+    // Toggle,
+    // BlockTitle,
+    // Row,
+    // Button,
+    // Range,
+    // Block
+} from 'framework7-react';
 
-import '../login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-// const options = [
-//     { key: 'm', text: 'Male', value: 'male' },
-//     { key: 'f', text: 'Female', value: 'female' },
-// ]
-
-class Register extends Component {
-
+export default class extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: '',
+            Confirmpassword: ''
+        };
+    }
 
     render() {
-        const { value } = this.state
         return (
-            <div className="login-background">
-                <div className="container">
-                    <div style={{ marginBottom: '20px' }}>
-                        <Header><h1>Register</h1></Header>
-                    </div>
-                    <Divider className="divcolor" />
-                    <div style={{ marginTop: '20px', marginBottom: '20px', textAlign: 'left' }}>
-                        <Form>
-                            <Form.Group
-                                widths='equal'>
-                                <Form.Input fluid
-                                    size='large'
-                                    icon='address card'
-                                    iconPosition='left'
-                                    label='First name'
-                                    placeholder='First name' required />
-                                <Form.Input fluid
-                                    size='large'
-                                    icon='address card'
-                                    iconPosition='left'
-                                    label='Last name'
-                                    placeholder='Last name' required />
-                                <Form.Input fluid
-                                    size='large'
-                                    icon='user circle'
-                                    iconPosition='left'
-                                    label='Username'
-                                    placeholder='Username' required />
-                                <Form.Input fluid
-                                    size='large'
-                                    icon='key'
-                                    iconPosition='left'
-                                    label='Password'
-                                    type={'number'}
-                                    placeholder='Password' required />
-                                <Form.Input fluid
-                                    size='large'
-                                    icon='key'
-                                    iconPosition='left'
-                                    label='Confirm password'
-                                    placeholder='Confirm password' required />
-
-                            </Form.Group>
-                            <Form.Checkbox
-                                label='I agree to the Terms and Conditions' />
-                            <Form.Button
-                                primary>Submit</Form.Button>
-                        </Form>
-                    </div>
-                    <Divider />
-
-                </div>
-            </div>
-
-        );
+            <Page noToolbar noNavbar noSwipeback loginScreen>
+                <LoginScreenTitle>Register</LoginScreenTitle>
+                <List form>
+                    <ListInput
+                        label="Username"
+                        type="text"
+                        placeholder="Your username"
+                        value={this.state.username}
+                        onInput={(e) => {
+                            this.setState({ username: e.target.value });
+                        }}
+                    />
+                    <ListInput
+                        label="Password"
+                        type="password"
+                        placeholder="Your password"
+                        value={this.state.password}
+                        onInput={(e) => {
+                            this.setState({ password: e.target.value });
+                        }}
+                    />
+                    <ListInput
+                        label="Confirm Password"
+                        type="password"
+                        placeholder="Confirm your password"
+                        value={this.state.password}
+                        onInput={(e) => {
+                            this.setState({ Confirmpassword: e.target.value });
+                        }}
+                    />
+                </List>
+                <List>
+                    <ListButton onClick={this.signIn.bind(this)}>Sign In</ListButton>
+                    <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
+                </List>
+            </Page>
+        )
+    }
+    signIn() {
+        const self = this;
+        const app = self.$f7;
+        const router = self.$f7router;
+        app.dialog.alert(`Username: ${self.state.username}<br>Password: ${self.state.password}`, () => {
+            router.back();
+        });
     }
 }
-
-export default Register
