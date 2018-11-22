@@ -1,0 +1,15 @@
+.cardcolor{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.089);
+    border: 1px solid rgba(175, 175, 175, 0.24);
+    border-radius: .25rem;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.loginContainer{
+    position: fixed;
+    top: 150px;
+    width: 100%;
+}

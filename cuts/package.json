@@ -1,0 +1,41 @@
+{
+  "name": "cuts",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^3.3.2",
+    "antd": "^3.10.4",
+    "antd-mobile": "^2.2.6",
+    "bootstrap": "^4.0.0-alpha.6",
+    "fullcalendar": "^3.9.0",
+    "google-maps-react": "^2.0.2",
+    "react": "^16.6.0",
+    "react-agenda": "0.0.7",
+    "react-big-calendar": "^0.20.2",
+    "react-big-calendar-like-google": "0.0.3",
+    "react-big-scheduler": "^0.2.2",
+    "react-blur": "^0.6.0",
+    "react-dom": "^16.6.0",
+    "react-facebook-login": "^4.1.1",
+    "react-google-login": "^3.2.1",
+    "react-scripts": "2.1.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.83.0",
+    "swiper": "^4.4.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
