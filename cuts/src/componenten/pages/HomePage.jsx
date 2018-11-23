@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase';
 import {
   Page
 } from 'framework7-react';
@@ -8,8 +9,10 @@ import AgendaBarber from '../../componenten/barber/Agenda/agenda'
 import './page-css/homepage.css';
 import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css'
 import Login from '../../componenten/login/login.jsx';
+import UserBarberPage from '../../componenten/user/UserBarberPage';
 
 
 export default () => (
-  <Authentication />
-);
+
+  <UserBarberPage />
+)

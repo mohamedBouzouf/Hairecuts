@@ -12,6 +12,7 @@
     "framework7-react": "^3.5.2",
     "fullcalendar": "^3.9.0",
     "fullcalendar-reactwrapper": "^1.0.7",
+    "gatsby-image": "^2.0.20",
     "google-maps-react": "^2.0.2",
     "react": "^16.6.0",
     "react-agenda": "0.0.7",
@@ -19,6 +20,7 @@
     "react-big-calendar-like-google": "0.0.3",
     "react-big-scheduler": "^0.2.2",
     "react-blur": "^0.6.0",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.0",
     "react-facebook-login": "^4.1.1",
     "react-firebaseui": "^3.1.2",
@@ -27,6 +29,7 @@
     "react-scripts": "2.1.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0",
+    "sweetalert": "^2.1.2",
     "swiper": "^4.4.2"
   },
   "scripts": {
