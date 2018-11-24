@@ -1,86 +1,93 @@
 import React, { Component } from 'react';
 import Blur from 'react-blur';
-import { Link, BlockFooter } from 'framework7-react';
-import { Header, Icon, Divider, Image, List, Card, Grid, Rating, Button, Segment } from 'semantic-ui-react';
+import { Icon, Button } from 'antd';
+import { Link, Navbar, Row, Col, Block, Page, Toolbar, NavRight, Cuts, NavTitle } from 'framework7-react';
+import { Header, Label, Divider, Image, List, Card, Grid, Rating, Segment, Rail, Segm } from 'semantic-ui-react';
+
 
 import './user.css';
+const photo = 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg';
 
 
 class UserBarberPage extends Component {
 
+    state = {
+        isBottom: false
+    }
     componentDidMount() {
         // simulate img loading
     }
 
 
 
+
     render() {
         return (
-            <div>
+            <Page hideToolbarOnScroll>
+                <div>
+                    <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black' backLink>
+                        <NavTitle style={{ textAlign: 'center' }}>Cuts</NavTitle>
+                        <NavRight >
+                            <Icon type="search" style={{ paddingRight: '20px' }} />
+                            <Icon type="info-circle" style={{ paddingRight: '20px' }} />
+                        </NavRight>
+
+                    </Navbar>
+
+                    <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
+                        <Link tabLink="#tab-1" tabLinkActive><Icon type="user"> </Icon></Link>
+                        <Link tabLink="#tab-2"><Icon type="camera"> </Icon></Link>
+                        <Link tabLink="#tab-3"><Icon type="message"> </Icon></Link>
+                        <Link tabLink="#tab-3"><Icon type="setting"> </Icon></Link>
+                    </Toolbar>
+
+                    <div className="layer1" >
 
 
-                <div className="layer1" >
+                        <Blur className='headercuts' img={photo} blurRadius={8} />
+                        <div className="headerPhotoRating">
 
-
-                    <Blur className="blur" img={require('../../barbershop.jpg')} blurRadius={6} />
-                    <div className='headercuts'></div>
-                    <div className="layer2">
-                        <div style={{
-                            textAlign: "center"
-                        }}>
-                            <div></div>
-                            {/* <Image src={require('../../Trafficlight.png')} avatar='h' /> */}
-                            <h3>Lion Lockx</h3>
-                            <Grid celled padded >
-                                <Grid.Row centered columns='3'
-                                >
-                                    <Grid.Column textAlign="center" mobile={5} tablet={6} computer={5}><Card raised color='blue'
-                                        header='2' meta="barbers" color="yellow" /></Grid.Column>
-                                    <Grid.Column textAlign="center" mobile={5} tablet={6} computer={5}><Card raised color='blue'
-                                        header='2' meta="Flex" color="orange" /></Grid.Column>
-                                    <Grid.Column textAlign="center" mobile={5} tablet={6} computer={5}><Card meta="200K" raised color='blue'
-                                        header='Likes' color="brown" /></Grid.Column>
-                                </Grid.Row>
-                                <Grid.Row columns="2">
-                                    <Grid.Column >
-                                        <Button color='green'>
-                                            Call
-                                        </Button>
-                                    </Grid.Column>
-                                    <Grid.Column >
-                                        <Button color='blue' >
-                                            Appointment
-
-                                        </Button>
-                                    </Grid.Column>
-                                </Grid.Row>
-                            </Grid>
 
                         </div>
+                        <div className="layer2">
+                            <div style={{
+                                textAlign: "center"
+                            }}>
+                                <div></div>
+                                {/* <Image src={require('../../Trafficlight.png')} avatar='h' /> */}
+                                <Image circular src={photo} size="tiny" centered />
+                                <h3 style={{ color: 'white' }}>Barber Shop</h3>
+                                <Rating icon="star" maxRating={5} defaultRating={5} size="small" />
+                                <Block>
+                                    <Divider />
+                                    <Row className='backgrid1' >
+                                        <Col ><Card raised color='blue'
+                                            header='2' meta="barbers" color="yellow" /></Col>
+                                        <Col ><Card raised color='blue'
+                                            header='2' meta="Flex" color="orange" /></Col>
+                                        <Col ><Card meta="Likes" raised color='blue'
+                                            header='200K' color="brown" /></Col>
+                                    </Row>
+                                    <Divider />
+                                    <Row className='backgrid2' >
+                                        <Col ><Button type='dashed' ghost>
+                                            <Icon type="phone"> </Icon>
+                                        </Button></Col>
+                                        <Col ><Button type='dashed' ghost>
+                                            <Icon type="calendar"> </Icon>
+                                        </Button></Col>
+                                    </Row>
+                                    <Divider />
+
+                                    <Divider />
+                                </Block>
+                            </div>
+                        </div>
+
 
                     </div>
-
-                    <div className="headerPhotoRating">
-                        <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
-                        <div style={
-                            { padding: "8px", marginTop: " 5px" }
-                        }>  <Rating icon="star" maxRating={5} size="tiny" />  </div>
-                    </div>
-
-                    <div className="layer3">
-
-
-
-                    </div>
-
-
-
-
-
-
-
                 </div>
-            </div>
+            </Page>
 
         )
     }
