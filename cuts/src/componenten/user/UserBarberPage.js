@@ -117,8 +117,8 @@ class UserBarberPage extends Component {
 
 
                             <MessagebarberShop />
-
-
+                            ²
+                            
                         </PageContent>
                     </Tab>
                     <Tab id="tab-4" className="page-content">

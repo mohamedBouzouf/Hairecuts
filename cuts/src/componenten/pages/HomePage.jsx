@@ -16,7 +16,8 @@ import MessagebarberShop from '../user/Message/message';
 
 export default () => (
 
-  <UserBarberPage />
+  // <UserBarberPage />
   // <SettingBarberShop />
   // <MessagebarberShop />
+  <Authentication />
 )
