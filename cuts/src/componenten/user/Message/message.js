@@ -16,7 +16,9 @@ import {
 
 
 import './message.css';
-class MessageberShop extends Component {
+const photo = 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg';
+
+class MessagebarberShop extends Component {
     constructor(props) {
         super(props);
 
@@ -119,7 +121,6 @@ class MessageberShop extends Component {
     render() {
         return (
             <Page>
-                <Navbar title="Messsages"></Navbar>
 
                 <Messagebar colorTheme='black'
                     placeholder={this.placeholder}
@@ -157,7 +158,8 @@ class MessageberShop extends Component {
                 </Messagebar>
 
                 <Messages ref={(el) => { this.messagesComponent = el }}>
-                    <MessagesTitle><b>Sunday, Feb 9,</b> 12:58</MessagesTitle>
+
+                    <MessagesTitle textColor='black'><b>Sunday, Feb 9,</b> 12:58</MessagesTitle>
 
                     {this.state.messagesData.map((message, index) => (
                         <Message
@@ -186,6 +188,9 @@ class MessageberShop extends Component {
                             avatar={this.state.typingMessage.avatar}
                         ></Message>
                     )}
+
+
+                    {/* <Blur className='headercuts' img={photo} blurRadius={8} /> */}
                 </Messages>
             </Page>
         )
@@ -309,4 +314,4 @@ class MessageberShop extends Component {
     }
 }
 
-export default MessageberShop
+export default MessagebarberShop

@@ -23,20 +23,6 @@ class SettingBarberShop extends Component {
     render() {
         return (
             <Page>
-                <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black' backLink>
-                    <NavTitle>Setting</NavTitle>
-                    <NavRight >
-                        <Link><Icon type="info-circle" style={{ paddingRight: '20px' }} /></Link>
-                    </NavRight>
-
-                </Navbar>
-
-                <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink="#tab-1" tabLinkActive><Icon type="user"> </Icon></Link>
-                    <Link tabLink="#tab-2"><Icon type="camera"> </Icon></Link>
-                    <Link tabLink="#tab-3"><Icon type="message"> </Icon></Link>
-                    <Link tabLink="#tab-3"><Icon type="setting"> </Icon></Link>
-                </Toolbar>
                 <List>
                     <ListItem
                         title="Theme App"

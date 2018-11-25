@@ -11,10 +11,12 @@ import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css'
 import Login from '../../componenten/login/login.jsx';
 import UserBarberPage from '../../componenten/user/UserBarberPage';
 import SettingBarberShop from '../user/Setting/setting';
+import MessagebarberShop from '../user/Message/message';
 
 
 export default () => (
 
-  // <UserBarberPage />
-  <SettingBarberShop />
+  <UserBarberPage />
+  // <SettingBarberShop />
+  // <MessagebarberShop />
 )
