@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Blur from 'react-blur';
-import { Icon, Button } from 'antd';
-import { Link, Navbar, Row, Col, Block, Page, Toolbar, NavRight, Cuts, NavTitle } from 'framework7-react';
+import { Icon, Button, Carousel } from 'antd';
+import { Link, Navbar, Row, Col, Block, Page, Toolbar, NavRight, NavLeft, NavTitle } from 'framework7-react';
 import { Header, Label, Divider, Image, List, Card, Grid, Rating, Segment, Rail, Segm } from 'semantic-ui-react';
 
 
@@ -25,11 +25,11 @@ class UserBarberPage extends Component {
         return (
             <Page hideToolbarOnScroll>
                 <div>
-                    <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black' backLink>
-                        <NavTitle style={{ textAlign: 'center' }}>Cuts</NavTitle>
+                    <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black'>
+                        <NavLeft><Link panelOpen="left"><Icon type="bars" /></Link></NavLeft>
+                        <NavTitle>Cuts</NavTitle>
                         <NavRight >
-                            <Icon type="search" style={{ paddingRight: '20px' }} />
-                            <Icon type="info-circle" style={{ paddingRight: '20px' }} />
+                            <Link><Icon type="info-circle" style={{ paddingRight: '20px' }} /></Link>
                         </NavRight>
 
                     </Navbar>
@@ -62,22 +62,29 @@ class UserBarberPage extends Component {
                                     <Divider />
                                     <Row className='backgrid1' >
                                         <Col ><Card raised color='blue'
-                                            header='2' meta="barbers" color="yellow" /></Col>
+                                            header='2' meta="barbers" color="blue" /></Col>
                                         <Col ><Card raised color='blue'
-                                            header='2' meta="Flex" color="orange" /></Col>
-                                        <Col ><Card meta="Likes" raised color='blue'
+                                            header='2' meta="Flex" color="teal" /></Col>
+                                        <Col ><Card meta="Likes" raised color='red'
                                             header='200K' color="brown" /></Col>
                                     </Row>
                                     <Divider />
                                     <Row className='backgrid2' >
-                                        <Col ><Button type='dashed' ghost>
+                                        <Col ><Button type='default' ghost>
                                             <Icon type="phone"> </Icon>
                                         </Button></Col>
-                                        <Col ><Button type='dashed' ghost>
+                                        <Col ><Button type='default' ghost>
                                             <Icon type="calendar"> </Icon>
                                         </Button></Col>
                                     </Row>
                                     <Divider />
+                                    <Carousel autoplay>
+                                        <div><h3> <Image src={photo} size="small" centered /></h3></div>
+                                        <div><h3> <Image src={photo} size="small" centered /></h3></div>
+                                        <div><h3> <Image src={photo} size="small" centered /></h3></div>
+                                        <div><h3> <Image src={photo} size="small" centered /></h3></div>
+                                        <div><h3> <Image src={photo} size="small" centered /></h3></div>
+                                    </Carousel>
 
                                     <Divider />
                                 </Block>

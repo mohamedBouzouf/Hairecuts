@@ -63,7 +63,19 @@ color: white;
     padding-bottom: 1px;
 }
 .backgrid2{
-    backgroundColor: rgb(255, 255, 255);
+    backgroundColor: rgba(255, 255, 255, 0);
     padding-top: 1px;
     padding-bottom: 1px;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 180px;
+  line-height: 160px;
+  background: #0000000e;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
 }
