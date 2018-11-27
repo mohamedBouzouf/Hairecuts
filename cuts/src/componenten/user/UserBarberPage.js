@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import Blur from 'react-blur';
 import { Icon, Button, Carousel } from 'antd';
-import { Link, Navbar, Row, Col, Block, Page, Toolbar, Swiper, SwiperSlide, NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent } from 'framework7-react';
-import { Header, Label, Divider, Image, List, Card, Grid, Rating, Segment, Rail, Segm } from 'semantic-ui-react';
+import {
+    Link, Navbar, Row, Col,
+    Block, Page,
+
+    Toolbar, Swiper,
+    SwiperSlide, NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
+} from 'framework7-react';
+import { Header, Label, Divider, Image, List, Card, Container, Rating, Segment, Rail, Segm } from 'semantic-ui-react';
 
 
 import './user.css';
 import MessagebarberShop from './Message/message';
 import SettingBarberShop from './Setting/setting';
+import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 const photo = 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg';
 
 
@@ -50,6 +57,7 @@ class UserBarberPage extends Component {
                 <Blur className='headercuts' img={photo} blurRadius={8} />
                 <Tabs>
                     <Tab id="tab-1" className="page-content" tabActive>
+
                         <div className="layer1" >
                             <Blur className='headercuts' img={photo} blurRadius={8} />
                             <div className="headerPhotoRating">
@@ -98,27 +106,23 @@ class UserBarberPage extends Component {
 
                         </div>
 
+
                     </Tab>
                     <Tab id="tab-2" className="page-content">
-                        <div className="layer1" >
+
+
+                        <PhotoGalaryBarberShop />
 
 
 
-                            <div className="headerPhotoRating">
-
-
-                            </div>
-                            <div className="layer2">
-
-                            </div></div>
                     </Tab>
                     <Tab id="tab-3" className="page-content" h>
                         <PageContent>
 
 
                             <MessagebarberShop />
-                            ²
-                            
+
+
                         </PageContent>
                     </Tab>
                     <Tab id="tab-4" className="page-content">

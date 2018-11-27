@@ -12,11 +12,13 @@ import Login from '../../componenten/login/login.jsx';
 import UserBarberPage from '../../componenten/user/UserBarberPage';
 import SettingBarberShop from '../user/Setting/setting';
 import MessagebarberShop from '../user/Message/message';
+import PhotoGalaryBarberShop from '../user/Photo Galary/photogalary';
 
 
 export default () => (
 
   // <UserBarberPage />
+  // <PhotoGalaryBarberShop />
   // <SettingBarberShop />
   // <MessagebarberShop />
   <Authentication />
