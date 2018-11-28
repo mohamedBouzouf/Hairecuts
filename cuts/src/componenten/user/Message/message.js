@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Blur from 'react-blur';
 import { Icon } from 'antd';
 import {
-    Link, Navbar,
+    Link,
     Message,
     MessagebarAttachment,
     MessagebarAttachments,
@@ -14,9 +13,9 @@ import {
     Page
 } from 'framework7-react';
 
-
 import './message.css';
-const photo = 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg';
+
+
 
 class MessagebarberShop extends Component {
     constructor(props) {
@@ -118,6 +117,7 @@ class MessagebarberShop extends Component {
             responseInProgress: false,
         }
     }
+
     render() {
         return (
             <Page>

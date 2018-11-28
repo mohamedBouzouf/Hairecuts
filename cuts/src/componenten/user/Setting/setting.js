@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import Blur from 'react-blur';
 import { Icon } from 'antd';
-import { Link, Navbar, Block, Page, Toolbar, NavRight, NavLeft, NavTitle, List, ListItem, Popup } from 'framework7-react';
+import {
+    Link, Navbar, Block, Page,
+    NavRight, List, ListItem, Popup
+} from 'framework7-react';
 
 
 import './setting.css';

@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import firebase from './firebaseConfig';
 import withFirebaseAuth from "react-auth-firebase";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import sweet from 'sweetalert';
+import { Icon } from 'antd';
 
-import { Icon, Carousel } from 'antd';
-
-import berre from 'sweetalert';
 import {
     Page,
     LoginScreen,
     LoginScreenTitle,
     List,
     ListInput,
-    ListButton,
     BlockFooter,
     Link
 } from 'framework7-react';
-import { Grid, Image, Divider, Button, Checkbox, Segment } from 'semantic-ui-react';
+import { Grid, Image, Divider, Button, Checkbox } from 'semantic-ui-react';
 import './login.css';
+
+
 
 
 
@@ -28,167 +27,197 @@ class Authentication extends Component {
 
         this.state = {
             loginScreenOpened: false,
+            registerScreenOpened: false,
             username: '',
             password: '',
-            confirmpassword: ''
+            R_username: '',
+            R_password: '',
+            R_confirmpassword: '',
+            current: true
         };
     }
 
     componentDidMount() {
-        // firebase.auth().onAuthStateChanged(user => {
-        //     console.log(user);
-        //     if (user === null) {
-        //         berre({
-        //             title: 'Afgemeld',
-        //             icon: "error",
-        //             button: "Ok"
-        //         })
-        //     } else {
-        //         berre({
-        //             title: 'Ingelogd',
-        //             icon: "success",
-        //             button: "Ok"
-        //         })
-        //     }
-        // })
+        firebase.auth().onAuthStateChanged(user => {
+            console.log(user);
+            if (user === null) {
+                sweet({
+                    title: 'Logged Out',
+                    type: 'error',
+                    icon: 'error'
+
+                });
+
+            } else {
+                sweet({
+                    title: 'Logged In',
+                    type: 'success',
+                    icon: 'success'
+                });
+            }
+        })
     }
 
     render() {
 
         const {
-            signUpWithEmail,
             signInWithGoogle,
             signInWithFacebook,
-            signInWithGithub,
-            signInWithTwitter,
-            googleAccessToken,
-            facebookAccessToken,
-            githubAccessToken,
-            twitterAccessToken,
-            twitterSecret,
-            signOut,
-            user,
-            error
         } = this.props;
-
-
-
         const { email, password } = this.state;
-
         return (
-            <div className="App">
-                < div className="loginContainer">
-                    <Image circular src={require('../../cuts.JPG')} size="small" centered />
-                    <div style={{ marginTop: "30px" }}>
-                        <Grid centered>
-                            <Grid.Column width={16}  >
-                                <Divider />
-                            </Grid.Column>
-                            <Grid.Row>
-                                <Grid.Column mobile={6} >
-                                    <Button color='facebook' >
-                                        <Icon type='facebook' style={{ fontSize: '17px' }} />
-                                    </Button>
+            (this.state.current ? (
+                <div className="App">
+                    < div className="loginContainer">
+                        <Image circular src={require('../../cuts.JPG')} size="small" centered />
+                        <div style={{ marginTop: "30px" }}>
+                            <Grid centered>
+                                <Grid.Column width={16}  >
+                                    <Divider />
                                 </Grid.Column>
-                                <Grid.Column mobile={6}>
-                                    <Button color='google plus' >
-                                        <Icon type='google' style={{ fontSize: '17px' }} />
-                                    </Button>
-                                </Grid.Column>
-                            </Grid.Row>
-                            <Grid.Column mobile={8} >
-                                <Divider horizontal>OR</Divider></Grid.Column>
-                            <Grid.Column mobile={16} >
-                                <Button fill color="black">
-                                    Login with Email
-                    </Button>
-                            </Grid.Column>
-                            <Divider />
-                            <Grid.Column mobile={16} >
-                                <Grid.Column mobile={16}>
-                                    <Button fill color="black" big onClick={this.SignOut.bind(this) && console.log('Afgemeld')}>
-                                        SignOut
-                  </Button>
+                                <Grid.Row>
+                                    <Grid.Column mobile={6} >
+                                        <Button color='facebook' >
+                                            <Icon type='facebook' style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
+                                        </Button>
+                                    </Grid.Column>
+                                    <Grid.Column mobile={6}>
+                                        <Button color='google plus' >
+                                            <Icon type='google' style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
+                                        </Button>
+                                    </Grid.Column>
+                                </Grid.Row>
+                                <Grid.Column mobile={8} >
+                                    <Divider horizontal>OR</Divider></Grid.Column>
+                                <Grid.Column mobile={16} >
+                                    <Button fill="true" color="black" onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
+                                        Login with Email
+                                </Button>
                                 </Grid.Column>
                                 <Divider />
-                                <Grid.Column>
-                                    <Checkbox label="I agree to the Terms and Conditions" />
-
+                                <Grid.Column mobile={16} >
+                                    <Grid.Column mobile={16}>
+                                        <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
+                                            SignOut
+                                    </Button>
+                                    </Grid.Column>
+                                    <Divider />
+                                    <Grid.Column>
+                                        <Checkbox label="I agree to the Terms and Conditions" />
+                                    </Grid.Column>
                                 </Grid.Column>
-                            </Grid.Column>
-                            <Grid.Column width={16} >
-
-
-                            </Grid.Column>
-                            <div style={{ textAlign: 'center', position: 'fixed', bottom: 0, padding: '20px' }}>
-                                {`Don't have a account? `}
-                                <Link loginScreenOpen=".demo-login-screen" > Register now.</Link></div>
-                        </Grid>
+                                <Grid.Column width={16} >
+                                </Grid.Column>
+                                <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
+                                    <BlockFooter >
+                                        {`Don't have a account? `}
+                                        <Link loginScreenOpen=".register-screen" > Register now.</Link>
+                                    </BlockFooter>
+                                </div>
+                            </Grid>
+                        </div>
                     </div>
-                </div>
-                <LoginScreen className="demo-login-screen" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
-                    <Page loginScreen>
-
-                        <LoginScreenTitle>Register</LoginScreenTitle>
-                        <Segment color='black'>
-                            <List form>
-
-                                <ListInput
-                                    label="Username"
-                                    type="text"
-                                    placeholder="Your username"
-                                    value={this.state.username} onInput={(e) => {
-                                        this.setState({ username: e.target.value });
-                                    }}
-                                />
-                                <ListInput
-                                    label="Password"
-                                    type="password"
-                                    placeholder="**********"
-                                    value={this.state.password}
-                                    onInput={(e) => {
-                                        this.setState({ password: e.target.value });
-                                    }}
-                                />
-                                <ListInput
-                                    label="Confirm Password"
-                                    type="password"
-                                    placeholder="**********"
-                                    value={this.state.confirmpassword}
-                                    onInput={(e) => {
-                                        this.setState({ confirmpassword: e.target.value });
-                                    }}
-                                />
-
-                            </List>
-
-                            <List>
-
-                                <Button fluid color="black" outline onClick={this.signIn.bind(this)} big>
-                                    Sign In</Button>
-                                <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
-
-                            </List>
-                            <div style={{ padding: '70px' }}>
-                                <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
-
+                    <LoginScreen className="register-screen" opened={this.state.registerScreenOpened} onLoginScreenClosed={() => { this.setState({ registerScreenOpened: false }) }}>
+                        <Page loginScreen>
+                            <LoginScreenTitle>Register</LoginScreenTitle>
+                            <div style={{ padding: '20px' }}>
+                                <List form>
+                                    <ListInput
+                                        label="Username"
+                                        type="text"
+                                        placeholder="Your username"
+                                        value={this.state.R_username} onInput={(e) => {
+                                            this.setState({ R_username: e.target.value });
+                                        }}
+                                    />
+                                    <ListInput
+                                        label="Password"
+                                        type="password"
+                                        placeholder="**********"
+                                        value={this.state.R_password}
+                                        onInput={(e) => {
+                                            this.setState({ R_password: e.target.value });
+                                        }}
+                                    />
+                                    <ListInput
+                                        label="Confirm Password"
+                                        type="password"
+                                        placeholder="**********"
+                                        value={this.state.confirmpassword}
+                                        onInput={(e) => {
+                                            this.setState({ R_confirmpassword: e.target.value });
+                                        }}
+                                    />
+                                </List>
+                                <List>
+                                    <Button fluid color="black" outline="true" onClick={this.registrationSuccess.bind(this)}>
+                                        Sign In</Button>
+                                    <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
+                                </List>
+                                <div style={{ padding: '10px' }}>
+                                    <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
+                                </div>
                             </div>
-                        </Segment>
-                    </Page>
-                    <BlockFooter style={{ position: 'absolute', bottom: 0 }}>
-                        All rights reserved © Cuts
-                    </BlockFooter>
-                </LoginScreen>
-
-            </div>
+                        </Page>
+                        <div style={{ textAlign: 'center', position: 'fixed', bottom: 0, width: '100%' }}>
+                            <BlockFooter >
+                                <span>All Rights Reserved © Cuts</span>
+                            </BlockFooter>
+                        </div>
+                    </LoginScreen>
+                    <LoginScreen className="login-screen" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
+                        <Page loginScreen>
+                            <LoginScreenTitle>Login</LoginScreenTitle>
+                            <div style={{ padding: '20px' }}>
+                                <List form>
+                                    <ListInput
+                                        label="Username"
+                                        type="text"
+                                        placeholder="Your username"
+                                        value={this.state.username} onInput={(e) => {
+                                            this.setState({ username: e.target.value });
+                                        }}
+                                    />
+                                    <ListInput
+                                        label="Password"
+                                        type="password"
+                                        placeholder="**********"
+                                        value={this.state.password}
+                                        onInput={(e) => {
+                                            this.setState({ password: e.target.value });
+                                        }}
+                                    />
+                                </List>
+                                <List>
+                                    <Button fluid basic color="black" outline="true" onClick={this.signIn.bind(this)}>
+                                        Sign In</Button>
+                                    <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
+                                </List>
+                                <div style={{ padding: '20px' }}>
+                                    <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
+                                </div>
+                            </div>
+                        </Page>
+                        <div style={{ textAlign: 'center', position: 'fixed', bottom: 0, width: '100%' }}>
+                            <BlockFooter>
+                                <span>All Rights Reserved © Cuts</span>
+                            </BlockFooter>
+                        </div>
+                    </LoginScreen>
+                </div>
+            ) : "")
         );
     }
     signIn() {
         const self = this;
         const app = self.$f7;
-        const router = self.$f7router;
-        app.dialog.alert(`Username: ${self.state.username}<br>Password: ${self.state.password}`, () => {
-            router.back();
+        app.dialog.alert(`${self.state.username}`, 'Welcome back ', () => {
+            app.loginScreen.close();
+            this.setState({
+                current: false
+            })
+            this.$f7.view.main.router.navigate('/userbarberpage/');
+
         });
     }
     signInFacebook() { return this.signInWithFacebook }
@@ -198,19 +227,18 @@ class Authentication extends Component {
     SignOut() {
         firebase.auth().signOut();
     }
-    signIn() {
+    registrationSuccess() {
         const self = this;
         const app = self.$f7;
 
-        app.dialog.alert(`Username: ${self.state.username}<br>Password: ${self.state.password}`, () => {
+        app.dialog.alert(`Username: ${self.state.R_username}`, 'Welcome ! ', () => {
             app.loginScreen.close();
+            this.$f7.view.main.router.navigate('/userbarberpage/');
+
+
         });
     }
 };
-
-
-
-
 
 const authConfig = {
     email: {

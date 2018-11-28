@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Blur from 'react-blur';
-import { Icon } from 'antd';
-import { Link, Navbar, Block, Page, Toolbar, NavRight, NavLeft, NavTitle, List, ListItem, Popup, Swiper, SwiperSlide } from 'framework7-react';
-import { Image, Segment, Card, Divider, Container } from 'semantic-ui-react';
+import { Page, Swiper, SwiperSlide } from 'framework7-react';
+import { Image, Divider } from 'semantic-ui-react';
 
 
 import './photogalary.css';

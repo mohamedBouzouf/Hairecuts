@@ -4,11 +4,10 @@ import { Icon, Button, Carousel } from 'antd';
 import {
     Link, Navbar, Row, Col,
     Block, Page,
-
-    Toolbar, Swiper,
-    SwiperSlide, NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
+    Toolbar,
+    NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
 } from 'framework7-react';
-import { Header, Label, Divider, Image, List, Card, Container, Rating, Segment, Rail, Segm } from 'semantic-ui-react';
+import { Divider, Image, Card, Rating } from 'semantic-ui-react';
 
 
 import './user.css';
@@ -29,7 +28,10 @@ class UserBarberPage extends Component {
         tab1: '#tab-1',
         tab2: '#tab-2',
         tab3: '#tab-3',
-        tab4: '#tab-4'
+        tab4: '#tab-4',
+        photo: '',
+        name: '',
+        id: ''
     }
     componentDidMount() {
         // simulate img loading
@@ -45,7 +47,9 @@ class UserBarberPage extends Component {
                 <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
                     <Link tabLink={this.state.tab1} tabLinkActive><Icon type="user"> </Icon></Link>
                     <Link tabLink={this.state.tab2}><Icon type="camera"> </Icon></Link>
-                    <Link tabLink={this.state.tab3} routeTabId="tab-3" href="/messenger/"><Icon type="message"> </Icon></Link>
+                    <Link tabLink={this.state.tab3} routeTabId="tab-3" href="/messenger/">
+                        <Icon type="message">
+                        </Icon></Link>
                     <Link tabLink={this.state.tab4}><Icon type="setting"> </Icon></Link>
                 </Toolbar>
                 <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black'>
@@ -57,7 +61,6 @@ class UserBarberPage extends Component {
                 <Blur className='headercuts' img={photo} blurRadius={8} />
                 <Tabs>
                     <Tab id="tab-1" className="page-content" tabActive>
-
                         <div className="layer1" >
                             <Blur className='headercuts' img={photo} blurRadius={8} />
                             <div className="headerPhotoRating">
