@@ -21,18 +21,19 @@ class UserBarberPage extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            isBottom: false,
+            tab1: '#tab-1',
+            tab2: '#tab-2',
+            tab3: '#tab-3',
+            tab4: '#tab-4',
+            photo: '',
+            name: '',
+            id: ''
+        }
     }
 
-    state = {
-        isBottom: false,
-        tab1: '#tab-1',
-        tab2: '#tab-2',
-        tab3: '#tab-3',
-        tab4: '#tab-4',
-        photo: '',
-        name: '',
-        id: ''
-    }
+
     componentDidMount() {
         // simulate img loading
     }
@@ -76,11 +77,11 @@ class UserBarberPage extends Component {
                                     <Block>
                                         <Divider />
                                         <Row className='backgrid1' >
-                                            <Col ><Card raised color='blue'
+                                            <Col ><Card raised
                                                 header='2' meta="barbers" color="blue" /></Col>
-                                            <Col ><Card raised color='blue'
+                                            <Col ><Card raised
                                                 header='2' meta="Flex" color="teal" /></Col>
-                                            <Col ><Card meta="Likes" raised color='red'
+                                            <Col ><Card meta="Likes" raised
                                                 header='200K' color="brown" /></Col>
                                         </Row>
                                         <Divider />

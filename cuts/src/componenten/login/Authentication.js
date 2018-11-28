@@ -4,6 +4,7 @@ import withFirebaseAuth from "react-auth-firebase";
 import sweet from 'sweetalert';
 import { Icon } from 'antd';
 
+
 import {
     Page,
     LoginScreen,
@@ -15,7 +16,6 @@ import {
 } from 'framework7-react';
 import { Grid, Image, Divider, Button, Checkbox } from 'semantic-ui-react';
 import './login.css';
-
 
 
 
@@ -33,17 +33,19 @@ class Authentication extends Component {
             R_username: '',
             R_password: '',
             R_confirmpassword: '',
-            current: true
+            current: true,
+            IsSignOut: true
         };
     }
 
     componentDidMount() {
+
+        this.setState({ IsSignOut: false })
         firebase.auth().onAuthStateChanged(user => {
             console.log(user);
             if (user === null) {
                 sweet({
                     title: 'Logged Out',
-                    type: 'error',
                     icon: 'error'
 
                 });
@@ -51,7 +53,6 @@ class Authentication extends Component {
             } else {
                 sweet({
                     title: 'Logged In',
-                    type: 'success',
                     icon: 'success'
                 });
             }
@@ -64,12 +65,12 @@ class Authentication extends Component {
             signInWithGoogle,
             signInWithFacebook,
         } = this.props;
-        const { email, password } = this.state;
+        // const { email, password } = this.state;
         return (
             (this.state.current ? (
                 <div className="App">
                     < div className="loginContainer">
-                        <Image circular src={require('../../cuts.JPG')} size="small" centered />
+                        <Image circular src={require('../../assets/cuts.JPG')} size="small" centered />
                         <div style={{ marginTop: "30px" }}>
                             <Grid centered>
                                 <Grid.Column width={16}  >
@@ -97,9 +98,13 @@ class Authentication extends Component {
                                 <Divider />
                                 <Grid.Column mobile={16} >
                                     <Grid.Column mobile={16}>
-                                        <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
-                                            SignOut
+                                        {this.state.IsSignOut ? (
+
+                                            <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
+                                                SignOut
                                     </Button>
+
+                                        ) : ""}
                                     </Grid.Column>
                                     <Divider />
                                     <Grid.Column>
@@ -155,7 +160,7 @@ class Authentication extends Component {
                                     <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                                 </List>
                                 <div style={{ padding: '10px' }}>
-                                    <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
+                                    <Image circular src={require('../../assets/cuts.JPG')} size="tiny" centered />
                                 </div>
                             </div>
                         </Page>
@@ -194,7 +199,8 @@ class Authentication extends Component {
                                     <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                                 </List>
                                 <div style={{ padding: '20px' }}>
-                                    <Image circular src={require('../../cuts.JPG')} size="tiny" centered />
+                                    <Image circular src={require('../../assets/cuts.JPG')} size="tiny" centered />
+
                                 </div>
                             </div>
                         </Page>

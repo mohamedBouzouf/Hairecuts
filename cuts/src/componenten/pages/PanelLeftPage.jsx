@@ -11,7 +11,7 @@ export default () => (
 
         <BlockTitle style={{ color: 'white' }}>
           <Grid columns={2} stretched>
-            <GridColumn width={6}><Image circular src={require('../../cuts.JPG')} /></GridColumn>
+            <GridColumn width={6}><Image circular src={require('../../assets/cuts.JPG')} /></GridColumn>
             <GridColumn verticalAlign="middle"> <h1>Patrick</h1></GridColumn>
           </Grid>
           <Divider />
