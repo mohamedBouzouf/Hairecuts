@@ -1,9 +1,9 @@
-import { GoogleApiWrapper } from 'google-maps-react';
+// import { GoogleApiWrapper } from 'google-maps-react';
 
-// Hier is de map Container
+// // Hier is de map Container
 
-export class MapContainer extends React.Component { }
+// export class MapContainer extends React.Component { }
 
-export default GoogleApiWrapper({
-    apiKey: ('AIzaSyChe8rQlgyCJkhymC5UTUsxeGkdVsjnrJM')
-})(MapContainer)
+// export default GoogleApiWrapper({
+//     apiKey: ('AIzaSyChe8rQlgyCJkhymC5UTUsxeGkdVsjnrJM')
+// })(MapContainer)

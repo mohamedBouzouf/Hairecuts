@@ -6,8 +6,6 @@ import {
 } from 'framework7-react';
 
 
-import './setting.css';
-
 class SettingBarberShop extends Component {
 
     state = {

@@ -11,10 +11,16 @@ const photo = 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbersh
 
 class PhotoGalaryBarberShop extends Component {
 
-    state = {
+    constructor(props) {
+        super(props);
 
-        popupOpened: false
+        this.state = {
+
+            popupOpened: false
+        }
     }
+
+
 
     componentDidMount() {
         // simulate img loading

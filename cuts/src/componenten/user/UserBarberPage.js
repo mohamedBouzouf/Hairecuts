@@ -44,7 +44,6 @@ class UserBarberPage extends Component {
     render() {
         return (
             <Page pageContent={false}>
-
                 <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
                     <Link tabLink={this.state.tab1} tabLinkActive><Icon type="user"> </Icon></Link>
                     <Link tabLink={this.state.tab2}><Icon type="camera"> </Icon></Link>
@@ -106,27 +105,14 @@ class UserBarberPage extends Component {
                                     </Block>
                                 </div>
                             </div>
-
-
                         </div>
-
-
                     </Tab>
                     <Tab id="tab-2" className="page-content">
-
-
                         <PhotoGalaryBarberShop />
-
-
-
                     </Tab>
                     <Tab id="tab-3" className="page-content" h>
                         <PageContent>
-
-
                             <MessagebarberShop />
-
-
                         </PageContent>
                     </Tab>
                     <Tab id="tab-4" className="page-content">
@@ -135,8 +121,6 @@ class UserBarberPage extends Component {
                         </PageContent>
                     </Tab>
                 </Tabs>
-
-
 
             </Page >
 

@@ -4,7 +4,6 @@ import withFirebaseAuth from "react-auth-firebase";
 import sweet from 'sweetalert';
 import { Icon } from 'antd';
 
-
 import {
     Page,
     LoginScreen,
@@ -34,7 +33,9 @@ class Authentication extends Component {
             R_password: '',
             R_confirmpassword: '',
             current: true,
-            IsSignOut: true
+            IsSignOut: true,
+            image: require('../../assets/cuts-resizes/cuts-128_x_128.jpg'),
+            imagetiny: require('../../assets/cuts-resizes/cuts-64_x_64.jpg')
         };
     }
 
@@ -70,7 +71,7 @@ class Authentication extends Component {
             (this.state.current ? (
                 <div className="App">
                     < div className="loginContainer">
-                        <Image circular src={require('../../assets/cuts.JPG')} size="small" centered />
+                        <Image circular src={this.state.image} centered />
                         <div style={{ marginTop: "30px" }}>
                             <Grid centered>
                                 <Grid.Column width={16}  >
@@ -98,12 +99,12 @@ class Authentication extends Component {
                                 <Divider />
                                 <Grid.Column mobile={16} >
                                     <Grid.Column mobile={16}>
+                                        {firebase.auth().signOut() ? "" : firebase.auth().currentUser.displayName}
                                         {this.state.IsSignOut ? (
 
                                             <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
                                                 SignOut
                                     </Button>
-
                                         ) : ""}
                                     </Grid.Column>
                                     <Divider />
@@ -160,7 +161,7 @@ class Authentication extends Component {
                                     <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                                 </List>
                                 <div style={{ padding: '10px' }}>
-                                    <Image circular src={require('../../assets/cuts.JPG')} size="tiny" centered />
+                                    <Image circular src={this.state.imagetiny} centered />
                                 </div>
                             </div>
                         </Page>
@@ -199,7 +200,7 @@ class Authentication extends Component {
                                     <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                                 </List>
                                 <div style={{ padding: '20px' }}>
-                                    <Image circular src={require('../../assets/cuts.JPG')} size="tiny" centered />
+                                    <Image circular src={this.state.imagetiny} centered />
 
                                 </div>
                             </div>
@@ -217,14 +218,28 @@ class Authentication extends Component {
     signIn() {
         const self = this;
         const app = self.$f7;
-        app.dialog.alert(`${self.state.username}`, 'Welcome back ', () => {
-            app.loginScreen.close();
-            this.setState({
-                current: false
-            })
-            this.$f7.view.main.router.navigate('/userbarberpage/');
+        if (self.state === null) {
+            return null;
+        }
 
-        });
+        if ((self.state.username === 'berre') && (self.state.password === 'test123')) {
+            app.dialog.alert(`${self.state.username}`, 'Welcome back ', () => {
+                app.loginScreen.close();
+                this.setState({
+                    current: false
+                })
+                this.$f7.view.main.router.navigate('/userbarberpage/');
+
+            });
+        } else {
+            app.dialog.alert(`The username (${self.state.username})
+             doesn't exists in or system, Did you already registered?`, 'Login',
+                () => {
+                    this.setState({
+                        registerScreenOpened: true
+                    })
+                })
+        }
     }
     signInFacebook() { return this.signInWithFacebook }
     signInGoogle() {
@@ -237,12 +252,14 @@ class Authentication extends Component {
         const self = this;
         const app = self.$f7;
 
-        app.dialog.alert(`Username: ${self.state.R_username}`, 'Welcome ! ', () => {
-            app.loginScreen.close();
-            this.$f7.view.main.router.navigate('/userbarberpage/');
+        if ((self.state.R_username === 'berre') && (self.state.R_password === self.state.R_confirmpassword)) {
+            app.dialog.alert(`Username: ${self.state.R_username}`, 'Welcome ! ', () => {
+                app.loginScreen.close();
+                this.$f7.view.main.router.navigate('/userbarberpage/');
 
 
-        });
+            });
+        }
     }
 };
 
