@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import firebase from './firebaseConfig';
 import withFirebaseAuth from "react-auth-firebase";
-import sweet from 'sweetalert';
-import { Icon } from 'antd';
+// import sweet from 'sweetalert';
+import { Toast, Button } from 'antd-mobile';
 
 import {
     Page,
@@ -13,7 +13,7 @@ import {
     BlockFooter,
     Link
 } from 'framework7-react';
-import { Grid, Image, Divider, Button, Checkbox } from 'semantic-ui-react';
+import { Grid, Image, Divider, Icon, Checkbox } from 'semantic-ui-react';
 import './login.css';
 
 
@@ -40,22 +40,32 @@ class Authentication extends Component {
     }
 
     componentDidMount() {
-
+        const self = this;
+        const app = self.$f7;
         this.setState({ IsSignOut: false })
         firebase.auth().onAuthStateChanged(user => {
             console.log(user);
             if (user === null) {
-                sweet({
-                    title: 'Logged Out',
-                    icon: 'error'
+                // sweet({
+                //     title: 'Logged Out',
+                //     icon: 'error'
 
-                });
+                // });
+                Toast.success('Logged Out', 1);
 
             } else {
-                sweet({
-                    title: 'Logged In',
-                    icon: 'success'
-                });
+                // sweet({
+                //     title: 'Logged In',
+                //     icon: 'success'
+                // });
+
+                Toast.success('Logged In', 1, () => this.$f7.view.main.router.navigate('/userbarberpage/'));
+                this.setState({
+                    current: false
+                })
+
+
+
             }
         })
     }
@@ -79,27 +89,27 @@ class Authentication extends Component {
                                 </Grid.Column>
                                 <Grid.Row>
                                     <Grid.Column mobile={6} >
-                                        <Button color='facebook' >
-                                            <Icon type='facebook' style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
+                                        <Button type='primary'>
+                                            <Icon name='facebook' style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
                                         </Button>
                                     </Grid.Column>
                                     <Grid.Column mobile={6}>
-                                        <Button color='google plus' >
-                                            <Icon type='google' style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
+                                        <Button type='danger' fill >
+                                            <Icon name="google" style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
                                         </Button>
                                     </Grid.Column>
                                 </Grid.Row>
                                 <Grid.Column mobile={8} >
                                     <Divider horizontal>OR</Divider></Grid.Column>
                                 <Grid.Column mobile={16} >
-                                    <Button fill="true" color="black" onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
+                                    <Button type="primary" onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
                                         Login with Email
                                 </Button>
                                 </Grid.Column>
                                 <Divider />
                                 <Grid.Column mobile={16} >
                                     <Grid.Column mobile={16}>
-                                        {firebase.auth().signOut() ? "" : firebase.auth().currentUser.displayName}
+                                        {firebase.auth().currentUser === null ? "" : firebase.auth().currentUser.displayName}
                                         {this.state.IsSignOut ? (
 
                                             <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>

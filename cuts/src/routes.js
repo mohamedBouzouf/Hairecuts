@@ -2,7 +2,7 @@ import HomePage from './componenten/pages/HomePage';
 import Authentication from './componenten/login/Authentication'
 import AboutPage from './componenten/pages/AboutPage';
 import FormPage from './componenten/pages/FormPage';
-import DynamicRoutePage from './componenten/pages/DynamicRoutePage';
+import UserPage from './componenten/user/userPage'
 import NotFoundPage from './componenten/pages/NotFoundPage';
 import PanelLeftPage from './componenten/pages/PanelLeftPage';
 import PanelRightPage from './componenten/pages/PanelRightPage';
@@ -32,15 +32,18 @@ export default [
   },
   {
     path: '/register/',
-    component: Register,
+    component: Register
   },
   {
     path: '/userbarberpage/',
-    component: UserBarberPage,
+    component: UserBarberPage
+  }, {
+    path: '/userpage/',
+    component: UserPage
   },
   {
     path: '/messenger/',
-    component: MessageBarberShop,
+    component: MessageBarberShop
   },
   {
     path: '/panel-left/',
@@ -57,10 +60,6 @@ export default [
   {
     path: '/form/',
     component: FormPage,
-  },
-  {
-    path: '/dynamic-route/blog/:blogId/post/:postId/',
-    component: DynamicRoutePage,
   },
   {
     path: '(.*)',
