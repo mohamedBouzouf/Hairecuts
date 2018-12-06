@@ -7,15 +7,6 @@ import { Header, Icon, Divider, List, Label } from 'semantic-ui-react';
 
 class User extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            image: require('../../assets/cuts-resizes/cuts-128_x_128.jpg'),
-            imagetiny: require('../../assets/cuts-resizes/cuts-64_x_64.jpg')
-        };
-    }
-
     componentDidMount() {
         // simulate img loading
     }

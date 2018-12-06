@@ -1,9 +1,7 @@
 import React from 'react';
-import { Page, Block, BlockTitle, List, ListItem, Link } from 'framework7-react';
+import { Page, Block, BlockTitle, List, ListItem } from 'framework7-react';
 import { Image, Header, Rating, Grid, GridColumn, Divider } from 'semantic-ui-react';
-import firebase from '../login/firebaseConfig';
 
-const signOut = () => { firebase.auth().signOut() };
 
 export default () => (
   <Page>
@@ -13,7 +11,7 @@ export default () => (
 
         <BlockTitle style={{ color: 'white' }}>
           <Grid columns={2} stretched>
-            <GridColumn width={6}><Image circular src={require('../../assets/cuts-resizes/cuts-128_x_128.jpg')} /></GridColumn>
+            <GridColumn width={6}><Image circular src={require('../../cuts.JPG')} /></GridColumn>
             <GridColumn verticalAlign="middle"> <h1>Patrick</h1></GridColumn>
           </Grid>
           <Divider />
@@ -26,11 +24,11 @@ export default () => (
     </Block>
     <BlockTitle><h3>User</h3></BlockTitle>
     <List as='p'>
-      <ListItem link="/userpage/">Profile</ListItem>
+      <ListItem>Profile</ListItem>
       <ListItem>About Us</ListItem>
       <ListItem>Profile</ListItem>
       <ListItem>Setting</ListItem>
-      <ListItem onClick={() => firebase.auth().signOut()} link=''>Sign Out</ListItem>
+      <ListItem></ListItem>
       {/* <ListItem link="/about/" title="About"></ListItem>
       <ListItem link="/form/" title="Form"></ListItem> */}
     </List>
