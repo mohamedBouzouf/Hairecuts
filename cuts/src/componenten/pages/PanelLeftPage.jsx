@@ -5,32 +5,27 @@ import { Image, Header, Rating, Grid, GridColumn, Divider } from 'semantic-ui-re
 
 export default () => (
   <Page>
-    <Block strong style={{ margin: 0, backgroundColor: 'black' }}>
-
+    <Block strong style={{ margin: 0 }}>
       <Header>
-
-        <BlockTitle style={{ color: 'white' }}>
+        <BlockTitle>
           <Grid columns={2} stretched>
-            <GridColumn width={6}><Image circular src={require('../../cuts.JPG')} /></GridColumn>
+            <GridColumn width={6}><Image circular src={require('../../assets/cuts-resizes/cuts-128_x_128.png')} /></GridColumn>
             <GridColumn verticalAlign="middle"> <h1>Patrick</h1></GridColumn>
           </Grid>
           <Divider />
         </BlockTitle>
         <Divider />
       </Header>
-
-
-
     </Block>
     <BlockTitle><h3>User</h3></BlockTitle>
     <List as='p'>
-      <ListItem>Profile</ListItem>
-      <ListItem>About Us</ListItem>
-      <ListItem>Profile</ListItem>
-      <ListItem>Setting</ListItem>
-      <ListItem></ListItem>
-      {/* <ListItem link="/about/" title="About"></ListItem>
-      <ListItem link="/form/" title="Form"></ListItem> */}
+      <ListItem link='/userbarbershop/userpage' >Profile</ListItem>
+      <ListItem link='/about/' >About Us</ListItem>
+      <ListItem link='/userbarberpage/setting/' >Setting</ListItem>
+      <ListItem link='/userbarberpage/'>Barber Page</ListItem>
+      <ListItem link='/userbarberpage/map'>BarberMap</ListItem>
+      <ListItem link='/' >Sign In</ListItem>
+      <ListItem link='/' >Sign Out</ListItem>
     </List>
     <BlockTitle as='p'> </BlockTitle>
     <List>
