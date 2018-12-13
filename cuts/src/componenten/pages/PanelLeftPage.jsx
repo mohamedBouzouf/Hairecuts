@@ -1,21 +1,23 @@
 import React from 'react';
-import { Page, Block, BlockTitle, List, ListItem } from 'framework7-react';
-import { Image, Header, Rating, Grid, GridColumn, Divider } from 'semantic-ui-react';
+import { Page, Block, BlockHeader, BlockTitle, List, ListItem } from 'framework7-react';
+import { Grid, Image, Col } from 'react-bootstrap';
+import { Rating } from 'react-rating';
 
 
 export default () => (
+
   <Page>
     <Block strong style={{ margin: 0 }}>
-      <Header>
+      <BlockHeader>
         <BlockTitle>
-          <Grid columns={2} stretched>
-            <GridColumn width={6}><Image circular src={require('../../assets/cuts-resizes/cuts-128_x_128.png')} /></GridColumn>
-            <GridColumn verticalAlign="middle"> <h1>Patrick</h1></GridColumn>
+          <Grid>
+            <Col xs={12} md={8}><Image circle src={require('../../assets/cuts-resizes/cuts-128_x_128.png')} /></Col>
+            <Col vxs={12} md={8}> <h1>Patrick</h1></Col>
           </Grid>
-          <Divider />
+          {/* <Divider /> */}
         </BlockTitle>
-        <Divider />
-      </Header>
+        {/* <Divider /> */}
+      </BlockHeader>
     </Block>
     <BlockTitle><h3>User</h3></BlockTitle>
     <List as='p'>
@@ -35,3 +37,4 @@ export default () => (
     </List>
   </Page>
 );
+
