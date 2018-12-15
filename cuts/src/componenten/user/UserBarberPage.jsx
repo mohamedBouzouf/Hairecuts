@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 // import Blur from 'react-blur';
-import { Icon, Button, Carousel } from 'antd';
 import {
     Link, Navbar, Row, Col,
     Block, Page,
     Toolbar,
-    NavRight, NavLeft, Card, NavTitle, Tabs, Tab, PageContent
+    NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
 } from 'framework7-react';
-import { Image } from 'react-bootstrap';
-import { Rating } from 'react-rating';
-
+import { Image, Button, Carousel, Glyphicon } from 'react-bootstrap';
 import './user.css';
+import '../App.css';
 import MessagebarberShop from './Message/message';
 import SettingBarberShop from './Setting/setting';
 import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
+import { Divider, Card, Rating } from 'semantic-ui-react';
 
 
 
@@ -52,18 +51,17 @@ class UserBarberPage extends Component {
         return (
             <Page pageContent={false}>
                 <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink={this.state.tab1} tabLinkActive><Icon type="user"> </Icon></Link>
-                    <Link tabLink={this.state.tab2}><Icon type="camera"></Icon></Link>
+                    <Link tabLink={this.state.tab1} tabLinkActive> <Glyphicon glyph="user" /></Link>
+                    <Link tabLink={this.state.tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
                     <Link tabLink={this.state.tab3} routeTabId="tab-3" href="/messenger/">
-                        <Icon type="message">
-                        </Icon></Link>
-                    <Link tabLink={this.state.tab4}><Icon type="setting"></Icon></Link>
+                        <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
+                    <Link tabLink={this.state.tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
                 </Toolbar>
                 <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black'>
-                    <NavLeft><Link panelOpen="left"><Icon type="bars" /></Link></NavLeft>
+                    <NavLeft><Link panelOpen="left"> <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Link></NavLeft>
                     <NavTitle>Cuts</NavTitle>
                     <NavRight >
-                        <Link><Icon type="info-circle" style={{ paddingRight: '20px' }} /></Link>
+                        <Link> <Glyphicon glyph="glyphicon glyphicon-th" /></Link>
                     </NavRight> </Navbar>
                 <Tabs>
                     <Tab id="tab-1" className="page-content" tabActive>
@@ -74,37 +72,70 @@ class UserBarberPage extends Component {
                                 <div style={{
                                     textAlign: "center"
                                 }}>
-                                    <Image circular src={this.state.photo} size="tiny" centered />
+                                    <Image src={this.state.photo} circle className="sizeImage" />
                                     <h3 style={{ color: 'white' }}>Barber Shop</h3>
-                                    <Rating icon="star" maxRating={5} defaultRating={5} size="small" />
+                                    <Rating icon='star' defaultRating={5} maxRating={5} />
                                     <Block>
 
                                         <Row className='backgrid1' >
-                                            <Col ><Card raised
-                                                header='2' meta="barbers" color="blue" /></Col>
-                                            <Col ><Card raised
-                                                header='2' meta="Flex" color="teal" /></Col>
-                                            <Col ><Card meta="Likes" raised
-                                                header='200K' color="brown" /></Col>
+                                            <Col ><Card
+                                                header="2" meta="barbers" /></Col>
+                                            <Col ><Card
+                                                header="2" meta="Flex" /></Col>
+                                            <Col ><Card header="Likes" raised
+                                                meta="200K" /></Col>
                                         </Row>
-
+                                        <Divider />
                                         <Row className='backgrid2' >
-                                            <Col ><Button type='default' ghost>
-                                                <Icon type="phone"> </Icon>
+                                            <Col ><Button bsStyle="primary" >
+                                                <Glyphicon glyph="glyphicon glyphicon-phone-alt" />
                                             </Button></Col>
-                                            <Col ><Button type='default' ghost>
-                                                <Icon type="calendar"> </Icon>
+                                            <Col ><Button bsStyle="success" >
+                                                <Glyphicon glyph="glyphicon glyphicon-calendar" />
                                             </Button></Col>
                                         </Row>
+                                        <Divider />
+                                        <div className="CarousselContainer">
+                                            <Carousel className="sizeImageCarousel" >
+                                                <Carousel.Item>
+                                                    <Image src={this.state.photo} />
+                                                    <Carousel.Caption>
+                                                        <h3>Waves</h3>
+                                                        <p>the new flow</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                <Carousel.Item>
+                                                    <Image src={this.state.photo} />
+                                                    <Carousel.Caption>
+                                                        <h3>Dreads</h3>
+                                                        <p>the new flow</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                <Carousel.Item>
+                                                    <Image src={this.state.photo} />
+                                                    <Carousel.Caption>
+                                                        <h3>Weaves</h3>
+                                                        <p>the new flow</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                <Carousel.Item>
+                                                    <Image src={this.state.photo} />
+                                                    <Carousel.Caption>
+                                                        <h3>Fades</h3>
+                                                        <p>the new flow</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
+                                                <Carousel.Item>
+                                                    <Image src={this.state.photo} />
+                                                    <Carousel.Caption>
+                                                        <h3>Specials</h3>
+                                                        <p>the new flow</p>
+                                                    </Carousel.Caption>
+                                                </Carousel.Item>
 
-                                        <Carousel autoplay>
-                                            <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
-                                            <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
-                                            <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
-                                            <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
-                                            <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
-                                        </Carousel>
 
+                                            </Carousel>
+                                        </div>
 
                                     </Block>
                                 </div>
