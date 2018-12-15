@@ -31,7 +31,10 @@ export default () => (
     </List>
     <BlockTitle as='p'> </BlockTitle>
     <List>
-      <Rating icon='star' size='tiny' />
+      <Rating
+        emptySymbol="fa fa-star-o fa-2x"
+        fullSymbol="fa fa-star fa-2x"
+      />
       {/* <ListItem link="/about/" title="About" view="#main-view" panelClose></ListItem>
       <ListItem link="/form/" title="Form" view="#main-view" panelClose></ListItem> */}
     </List>

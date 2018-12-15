@@ -5,10 +5,10 @@ import {
     Link, Navbar, Row, Col,
     Block, Page,
     Toolbar,
-    NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
+    NavRight, NavLeft, Card, NavTitle, Tabs, Tab, PageContent
 } from 'framework7-react';
-import { Divider, Image, Card, Rating } from 'semantic-ui-react';
-
+import { Image } from 'react-bootstrap';
+import { Rating } from 'react-rating';
 
 import './user.css';
 import MessagebarberShop from './Message/message';
@@ -30,8 +30,8 @@ class UserBarberPage extends Component {
             tab4: '#tab-4',
             photo: '',
             name: '',
-            id: '',
-            photo: ''
+            id: ''
+
         }
     }
 
@@ -78,7 +78,7 @@ class UserBarberPage extends Component {
                                     <h3 style={{ color: 'white' }}>Barber Shop</h3>
                                     <Rating icon="star" maxRating={5} defaultRating={5} size="small" />
                                     <Block>
-                                        <Divider />
+
                                         <Row className='backgrid1' >
                                             <Col ><Card raised
                                                 header='2' meta="barbers" color="blue" /></Col>
@@ -87,7 +87,7 @@ class UserBarberPage extends Component {
                                             <Col ><Card meta="Likes" raised
                                                 header='200K' color="brown" /></Col>
                                         </Row>
-                                        <Divider />
+
                                         <Row className='backgrid2' >
                                             <Col ><Button type='default' ghost>
                                                 <Icon type="phone"> </Icon>
@@ -96,7 +96,7 @@ class UserBarberPage extends Component {
                                                 <Icon type="calendar"> </Icon>
                                             </Button></Col>
                                         </Row>
-                                        <Divider />
+
                                         <Carousel autoplay>
                                             <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
                                             <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
@@ -105,7 +105,7 @@ class UserBarberPage extends Component {
                                             <div><h3> <Image src={this.state.photo} size="small" centered /></h3></div>
                                         </Carousel>
 
-                                        <Divider />
+
                                     </Block>
                                 </div>
                             </div>
