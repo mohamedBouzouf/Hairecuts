@@ -1,17 +1,18 @@
 import React from 'react';
 import { Page, Block, BlockHeader, BlockTitle, List, ListItem } from 'framework7-react';
 import { Grid, Image, Col } from 'react-bootstrap';
-import { Rating } from 'react-rating';
+import Rating from 'react-rating';
+import firebase from '../login/firebaseConfig'
+
 
 
 export default () => (
-
   <Page>
     <Block strong style={{ margin: 0 }}>
       <BlockHeader>
         <BlockTitle>
           <Grid>
-            <Col xs={12} md={8}><Image circle src={require('../../assets/cuts-resizes/cuts-128_x_128.png')} /></Col>
+            <Col xs={12} md={8}><Image circle src={require('../../assets/cuts-resizes/cuts-64_x_64.png')} /></Col>
             <Col vxs={12} md={8}> <h1>Patrick</h1></Col>
           </Grid>
           {/* <Divider /> */}
@@ -27,7 +28,7 @@ export default () => (
       <ListItem link='/userbarberpage/'>Barber Page</ListItem>
       <ListItem link='/userbarberpage/map'>BarberMap</ListItem>
       <ListItem link='/' >Sign In</ListItem>
-      <ListItem link='/' >Sign Out</ListItem>
+      <ListItem link='/home/' onClick={() => firebase.auth().signOut()} >Sign Out</ListItem>
     </List>
     <BlockTitle as='p'> </BlockTitle>
     <List>
@@ -40,4 +41,6 @@ export default () => (
     </List>
   </Page>
 );
+
+
 

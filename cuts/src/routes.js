@@ -4,7 +4,6 @@ import DynamicRoutePage from './componenten/pages/DynamicRoutePage';
 import NotFoundPage from './componenten/pages/NotFoundPage';
 import PanelLeftPage from './componenten/pages/PanelLeftPage';
 import PanelRightPage from './componenten/pages/PanelRightPage';
-import Register from './componenten/login/register/register';
 import MessageBarberShop from './componenten/user/Message/message';
 import UserBarberPage from './componenten/user/UserBarberPage';
 import UserPage from './componenten/user/userPage'
@@ -28,10 +27,6 @@ export default [
       }
     }
 
-  },
-  {
-    path: '/register/',
-    component: Register,
   },
   {
     path: '/userbarberpage/',

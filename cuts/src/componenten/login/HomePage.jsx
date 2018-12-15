@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import firebase from './firebaseConfig';
 import withFirebaseAuth from "react-auth-firebase";
-import { Icon } from 'antd/lib';
-import { Toast } from 'antd-mobile/lib';
 
 import {
   Page,
@@ -13,7 +11,8 @@ import {
   BlockFooter,
   Link
 } from 'framework7-react';
-import { Grid, Image, Divider, Button, Checkbox } from 'semantic-ui-react';
+import { Grid, Image, Divider } from 'semantic-ui-react';
+import { Button } from 'react-bootstrap';
 import './login.css';
 
 
@@ -43,10 +42,10 @@ class Authentication extends Component {
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user === null) {
-        Toast.success('Logged Out', 1);
+
 
       } else {
-        Toast.success('Logged In', 1);
+
         this.setState({ current: false })
         this.$f7.view.main.router.navigate('/userbarberpage/');
       }
@@ -62,51 +61,37 @@ class Authentication extends Component {
     return (
       (this.state.current ? (
         <div className="App">
-          < div className="loginContainer">
-            <Image circular src={this.state.image} alt='cuts' centered />
-            <div style={{ marginTop: "30px" }}>
+          <div className="loginContainer">
+            <div className="Container">
+              <Image circular src={this.state.image} alt='cuts' centered />
               <Grid centered>
                 <Grid.Column width={16}  >
                   <Divider />
                 </Grid.Column>
                 <Grid.Row>
                   <Grid.Column mobile={6} >
-                    <Button color='facebook' >
-                      <Icon type='facebook' style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
+                    <Button className="colorbutton f" bsSize='large'>
+                      <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
                     </Button>
                   </Grid.Column>
                   <Grid.Column mobile={6}>
-                    <Button color='google plus' >
-                      <Icon type='google' style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
+                    <Button className="colorbutton g" bsSize='large'>
+                      <i className="fa fa-google iconIverse" style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
                     </Button>
                   </Grid.Column>
                 </Grid.Row>
-                <Grid.Column mobile={8} >
-                  <Divider horizontal>OR</Divider></Grid.Column>
+                <Grid.Column mobile={8}>
+                  <Divider horizontal inverted>OR</Divider></Grid.Column>
                 <Grid.Column mobile={16} >
-                  <Button fill="true" color="black" onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
+                  <Button className="colorbuttonLogin" bsSize='large' onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
                     Login with Email
                   </Button>
                 </Grid.Column>
-                <Divider />
-                <Grid.Column mobile={16} >
-                  {/* {this.state.IsSignOut ? (
-                    <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
-                      SignOut
-                    </Button>
-                  ) : ""} */}
-                  <Button fill="true" color="black" onClick={this.SignOut.bind(this)}>
-                    SignOut
-                    </Button>
-                  <Divider />
-                  <Grid.Column>
-                    <Checkbox label="I agree to the Terms and Conditions" />
-                  </Grid.Column>
-                </Grid.Column>
                 <Grid.Column width={16} >
+                  <Divider />
                 </Grid.Column>
                 <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
-                  <BlockFooter >
+                  <BlockFooter style={{ color: 'white' }}>
                     {`Don't have a account? `}
                     <Link loginScreenOpen=".register-screen" > Register now.</Link>
                   </BlockFooter>
@@ -152,7 +137,7 @@ class Authentication extends Component {
                   />
                 </List>
                 <List>
-                  <Button fluid color="black" outline="true" onClick={this.registrationSuccess.bind(this)}>
+                  <Button onClick={this.registrationSuccess.bind(this)}>
                     Sign In</Button>
                   <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                 </List>
@@ -172,7 +157,7 @@ class Authentication extends Component {
                         Login Screen
 
           */}
-          <LoginScreen className="login-screen" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
+          <LoginScreen className="login-screen App" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
             <Page loginScreen>
               <LoginScreenTitle>Login</LoginScreenTitle>
               <div style={{ padding: '20px' }}>
@@ -196,7 +181,7 @@ class Authentication extends Component {
                   />
                 </List>
                 <List>
-                  <Button fluid basic color="black" outline="true" onClick={this.signIn.bind(this)}>
+                  <Button onClick={this.signIn.bind(this)}>
                     Sign In</Button>
                   <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                 </List>
