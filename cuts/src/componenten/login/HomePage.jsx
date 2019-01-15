@@ -32,8 +32,8 @@ class Authentication extends Component {
       R_confirmpassword: '',
       current: true,
       IsSignOut: true,
-      image: require('../../assets/cuts-resizes/cuts-128_x_128.png'),
-      imagetiny: require('../../assets/cuts-resizes/cuts-64_x_64.png')
+      image: require('../../assets/logo/Cuts64_X_64W.png'),
+      imagetiny: require('../../assets/logo/Cuts64_X_64W.png')
     };
   }
 

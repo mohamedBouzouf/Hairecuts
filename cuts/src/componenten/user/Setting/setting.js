@@ -17,9 +17,6 @@ class SettingBarberShop extends Component {
         // simulate img loading
     }
 
-
-
-
     render() {
         return (
             <Page>

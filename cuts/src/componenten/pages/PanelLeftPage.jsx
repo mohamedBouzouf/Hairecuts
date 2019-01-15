@@ -28,7 +28,7 @@ export default () => (
       <ListItem link='/userbarberpage/'>Barber Page</ListItem>
       <ListItem link='/userbarberpage/map'>BarberMap</ListItem>
       <ListItem link='/' >Sign In</ListItem>
-      <ListItem link='/home/' onClick={() => firebase.auth().signOut()} >Sign Out</ListItem>
+      <ListItem link='/' onClick={() => firebase.auth().signOut()} >Sign Out</ListItem>
     </List>
     <BlockTitle as='p'> </BlockTitle>
     <List>

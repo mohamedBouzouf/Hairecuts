@@ -17,8 +17,6 @@ class PhotoGalaryBarberShop extends Component {
         }
     }
 
-
-
     componentDidMount() {
         // simulate img loading
     }
