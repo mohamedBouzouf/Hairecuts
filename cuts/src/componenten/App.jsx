@@ -42,12 +42,12 @@ export default function (props) {
 
       {/* Left Panel */}
       <Panel left cover>
-        <View url="/panel-left/" />
+        <View url="/panel-left/" linksView=".view-main" />
       </Panel>
 
       {/* Right Panel */}
       <Panel right reveal themeDark>
-        <View url="/panel-right/" />
+        <View url="/panel-right/" linksView=".view-main" />
       </Panel>
 
       {/* Main View */}

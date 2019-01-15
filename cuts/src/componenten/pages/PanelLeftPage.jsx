@@ -22,13 +22,13 @@ export default () => (
     </Block>
     <BlockTitle><h3>User</h3></BlockTitle>
     <List as='p'>
-      <ListItem link='/userbarbershop/userpage' >Profile</ListItem>
-      <ListItem link='/about/' >About Us</ListItem>
-      <ListItem link='/userbarberpage/setting/' >Setting</ListItem>
-      <ListItem link='/userbarberpage/'>Barber Page</ListItem>
-      <ListItem link='/userbarberpage/map'>BarberMap</ListItem>
-      <ListItem link='/' >Sign In</ListItem>
-      <ListItem link='/' onClick={() => firebase.auth().signOut()} >Sign Out</ListItem>
+      <ListItem link='/userbarberpage/userpage/' panelClose>Profile</ListItem>
+      <ListItem link='/about/' panelClose>About Us</ListItem>
+      <ListItem link='/userbarberpage/setting/' panelClose>Setting</ListItem>
+      <ListItem link='/userbarberpage/' panelClose>Barber Page</ListItem>
+      <ListItem link='/userbarberpage/map' panelClose>BarberMap</ListItem>
+      <ListItem link='/home/' panelClose>Sign In</ListItem>
+      <ListItem link='/home/' onClick={() => firebase.auth().signOut()} panelClose>Sign Out</ListItem>
     </List>
     <BlockTitle as='p'> </BlockTitle>
     <List>

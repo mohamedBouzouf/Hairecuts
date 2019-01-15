@@ -13,7 +13,8 @@
 .loginContainer{
   background: #200303d5;
   width: 100%;
-  height: 100%;  
+  height: 100%; 
+ 
 }
 
 .colorbutton {
@@ -38,11 +39,11 @@
   background: rgba(255, 0, 0, 0.226);
 }
 
-
-
-.App{
+.AppBackImage{
  width: 100%;
  height: 100%;
- background: url('http://haircutharry.com/wp-content/uploads/2018/05/Center-Barbershop-16-1060x596.jpg') no-repeat center;
- background-size: cover; 
+background: url('http://haircutharry.com/wp-content/uploads/2018/05/Center-Barbershop-16-1060x596.jpg') no-repeat center; 
+background-size: cover;
 }
+
+

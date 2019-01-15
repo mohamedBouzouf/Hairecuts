@@ -45,9 +45,8 @@ class Authentication extends Component {
 
 
       } else {
-
         this.setState({ current: false })
-        this.$f7.view.main.router.navigate('/userbarberpage/');
+        this.$f7.router.navigate('/userbarberpage/');
       }
     })
   }
@@ -59,46 +58,50 @@ class Authentication extends Component {
     } = this.props;
     // const { email, password } = this.state;
     return (
-      (this.state.current ? (
+      (
         <div className="App">
-          <div className="loginContainer">
-            <div className="Container">
-              <Image circular src={this.state.image} alt='cuts' centered />
-              <Grid centered>
-                <Grid.Column width={16}  >
-                  <Divider />
-                </Grid.Column>
-                <Grid.Row>
-                  <Grid.Column mobile={6} >
-                    <Button className="colorbutton f" bsSize='large'>
-                      <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
-                    </Button>
-                  </Grid.Column>
-                  <Grid.Column mobile={6}>
-                    <Button className="colorbutton g" bsSize='large'>
-                      <i className="fa fa-google iconIverse" style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
-                    </Button>
-                  </Grid.Column>
-                </Grid.Row>
-                <Grid.Column mobile={8}>
-                  <Divider horizontal inverted>OR</Divider></Grid.Column>
-                <Grid.Column mobile={16} >
-                  <Button className="colorbuttonLogin" bsSize='large' onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
-                    Login with Email
+          <Page>
+            <div className="AppBackImage">
+              <div className="loginContainer">
+                <div className="Container">
+                  <Image circular src={this.state.image} alt='cuts' centered />
+                  <Grid centered>
+                    <Grid.Column width={16}  >
+                      <Divider />
+                    </Grid.Column>
+                    <Grid.Row>
+                      <Grid.Column mobile={6} >
+                        <Button className="colorbutton f" bsSize='large'>
+                          <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
+                        </Button>
+                      </Grid.Column>
+                      <Grid.Column mobile={6}>
+                        <Button className="colorbutton g" bsSize='large'>
+                          <i className="fa fa-google iconIverse" style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
+                        </Button>
+                      </Grid.Column>
+                    </Grid.Row>
+                    <Grid.Column mobile={8}>
+                      <Divider horizontal inverted>OR</Divider></Grid.Column>
+                    <Grid.Column mobile={16} >
+                      <Button className="colorbuttonLogin" bsSize='large' onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
+                        Login with Email
                   </Button>
-                </Grid.Column>
-                <Grid.Column width={16} >
-                  <Divider />
-                </Grid.Column>
-                <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
-                  <BlockFooter style={{ color: 'white' }}>
-                    {`Don't have a account? `}
-                    <Link loginScreenOpen=".register-screen" > Register now.</Link>
-                  </BlockFooter>
+                    </Grid.Column>
+                    <Grid.Column width={16} >
+                      <Divider />
+                    </Grid.Column>
+                    <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
+                      <BlockFooter style={{ color: 'white' }}>
+                        {`Don't have a account? `}
+                        <Link loginScreenOpen=".register-screen" > Register now.</Link>
+                      </BlockFooter>
+                    </div>
+                  </Grid>
                 </div>
-              </Grid>
+              </div>
             </div>
-          </div>
+          </Page>
           {/* /*
 
                         Register Screen
@@ -197,7 +200,7 @@ class Authentication extends Component {
             </div>
           </LoginScreen>
         </div>
-      ) : "")
+      )
     );
   }
 
