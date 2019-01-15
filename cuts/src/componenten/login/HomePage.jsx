@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import firebase from './firebaseConfig';
 import withFirebaseAuth from "react-auth-firebase";
-
-import {
-  Page,
-  LoginScreen,
-  LoginScreenTitle,
-  List,
-  ListInput,
-  BlockFooter,
-  Link
-} from 'framework7-react';
-import { Grid, Image, Divider } from 'semantic-ui-react';
-import { Button } from 'react-bootstrap';
 import './login.css';
+import RegisterPage from '../pages/RegisterPage';
+import EmailPage from '../pages/EmailPage';
+import LoginPage from '../pages/LoginPage';
+
 
 
 
@@ -58,150 +50,37 @@ class Authentication extends Component {
     } = this.props;
     // const { email, password } = this.state;
     return (
-      (
-        <div className="App">
-          <Page>
-            <div className="AppBackImage">
-              <div className="loginContainer">
-                <div className="Container">
-                  <Image circular src={this.state.image} alt='cuts' centered />
-                  <Grid centered>
-                    <Grid.Column width={16}  >
-                      <Divider />
-                    </Grid.Column>
-                    <Grid.Row>
-                      <Grid.Column mobile={6} >
-                        <Button className="colorbutton f" bsSize='large'>
-                          <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} onClick={signInWithFacebook} />
-                        </Button>
-                      </Grid.Column>
-                      <Grid.Column mobile={6}>
-                        <Button className="colorbutton g" bsSize='large'>
-                          <i className="fa fa-google iconIverse" style={{ fontSize: '17px' }} onClick={signInWithGoogle} />
-                        </Button>
-                      </Grid.Column>
-                    </Grid.Row>
-                    <Grid.Column mobile={8}>
-                      <Divider horizontal inverted>OR</Divider></Grid.Column>
-                    <Grid.Column mobile={16} >
-                      <Button className="colorbuttonLogin" bsSize='large' onClick={() => { this.setState({ loginScreenOpened: true }) }}  >
-                        Login with Email
-                  </Button>
-                    </Grid.Column>
-                    <Grid.Column width={16} >
-                      <Divider />
-                    </Grid.Column>
-                    <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
-                      <BlockFooter style={{ color: 'white' }}>
-                        {`Don't have a account? `}
-                        <Link loginScreenOpen=".register-screen" > Register now.</Link>
-                      </BlockFooter>
-                    </div>
-                  </Grid>
-                </div>
-              </div>
-            </div>
-          </Page>
-          {/* /*
+      <div className="App">
+        <LoginPage image={this.state.image}
+          signInWithFacebook={signInWithFacebook}
+          signInWithGoogle={signInWithGoogle}
+          loginScreenOpened={this.state.loginScreenOpened} />
+        {/* /*
 
                         Register Screen
 
           */}
-          <LoginScreen className="register-screen" opened={this.state.registerScreenOpened} onLoginScreenClosed={() => { this.setState({ registerScreenOpened: false }) }}>
-            <Page loginScreen>
-              <LoginScreenTitle>Register</LoginScreenTitle>
-              <div style={{ padding: '20px' }}>
-                <List form>
-                  <ListInput
-                    label="Username"
-                    type="text"
-                    placeholder="Your username"
-                    value={this.state.R_username} onInput={(e) => {
-                      this.setState({ R_username: e.target.value });
-                    }}
-                  />
-                  <ListInput
-                    label="Password"
-                    type="password"
-                    placeholder="**********"
-                    value={this.state.R_password}
-                    onInput={(e) => {
-                      this.setState({ R_password: e.target.value });
-                    }}
-                  />
-                  <ListInput
-                    label="Confirm Password"
-                    type="password"
-                    placeholder="**********"
-                    value={this.state.confirmpassword}
-                    onInput={(e) => {
-                      this.setState({ R_confirmpassword: e.target.value });
-                    }}
-                  />
-                </List>
-                <List>
-                  <Button onClick={this.registrationSuccess.bind(this)}>
-                    Sign In</Button>
-                  <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
-                </List>
-                <div style={{ padding: '10px' }}>
-                  <Image circular src={this.state.imagetiny} alt='cuts' centered />
-                </div>
-              </div>
-            </Page>
-            <div style={{ textAlign: 'center', position: 'fixed', bottom: 0, width: '100%' }}>
-              <BlockFooter >
-                <span>All Rights Reserved © Cuts</span>
-              </BlockFooter>
-            </div>
-          </LoginScreen>
-          {/* /*
+
+        {/* /*
 
                         Login Screen
-
-          */}
-          <LoginScreen className="login-screen App" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
-            <Page loginScreen>
-              <LoginScreenTitle>Login</LoginScreenTitle>
-              <div style={{ padding: '20px' }}>
-                <List form>
-                  <ListInput
-                    label="Username"
-                    type="text"
-                    placeholder="Your username"
-                    value={this.state.username} onInput={(e) => {
-                      this.setState({ username: e.target.value });
-                    }}
-                  />
-                  <ListInput
-                    label="Password"
-                    type="password"
-                    placeholder="**********"
-                    value={this.state.password}
-                    onInput={(e) => {
-                      this.setState({ password: e.target.value });
-                    }}
-                  />
-                </List>
-                <List>
-                  <Button onClick={this.signIn.bind(this)}>
-                    Sign In</Button>
-                  <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
-                </List>
-                <div style={{ padding: '20px' }}>
-                  <Image circular src={this.state.imagetiny} alt='cuts' centered />
-                </div>
-              </div>
-            </Page>
-            <div style={{ textAlign: 'center', position: 'fixed', bottom: 0, width: '100%' }}>
-              <BlockFooter>
-                <span>All Rights Reserved © Cuts</span>
-              </BlockFooter>
-            </div>
-          </LoginScreen>
-        </div>
-      )
+        */}
+        <RegisterPage
+          registerScreenOpened={this.state.registerScreenOpened}
+          R_username={this.state.R_username}
+          R_password={this.state.R_password}
+          confirmpassword={this.state.R_confirmpassword}
+          registrationSuccess={this.registrationSuccess.bind(this)}
+          imagetiny={this.state.imagetiny}
+        />
+        <EmailPage loginScreenOpened={this.state.loginScreenOpened}
+          username={this.state.username}
+          password={this.state.password}
+          signIn={this.signIn.bind(this)}
+          imagetiny={this.state.imagetiny} />
+      </div>
     );
+
   }
 
   signIn() {
