@@ -9,7 +9,6 @@ import LoginPage from '../pages/LoginPage';
 
 
 
-
 class Authentication extends Component {
 
   constructor(props) {
@@ -31,6 +30,7 @@ class Authentication extends Component {
 
   componentDidMount() {
     this.setState({ IsSignOut: false })
+
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user === null) {
@@ -48,21 +48,23 @@ class Authentication extends Component {
       signInWithGoogle,
       signInWithFacebook,
     } = this.props;
+
     // const { email, password } = this.state;
     return (
       <div className="App">
         <LoginPage image={this.state.image}
           signInWithFacebook={signInWithFacebook}
           signInWithGoogle={signInWithGoogle}
-          loginScreenOpened={this.state.loginScreenOpened} />
-        {/* /*
+          loginScreenOpened={this.state.loginScreenOpened}
+          IsClick={() => this.setState({ loginScreenOpened: true })}
+          IsClickEm={() => this.setState({ registerScreenOpened: true })}
 
+        />
+        {/* /*
                         Register Screen
 
           */}
-
         {/* /*
-
                         Login Screen
         */}
         <RegisterPage
@@ -72,12 +74,14 @@ class Authentication extends Component {
           confirmpassword={this.state.R_confirmpassword}
           registrationSuccess={this.registrationSuccess.bind(this)}
           imagetiny={this.state.imagetiny}
+          Show={this.state.registerScreenOpened}
         />
         <EmailPage loginScreenOpened={this.state.loginScreenOpened}
           username={this.state.username}
           password={this.state.password}
           signIn={this.signIn.bind(this)}
-          imagetiny={this.state.imagetiny} />
+          imagetiny={this.state.imagetiny}
+          Show={this.state.loginScreenOpened} />
       </div>
     );
 

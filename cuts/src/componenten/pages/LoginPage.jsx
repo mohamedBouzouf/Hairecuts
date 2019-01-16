@@ -31,10 +31,11 @@ export default (props) => (
             </Grid.Row>
             <Grid.Column mobile={8}>
               <Divider horizontal inverted>OR</Divider></Grid.Column>
-            <Grid.Column mobile={16} >
-              <Button className="colorbuttonLogin" bsSize='large'  >
+            <Grid.Column mobile={16} textAlign='center'>
+              <Button className="colorbuttonLogin" bsSize='large' onClick={props.IsClick}  >
                 Login with Email
                   </Button>
+              {/* <Link className="colorbuttonLogin fon" color="white" onClick={props.IsClick}>Login with Email</Link> */}
             </Grid.Column>
             <Grid.Column width={16} >
               <Divider />
@@ -42,7 +43,7 @@ export default (props) => (
             <div style={{ textAlign: 'center', position: 'fixed', bottom: 0 }}>
               <BlockFooter style={{ color: 'white' }}>
                 {`Don't have a account? `}
-                <Link loginScreenOpen=".register-screen" > Register now.</Link>
+                <Link onClick={props.IsClickEm} > Register now.</Link>
               </BlockFooter>
             </div>
           </Grid>

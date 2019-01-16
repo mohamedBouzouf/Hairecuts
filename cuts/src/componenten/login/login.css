@@ -18,15 +18,18 @@
 }
 
 .colorbutton {
-  border: 2px rgb(255, 255, 255) solid;
+  border: none;
   background: rgba(255, 255, 255, 0);
   color: white;
 }
 
 .colorbuttonLogin{
-  border: 2px #ffffffc7 solid;
   background: #0a111f00;  
   color: white;
+}
+
+.colorbuttonLogin.fon{
+  font-size: 18px;
 }
 
 .f :hover{
