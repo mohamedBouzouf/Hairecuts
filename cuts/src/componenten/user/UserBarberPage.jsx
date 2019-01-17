@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 // import Blur from 'react-blur';
 import {
-    Link, Navbar, Row, Col,
+    Link, Row, Col,
     Block, Page,
-    Toolbar,
-    NavRight, NavLeft, NavTitle, Tabs, Tab, PageContent
+    Toolbar,Tabs, Tab, PageContent
 } from 'framework7-react';
 import { Image, Button, Carousel, Glyphicon } from 'react-bootstrap';
 import './user.css';
@@ -13,7 +12,7 @@ import MessagebarberShop from './Message/message';
 import SettingBarberShop from './Setting/setting';
 import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
-import { Divider, Card, Rating } from 'semantic-ui-react';
+import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 
 
 
@@ -57,15 +56,18 @@ class UserBarberPage extends Component {
                         <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
                     <Link tabLink={this.state.tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
                 </Toolbar>
-                <Navbar style={{ position: 'absolute', textAlign: 'center' }} colorTheme='black'>
-                    <NavLeft><Link panelOpen="left"> <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Link></NavLeft>
-                    <NavTitle>Cuts</NavTitle>
-                    <NavRight >
-                        <Link> <Glyphicon glyph="glyphicon glyphicon-th" /></Link>
-                    </NavRight> </Navbar>
+            
+                    
                 <Tabs>
                     <Tab id="tab-1" className="page-content" tabActive>
                         <div className="layer1" >
+                        < Link panelOpen="left" style={{margin: '0',
+                     position: 'absolute', top: '10px', left:'10px'}}
+                         > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Label></Link >
+
+< Link panelOpen="left" style={{margin: '0',
+                     position: 'absolute', top: '10px', right:'10px'}}
+                         > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-option-vertical" /></Label></Link >
                             <div className="headerPhotoRating">
                             </div>
                             <div className="layer2">
@@ -136,7 +138,38 @@ class UserBarberPage extends Component {
 
                                             </Carousel>
                                         </div>
+                                        <Row className='backgrid1' >
+                                            <Col >
+                                            < Link> 
+                                            <Label size="huge" > 
+                                                <Glyphicon glyph="glyphicon glyphicon-heart" />
+                                            </Label>
+                                            </Link >
+                                            </Col>
+                                            <Col >
+                                            < Link> 
+                                            <Label size="huge" > 
+                                                <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
+                                            </Label>
+                                            </Link >
+                                            </Col>
+                                            <Col >
+                                            < Link> 
+                                            <Label size="huge" > 
+                                                <Glyphicon glyph="glyphicon glyphicon-plus" />
+                                            </Label>
+                                            </Link >
+                                            </Col>
+                                            <Col >
+                                            < Link> 
+                                            <Label size="huge" > 
+                                                <Glyphicon glyph="glyphicon glyphicon-star" />
+                                            </Label>
+                                            </Link >
+                                            </Col>       
+                                           
 
+                                        </Row>
                                     </Block>
                                 </div>
                             </div>
