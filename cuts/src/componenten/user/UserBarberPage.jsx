@@ -90,7 +90,7 @@ class UserBarberPage extends Component {
                                         <Divider />
                                         <Row className='backgrid2' >
                                             <Col ><Button bsStyle="primary" >
-                                                <Glyphicon glyph="glyphicon glyphicon-phone-alt" />
+                                                <Glyphicon glyph="glyphicon glyphicon-envelope" />
                                             </Button></Col>
                                             <Col ><Button bsStyle="success" >
                                                 <Glyphicon glyph="glyphicon glyphicon-calendar" />
