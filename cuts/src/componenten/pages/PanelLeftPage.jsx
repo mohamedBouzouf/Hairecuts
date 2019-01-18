@@ -9,11 +9,11 @@ import firebase from '../login/firebaseConfig'
 
 
 export default () => (
-  < Page >
+  <Page >
     <Block strong style={{ margin: 0 }}>
       <BlockHeader>
         <BlockTitle>
-          <Image circle src={require('../../assets/cuts-resizes/cuts-64_x_64.png')} /> <p></p>
+          <Image circle src={require('../../assets/cuts-resizes/cuts-32_x_32.png')} /> <p></p>
           {/* <Divider /> */}
         </BlockTitle>
         {/* <Divider /> */}

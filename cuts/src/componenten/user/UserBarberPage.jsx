@@ -52,7 +52,7 @@ class UserBarberPage extends Component {
         return (
             <Page pageContent={false}>
                 <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink={this.state.tab1} tabLinkActive> <Glyphicon glyph="user" /></Link>
+                    <Link tabLink={this.state.tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
                     <Link tabLink={this.state.tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
                     <Link tabLink={this.state.tab3} routeTabId="tab-3" href="/messenger/">
                         <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
@@ -61,7 +61,9 @@ class UserBarberPage extends Component {
             
                     
                 <Tabs>
-                    <Tab id="tab-1" className="page-content" tabActive>
+                    <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + this.state.photo + ")" , 
+                    backgroundPosition: "center", 
+                    backgroundSize:'cover'}} tabActive>
                         <div className="layer1" >
                         < Link panelOpen="left" style={{margin: '0',
                      position: 'absolute', top: '10px', left:'10px'}}
@@ -83,10 +85,10 @@ class UserBarberPage extends Component {
 
                                         <Row className='backgrid1' >
                                             <Col ><Card
-                                                header="2" meta="barbers" /></Col>
+                                                header="2" color='orange' meta="barbers" /></Col>
                                             <Col ><Card
-                                                header="2" meta="Flex" /></Col>
-                                            <Col ><Card header="Likes" raised
+                                                header="2" color='blue' meta="Flex" /></Col>
+                                            <Col ><Card header="Likes" color='green' raised
                                                 meta="200K" /></Col>
                                         </Row>
                                         <Divider />
@@ -136,41 +138,41 @@ class UserBarberPage extends Component {
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
-
-
                                             </Carousel>
                                         </div>
                                         <Divider/>
                                         <Row className='backgrid1' >
                                             <Col >
+                                            <Label size="large" color='blue'> 
                                             < Link> 
-                                            <Label size="big" > 
-                                                <Glyphicon glyph="glyphicon glyphicon-heart" />
-                                            </Label>
-                                            </Link >
-                                            </Col>
-                                            <Col >
-                                            < Link> 
-                                            <Label size="big" > 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
+                                            </Link>
+                                            <Label.Detail>0</Label.Detail>
                                             </Label>
-                                            </Link >
                                             </Col>
                                             <Col >
+                                            <Label size="large" color="red" > 
                                             < Link> 
-                                            <Label size="big" > 
-                                                <Glyphicon glyph="glyphicon glyphicon-plus" />
+                                                <Glyphicon glyph="glyphicon glyphicon-thumbs-down" />
+                                            </Link>
+                                            <Label.Detail>0</Label.Detail>
                                             </Label>
-                                            </Link >
+                                            </Col>
+                                            <Col>
+                                            <Label size="large" color="black"> 
+                                            <Link> 
+                                                <Glyphicon glyph="user" />
+                                            </Link>
+                                            <Label.Detail>11</Label.Detail>
+                                            </Label>
                                             </Col>
                                             <Col >
-                                            < Link> 
-                                            <Label size="big" > 
+                                            <Label size="large" color="orange">
+                                            < Link panelOpen="left"> 
                                                 <Glyphicon glyph="glyphicon glyphicon-star" />
-                                            </Label>
                                             </Link >
+                                            </Label>
                                             </Col>  
-
                                         </Row>
                                         <Divider/>
                                     </Block>
@@ -179,7 +181,7 @@ class UserBarberPage extends Component {
                         </div>
                     </Tab>
                     <Tab id="tab-2" className="page-content">
-                        <PhotoGalaryBarberShop />
+                        <PhotoGalaryBarberShop  />
                     </Tab>
                     <Tab id="tab-3" className="page-content" h>
                         <PageContent>
