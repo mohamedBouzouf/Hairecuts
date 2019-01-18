@@ -3,3 +3,29 @@
     height: 100%;
     background-color: aqua;
 }
+
+.headerPhotoRating{
+    text-align: center;
+    top: 0;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.883);
+    position: fixed;
+    height: 100%;
+}
+
+
+.sizeImage{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sizeImageCarousel{
+  width: 256px;
+  height: 256px;
+  margin: 0 auto;
+  }
+  
+  .CarousselContainer{
+    widows: 100px;
+    background: rgba(4, 20, 32, 0.178);
+  }

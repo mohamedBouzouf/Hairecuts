@@ -28,7 +28,7 @@ class PhotoGalaryBarberShop extends Component {
         return (
             <Page>
                 <div className="layer1" >
-                    <div className="headerPhotoRating">
+                    <div className="PhotoRating">
                     </div>
                     <div className="layer2">
                         <Divider horizontal inverted>Waves</Divider>

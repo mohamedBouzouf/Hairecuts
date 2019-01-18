@@ -9,21 +9,6 @@
 }
 
 
-.sizeImage{
-  width: 80px;
-  height: 80px;
-}
-
-.sizeImageCarousel{
-width: 280px;
-height: 280px;
-margin: 0 auto;
-}
-
-.CarousselContainer{
-  widows: 100px;
-  background: rgba(4, 20, 32, 0.178);
-}
 
 
 @keyframes App-logo-spin {

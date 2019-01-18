@@ -38,6 +38,8 @@ class UserBarberPage extends Component {
         firebase.auth().onAuthStateChanged(user => {
             var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
             this.setState({ photo: photo });
+            var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
+            this.setState({ name: name });
         })
 
 
@@ -75,7 +77,7 @@ class UserBarberPage extends Component {
                                     textAlign: "center"
                                 }}>
                                     <Image src={this.state.photo} circle className="sizeImage" />
-                                    <h3 style={{ color: 'white' }}>Barber Shop</h3>
+                                    <h5 style={{ color: 'white' }}>{this.state.name}</h5>
                                     <Rating icon='star' defaultRating={5} maxRating={5} />
                                     <Block>
 
@@ -138,38 +140,39 @@ class UserBarberPage extends Component {
 
                                             </Carousel>
                                         </div>
+                                        <Divider/>
                                         <Row className='backgrid1' >
                                             <Col >
                                             < Link> 
-                                            <Label size="huge" > 
+                                            <Label size="big" > 
                                                 <Glyphicon glyph="glyphicon glyphicon-heart" />
                                             </Label>
                                             </Link >
                                             </Col>
                                             <Col >
                                             < Link> 
-                                            <Label size="huge" > 
+                                            <Label size="big" > 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
                                             </Label>
                                             </Link >
                                             </Col>
                                             <Col >
                                             < Link> 
-                                            <Label size="huge" > 
+                                            <Label size="big" > 
                                                 <Glyphicon glyph="glyphicon glyphicon-plus" />
                                             </Label>
                                             </Link >
                                             </Col>
                                             <Col >
                                             < Link> 
-                                            <Label size="huge" > 
+                                            <Label size="big" > 
                                                 <Glyphicon glyph="glyphicon glyphicon-star" />
                                             </Label>
                                             </Link >
-                                            </Col>       
-                                           
+                                            </Col>  
 
                                         </Row>
+                                        <Divider/>
                                     </Block>
                                 </div>
                             </div>
