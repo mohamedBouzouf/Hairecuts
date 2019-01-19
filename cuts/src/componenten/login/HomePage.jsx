@@ -34,8 +34,6 @@ class Authentication extends Component {
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user === null) {
-
-
       } else {
         this.setState({ current: false })
         this.$f7.router.navigate('/userbarberpage/');
@@ -60,13 +58,20 @@ class Authentication extends Component {
           IsClickEm={() => this.setState({ registerScreenOpened: true })}
 
         />
+
+                {/* /*
+                        Login Screen
+        */}
+        <EmailPage loginScreenOpened={this.state.loginScreenOpened}
+          username={this.state.username}
+          password={this.state.password}
+          signIn={this.signIn.bind(this)}
+          imagetiny={this.state.imagetiny}
+          Show={this.state.loginScreenOpened} />
         {/* /*
                         Register Screen
 
           */}
-        {/* /*
-                        Login Screen
-        */}
         <RegisterPage
           registerScreenOpened={this.state.registerScreenOpened}
           R_username={this.state.R_username}
@@ -76,12 +81,7 @@ class Authentication extends Component {
           imagetiny={this.state.imagetiny}
           Show={this.state.registerScreenOpened}
         />
-        <EmailPage loginScreenOpened={this.state.loginScreenOpened}
-          username={this.state.username}
-          password={this.state.password}
-          signIn={this.signIn.bind(this)}
-          imagetiny={this.state.imagetiny}
-          Show={this.state.loginScreenOpened} />
+        
       </div>
     );
 

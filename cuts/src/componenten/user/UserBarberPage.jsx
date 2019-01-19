@@ -88,8 +88,8 @@ class UserBarberPage extends Component {
                                                 header="2" color='orange' meta="barbers" /></Col>
                                             <Col ><Card
                                                 header="2" color='blue' meta="Flex" /></Col>
-                                            <Col ><Card header="Likes" color='green' raised
-                                                meta="200K" /></Col>
+                                            <Col ><Card header="200K" color='green' raised
+                                                meta="Likes" /></Col>
                                         </Row>
                                         <Divider />
                                         <Row className='backgrid2' >
