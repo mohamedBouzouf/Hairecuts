@@ -7,33 +7,18 @@ import {
 } from 'framework7-react';
 import { Image, Button, Carousel, Glyphicon } from 'react-bootstrap';
 import './user.css';
-import '../App.css';
 import MessagebarberShop from './Message/message';
 import SettingBarberShop from './Setting/setting';
 import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 
-
-
 class UserBarberPage extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            isBottom: false,
-            tab1: '#tab-1',
-            tab2: '#tab-2',
-            tab3: '#tab-3',
-            tab4: '#tab-4',
-            photo: '',
-            name: '',
-            id: ''
-
         }
     }
-
-
     componentDidMount() {
         firebase.auth().onAuthStateChanged(user => {
             var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
@@ -41,15 +26,9 @@ class UserBarberPage extends Component {
             var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
             this.setState({ name: name });
         })
-
-
     }
-
-
-
-
     render() {
-        return (
+        return (         
             <Page pageContent={false}>
                 <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
                     <Link tabLink={this.state.tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
@@ -58,8 +37,6 @@ class UserBarberPage extends Component {
                         <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
                     <Link tabLink={this.state.tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
                 </Toolbar>
-            
-                    
                 <Tabs>
                     <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + this.state.photo + ")" , 
                     backgroundPosition: "center", 
@@ -69,7 +46,7 @@ class UserBarberPage extends Component {
                      position: 'absolute', top: '10px', left:'10px'}}
                          > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Label></Link >
 
-< Link panelOpen="left" style={{margin: '0',
+                    < Link panelOpen="left" style={{margin: '0',
                      position: 'absolute', top: '10px', right:'10px'}}
                          > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-option-vertical" /></Label></Link >
                             <div className="headerPhotoRating">
@@ -82,7 +59,6 @@ class UserBarberPage extends Component {
                                     <h5 style={{ color: 'white' }}>{this.state.name}</h5>
                                     <Rating icon='star' defaultRating={5} maxRating={5} />
                                     <Block>
-
                                         <Row className='backgrid1' >
                                             <Col ><Card
                                                 header="2" color='orange' meta="barbers" /></Col>
@@ -194,9 +170,7 @@ class UserBarberPage extends Component {
                         </PageContent>
                     </Tab>
                 </Tabs>
-
             </Page >
-
         )
     }
 }

@@ -5,32 +5,14 @@ import './login.css';
 import RegisterPage from '../pages/RegisterPage';
 import EmailPage from '../pages/EmailPage';
 import LoginPage from '../pages/LoginPage';
+import {connect} from 'react-redux';
+// import PropTypes from 'prop-types';
+import { GET_HOME } from '../../Actions/types';
 
-
-
-
-class Authentication extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      loginScreenOpened: false,
-      registerScreenOpened: false,
-      username: '',
-      password: '',
-      R_username: '',
-      R_password: '',
-      R_confirmpassword: '',
-      current: true,
-      IsSignOut: true,
-      image: require('../../assets/logo/Cuts64_X_64W.png'),
-      imagetiny: require('../../assets/logo/Cuts64_X_64W.png')
-    };
-  }
-
+class HomePage extends Component {
   componentDidMount() {
+    this.props.getLogin();
     this.setState({ IsSignOut: false })
-
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
       if (user === null) {
@@ -45,15 +27,24 @@ class Authentication extends Component {
     const {
       signInWithGoogle,
       signInWithFacebook,
+      image,
+      loginScreenOpened,
+      registerScreenOpened,
+      username,
+      R_username,
+      password,
+      R_password, 
+      imagetiny,
+      R_confirmpassword
     } = this.props;
 
     // const { email, password } = this.state;
     return (
       <div className="App">
-        <LoginPage image={this.state.image}
+        <LoginPage image={image}
           signInWithFacebook={signInWithFacebook}
           signInWithGoogle={signInWithGoogle}
-          loginScreenOpened={this.state.loginScreenOpened}
+          loginScreenOpened={loginScreenOpened}
           IsClick={() => this.setState({ loginScreenOpened: true })}
           IsClickEm={() => this.setState({ registerScreenOpened: true })}
 
@@ -62,26 +53,25 @@ class Authentication extends Component {
                 {/* /*
                         Login Screen
         */}
-        <EmailPage loginScreenOpened={this.state.loginScreenOpened}
-          username={this.state.username}
-          password={this.state.password}
+        <EmailPage loginScreenOpened={loginScreenOpened}
+          username={username}
+          password={password}
           signIn={this.signIn.bind(this)}
-          imagetiny={this.state.imagetiny}
-          Show={this.state.loginScreenOpened} />
+          imagetiny={imagetiny}
+          Show={loginScreenOpened} />
         {/* /*
                         Register Screen
 
           */}
         <RegisterPage
-          registerScreenOpened={this.state.registerScreenOpened}
-          R_username={this.state.R_username}
-          R_password={this.state.R_password}
-          confirmpassword={this.state.R_confirmpassword}
+          registerScreenOpened={registerScreenOpened}
+          R_username={R_username}
+          R_password={R_password}
+          confirmpassword={R_confirmpassword}
           registrationSuccess={this.registrationSuccess.bind(this)}
-          imagetiny={this.state.imagetiny}
-          Show={this.state.registerScreenOpened}
-        />
-        
+          imagetiny={imagetiny}
+          Show={registerScreenOpened}
+        />   
       </div>
     );
 
@@ -157,4 +147,17 @@ const authConfig = {
   }
 };
 
-export default withFirebaseAuth(Authentication, firebase, authConfig);
+// HomePage.prototype = {
+//   login: PropTypes.array.isRequired,
+//   getLogin: PropTypes.func.isRequired
+// }
+
+const mapStateToProps = (state) => ({
+  image : state.login.image
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  getLogin: () => dispatch({type : GET_HOME})
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(withFirebaseAuth(HomePage, firebase, authConfig));

@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import "semantic-ui-css/semantic.min.css";
 
+import {Provider} from 'react-redux';
+import store from '../store';
+
 
 import {
   App,
@@ -36,6 +39,7 @@ export default function (props) {
   };
 
   return (
+    <Provider store={store}>
     <App params={f7params}>
       {/* Statusbar */}
       <Statusbar />
@@ -92,6 +96,7 @@ export default function (props) {
         </View>
       </LoginScreen>
     </App>
+    </Provider>
   );
 };
 
