@@ -1,4 +1,4 @@
-import {GET_USER} from '../Actions/types';
+import {GET_USER, SET_USERBARBER_IMAGE} from '../Actions/types';
 const init = {
             isBottom: false,
             tab1: '#tab-1',
@@ -26,6 +26,12 @@ export default function(state = init, action){
         return{
             ...state
         }
+        case SET_USERBARBER_IMAGE:
+        return{
+            ...state,
+            photo: action.text
+        }
+    
         default:
         return state;
 

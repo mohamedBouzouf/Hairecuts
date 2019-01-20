@@ -12,33 +12,56 @@ import SettingBarberShop from './Setting/setting';
 import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {getUser, SetUserImage} from '../../Actions/userBarberPageAction';
+
+
 
 class UserBarberPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }
-    }
+    
     componentDidMount() {
+
         firebase.auth().onAuthStateChanged(user => {
+            
             var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
-            this.setState({ photo: photo });
             var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
-            this.setState({ name: name });
+            console.log(this.props.SetUserImage(this,photo));
+
         })
     }
     render() {
+        const {
+            isBottom,
+            tab1,
+            tab2,
+            tab3,
+            tab4,
+            photo,
+            photos,
+            likes,
+            dislikes, 
+            IsFavorite,
+            appointment,
+            sendermail,
+            sender,
+            rating,
+            receiver,
+            name,
+            id
+
+        } = this.props.user;
+        
         return (         
             <Page pageContent={false}>
-                <Toolbar tabbar bottomMd={!this.state.isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink={this.state.tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
-                    <Link tabLink={this.state.tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
-                    <Link tabLink={this.state.tab3} routeTabId="tab-3" href="/messenger/">
+                <Toolbar tabbar bottomMd={!isBottom} style={{ position: 'absolute' }} colorTheme='black'>
+                    <Link tabLink={tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
+                    <Link tabLink={tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
+                    <Link tabLink={tab3} routeTabId="tab-3" href="/messenger/">
                         <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
-                    <Link tabLink={this.state.tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
+                    <Link tabLink={tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
                 </Toolbar>
                 <Tabs>
-                    <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + this.state.photo + ")" , 
+                    <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + photo + ")" , 
                     backgroundPosition: "center", 
                     backgroundSize:'cover'}} tabActive>
                         <div className="layer1" >
@@ -56,8 +79,8 @@ class UserBarberPage extends Component {
                                 <div style={{
                                     textAlign: "center"
                                 }}>
-                                    <Image src={this.state.photo} circle className="sizeImage" />
-                                    <h5 style={{ color: 'white' }}>{this.state.name}</h5>
+                                    <Image src={photo} circle className="sizeImage" />
+                                    <h5 style={{ color: 'white' }}>{name}</h5>
                                     <Rating icon='star' defaultRating={5} maxRating={5} />
                                     <Block>
                                         <Row className='backgrid1' >
@@ -81,35 +104,35 @@ class UserBarberPage extends Component {
                                         <div className="CarousselContainer">
                                             <Carousel className="sizeImageCarousel" >
                                                 <Carousel.Item>
-                                                    <Image src={this.state.photo} />
+                                                    <Image src={photo} />
                                                     <Carousel.Caption>
                                                         <h3>Waves</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={this.state.photo} />
+                                                    <Image src={photo} />
                                                     <Carousel.Caption>
                                                         <h3>Dreads</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={this.state.photo} />
+                                                    <Image src={photo} />
                                                     <Carousel.Caption>
                                                         <h3>Weaves</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={this.state.photo} />
+                                                    <Image src={photo} />
                                                     <Carousel.Caption>
                                                         <h3>Fades</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={this.state.photo} />
+                                                    <Image src={photo} />
                                                     <Carousel.Caption>
                                                         <h3>Specials</h3>
                                                         <p>the new flow</p>
@@ -185,4 +208,8 @@ class UserBarberPage extends Component {
     }
 }
 
-export default UserBarberPage
+const mapStateToProps = (state) => ({
+    user : state.userBarber
+  });
+
+export default connect(mapStateToProps,{getUser,SetUserImage})(UserBarberPage);

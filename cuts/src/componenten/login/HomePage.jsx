@@ -19,7 +19,6 @@ class HomePage extends Component {
       console.log(user);
       if (user === null) {
       } else {
-        this.setState({ current: false })
         this.$f7.router.navigate('/userbarberpage/');
       }
     })
