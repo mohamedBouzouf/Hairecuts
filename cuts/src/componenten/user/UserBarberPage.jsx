@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {
     Link, Row, Col,
     Block, Page,
-    Toolbar,Tabs, Tab, PageContent
+    Toolbar,Tabs, Tab, PageContent, List, ListItem,Popover
 } from 'framework7-react';
 import { Image, Button, Carousel, Glyphicon } from 'react-bootstrap';
 import './user.css';
@@ -43,12 +43,13 @@ class UserBarberPage extends Component {
                     backgroundSize:'cover'}} tabActive>
                         <div className="layer1" >
                         < Link panelOpen="left" style={{margin: '0',
-                     position: 'absolute', top: '10px', left:'10px'}}
-                         > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Label></Link >
+                     position: 'absolute', top: '15px', left:'15px', color:'white'}}
+                         ><h3><Glyphicon  glyph="glyphicon glyphicon-menu-hamburger" /></h3></Link >
+                         {/* <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-menu-hamburger" /></Label></Link > */}
 
-                    < Link panelOpen="left" style={{margin: '0',
-                     position: 'absolute', top: '10px', right:'10px'}}
-                         > <Label size="large" > <Glyphicon glyph="glyphicon glyphicon-option-vertical" /></Label></Link >
+                    < Link popoverOpen=".popover-menu" style={{margin: '0',
+                     position: 'absolute', top: '15px', right:'15px', color:'white'}}
+                         > <h3><Glyphicon glyph="glyphicon glyphicon-option-vertical"  /></h3></Link >
                             <div className="headerPhotoRating">
                             </div>
                             <div className="layer2">
@@ -154,6 +155,15 @@ class UserBarberPage extends Component {
                                     </Block>
                                 </div>
                             </div>
+                            <Popover colorTheme='black' className="popover-menu">
+      <List>
+        <ListItem link="#" popoverClose title="Dialog" />
+        <ListItem link="#" popoverClose title="Tabs" />
+        <ListItem link="#" popoverClose title="Side Panels" />
+        <ListItem link="#" popoverClose title="List View" />
+        <ListItem link="#" popoverClose title="Form Inputs" />
+      </List>
+    </Popover>
                         </div>
                     </Tab>
                     <Tab id="tab-2" className="page-content">

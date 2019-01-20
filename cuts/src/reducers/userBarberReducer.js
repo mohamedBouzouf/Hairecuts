@@ -6,6 +6,15 @@ const init = {
             tab3: '#tab-3',
             tab4: '#tab-4',
             photo: '',
+            photos: [],
+            likes:0,
+            dislikes:0, 
+            IsFavorite: false,
+            appointment: Date,
+            sendermail: '',
+            sender:'',
+            rating:0,
+            receiver:'',
             name: '',
             id: ''
 }
