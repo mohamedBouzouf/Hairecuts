@@ -7,11 +7,13 @@ import EmailPage from '../pages/EmailPage';
 import LoginPage from '../pages/LoginPage';
 import {connect} from 'react-redux';
 // import PropTypes from 'prop-types';
-import { GET_HOME } from '../../Actions/types';
+import {getLogin, boolEMAIL, boolRegister} from '../../Actions/login-action';
+
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.getLogin();
+    // this.props.getLogin();
+    // console.log(this.props.login)
     this.setState({ IsSignOut: false })
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
@@ -25,8 +27,6 @@ class HomePage extends Component {
 
   render() {
     const {
-      signInWithGoogle,
-      signInWithFacebook,
       image,
       loginScreenOpened,
       registerScreenOpened,
@@ -36,7 +36,10 @@ class HomePage extends Component {
       R_password, 
       imagetiny,
       R_confirmpassword
-    } = this.props;
+    } = this.props.login;
+
+    const { signInWithGoogle,
+      signInWithFacebook} =this.props;
 
     // const { email, password } = this.state;
     return (
@@ -45,8 +48,8 @@ class HomePage extends Component {
           signInWithFacebook={signInWithFacebook}
           signInWithGoogle={signInWithGoogle}
           loginScreenOpened={loginScreenOpened}
-          IsClick={() => this.setState({ loginScreenOpened: true })}
-          IsClickEm={() => this.setState({ registerScreenOpened: true })}
+          IsClick={this.props.boolEMAIL.bind(this,loginScreenOpened)}
+          IsClickEm={this.props.boolRegister.bind(this,registerScreenOpened)}
 
         />
 
@@ -153,11 +156,9 @@ const authConfig = {
 // }
 
 const mapStateToProps = (state) => ({
-  image : state.login.image
+  login : state.login
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  getLogin: () => dispatch({type : GET_HOME})
-})
 
-export default connect(mapStateToProps,mapDispatchToProps)(withFirebaseAuth(HomePage, firebase, authConfig));
+
+export default connect(mapStateToProps,{getLogin,boolEMAIL,boolRegister})(withFirebaseAuth(HomePage, firebase, authConfig));

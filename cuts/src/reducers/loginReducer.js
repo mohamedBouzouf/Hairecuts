@@ -1,4 +1,4 @@
-import { GET_HOME } from '../Actions/types';
+import { GET_HOME, BOOL_EMAIL, BOOL_REGISTER } from '../Actions/types';
 
 const init = {
     loginScreenOpened: false,
@@ -24,6 +24,14 @@ export default function(state = init, action){
         return{
             ...state
         }
+        case BOOL_EMAIL:
+        return Object.assign({}, state, {
+            loginScreenOpened: !state.loginScreenOpened
+        });
+        case BOOL_REGISTER:
+        return Object.assign({}, state, {
+            registerScreenOpened: !state.registerScreenOpened
+        });
         default:
         return state;
 
