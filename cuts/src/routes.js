@@ -14,7 +14,7 @@ import firebase from './componenten/login/firebaseConfig'
 export default [
   {
     path: '/',
-    component: UserBarberPage,
+    component: HomePage,
   },
   {
     path: '/home/',

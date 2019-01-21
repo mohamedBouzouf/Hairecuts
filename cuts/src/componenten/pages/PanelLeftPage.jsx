@@ -17,7 +17,7 @@ export default () => (
         {/* <Divider/> */}
       </BlockHeader>
     </Block>
-    <BlockTitle><h3>User</h3></BlockTitle>
+    <BlockTitle><h3 style={{color:'white'}}>User</h3></BlockTitle>
     <List as='a' mediaList inset>
       <ListItem link='/userbarberpage/userpage/' panelClose>
       <div className="item-content">
