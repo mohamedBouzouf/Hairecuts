@@ -1,4 +1,4 @@
-import {GET_USERBARBER, SET_USERBARBER_IMAGE, SET_USERBARBER_NAME} from '../Actions/types';
+import {GET_USERBARBER, SET_USERBARBER_CHANGES} from '../Actions/types';
 const init = {
             isBottom: false,
             tab1: '#tab-1',
@@ -6,11 +6,20 @@ const init = {
             tab3: '#tab-3',
             tab4: '#tab-4',
             photo: '',
-            photos: [],
+            photos: [
+                {
+                    New:[]
+                },{
+                    Best:[]
+                },{
+                    Old:[]
+                }
+            ],
             likes:0,
             dislikes:0, 
             IsFavorite: false,
             appointment: Date,
+            followers: 0,
             sendermail: '',
             sender:'',
             rating:0,
@@ -26,16 +35,11 @@ export default function(state = init, action){
         return{
             ...state
         }
-        case SET_USERBARBER_IMAGE:
+        case SET_USERBARBER_CHANGES:
         return Object.assign({}, state, {
-            photo: state.photo
-          })
-
-        case SET_USERBARBER_NAME:
-        return Object.assign({}, state, {
+            photo: state.photo,
             name: state.name
           })
-    
         default:
         return state;
 

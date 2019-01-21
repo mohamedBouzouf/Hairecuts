@@ -1,25 +1,18 @@
-import {GET_USERBARBER,SET_USERBARBER_IMAGE, SET_USERBARBER_NAME} from './types';
+import {GET_USERBARBER,SET_USERBARBER_CHANGES} from './types';
 
-export const getUser = () =>
+export const getUserBarber = () =>
 {
     return {
         type: GET_USERBARBER
     };
 }
 
-export const SetUserImage = (photo) =>
+export const SetUserBarberChanges = (changes) =>
 {
     return{
-        type: SET_USERBARBER_IMAGE,
-        photo: photo
+        type: SET_USERBARBER_CHANGES,
+        changes: changes
     }
 }
 
-export const SetUserName = (name) =>
-{
-    return{
-        type: SET_USERBARBER_NAME,
-        name: name
-    }
-}
 

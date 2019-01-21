@@ -13,9 +13,8 @@ import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {getUser, 
-    SetUserImage, 
-    SetUserName} from '../../Actions/userBarberPageAction';
+import {getUserBarber, 
+    SetUserBarberChanges} from '../../Actions/userBarberPageAction';
 
 
 
@@ -27,11 +26,12 @@ class UserBarberPage extends Component {
             
             var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
             var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
-            this.props.user.photo = photo;
-            this.props.user.name = name;
+            this.props.userBarber.photo = photo;
+            this.props.userBarber.name = name;
 
-            this.props.SetUserImage(this.props.user.photo);
-            this.props.SetUserName(this.props.user.name);
+            //this.props.SetUserImage(this.props.userBarber.photo);
+            console.log(this.props);
+            this.props.SetUserBarberChanges(this.props.userBarber);
 
         })
     }
@@ -48,6 +48,7 @@ class UserBarberPage extends Component {
             dislikes, 
             IsFavorite,
             appointment,
+            followers,
             sendermail,
             sender,
             rating,
@@ -55,7 +56,7 @@ class UserBarberPage extends Component {
             name,
             id
 
-        } = this.props.user;
+        } = this.props.userBarber;
         
         return (         
             <Page pageContent={false}>
@@ -94,7 +95,7 @@ class UserBarberPage extends Component {
                                                 header="2" color='orange' meta="barbers" /></Col>
                                             <Col ><Card
                                                 header="2" color='blue' meta="Flex" /></Col>
-                                            <Col ><Card header="200K" color='green' raised
+                                            <Col ><Card header={followers+'k'} color='green' raised
                                                 meta="Likes" /></Col>
                                         </Row>
                                         <Divider />
@@ -153,7 +154,7 @@ class UserBarberPage extends Component {
                                             < Link> 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
                                             </Link>
-                                            <Label.Detail>0</Label.Detail>
+                                            <Label.Detail>{likes}</Label.Detail>
                                             </Label>
                                             </Col>
                                             <Col >
@@ -161,7 +162,7 @@ class UserBarberPage extends Component {
                                             < Link> 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-down" />
                                             </Link>
-                                            <Label.Detail>0</Label.Detail>
+                                            <Label.Detail>{dislikes}</Label.Detail>
                                             </Label>
                                             </Col>
                                             <Col>
@@ -174,7 +175,7 @@ class UserBarberPage extends Component {
                                             </Col>
                                             <Col >
                                             <Label size="large" color="orange">
-                                            < Link panelOpen="left"> 
+                                            <Link panelOpen="left"> 
                                                 <Glyphicon glyph="glyphicon glyphicon-star" />
                                             </Link >
                                             </Label>
@@ -215,7 +216,7 @@ class UserBarberPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user : state.userBarber
+    userBarber : state.userBarber
   });
 
-export default connect(mapStateToProps,{getUser,SetUserImage,SetUserName})(UserBarberPage);
+export default connect(mapStateToProps,{getUserBarber,SetUserBarberChanges})(UserBarberPage);
