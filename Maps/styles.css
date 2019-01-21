@@ -1,0 +1,22 @@
+#map{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+}
+
+
+body{
+    margin:0;
+}
+
+#sidebar{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 325px;
+    max-width: 100%;
+    height: 500px;
+    max-height: 100vh;
+    z-index:100 ;
+}

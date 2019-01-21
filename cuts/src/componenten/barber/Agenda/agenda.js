@@ -3,9 +3,9 @@ import Calendar from 'react-big-calendar'
 import moment from 'moment'
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 
-Calendar.setLocalizer(Calendar.momentLocalizer(moment));
+const calender = Calendar.setLocalizer(Calendar.momentLocalizer(moment));
 
-const DnDCalendar = withDragAndDrop(Calendar);
+const DnDCalendar = withDragAndDrop(calender);
 
 class Agenda extends Component {
 
