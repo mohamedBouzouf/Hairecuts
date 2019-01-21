@@ -21,9 +21,6 @@ class PhotoGalaryBarberShop extends Component {
         // simulate img loading
     }
 
-
-
-
     render() {
         return (
             <Page>
@@ -31,23 +28,22 @@ class PhotoGalaryBarberShop extends Component {
                     <div className="PhotoRating">
                     </div>
                     <div className="layer2">
-                        <Divider horizontal inverted>Waves</Divider>
+                        <Divider horizontal inverted>New Cuts</Divider>
                         <Swiper className="photogallery">
                             <SwiperSlide><Image centered size='small' src='#' /></SwiperSlide>
                             <SwiperSlide>Pieter</SwiperSlide>
                             <SwiperSlide>Tom</SwiperSlide>
                         </Swiper>
-                        <Divider horizontal inverted>Waves</Divider>
+                        <Divider horizontal inverted>Best Cuts</Divider>
                         <Swiper className="photogalleryblack">
                             <SwiperSlide><Image centered size='medium' src='#' /></SwiperSlide>
 
                             <SwiperSlide>Pieter</SwiperSlide>
                             <SwiperSlide>Tom</SwiperSlide>
                         </Swiper>
-                        <Divider horizontal inverted>Waves</Divider>
+                        <Divider horizontal inverted>OR</Divider>
                         <Swiper className="photogallery">
-                            <SwiperSlide><Image centered size='small' src='#' /></SwiperSlide>
-
+                            <SwiperSlide><Image centered size='small' src='#'/>Old Cuts</SwiperSlide>
                             <SwiperSlide>Pieter</SwiperSlide>
                             <SwiperSlide>Tom</SwiperSlide>
                         </Swiper>

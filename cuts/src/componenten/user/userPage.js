@@ -69,18 +69,15 @@ class User extends Component {
                                 <List.Item > < h3 > Lid sinds 17 Januari 2018 </h3></List.Item>
                                 <List.Item> Aantal keren aangemeld: 10 </List.Item>
                             </List> <Divider />
-                                <h3>Recent visited Barbershops</h3>
+                                <h4>Recent visited Barbershops...</h4>
                                 <List>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Luckas</h5> <h6> <Rating icon='star' defaultRating={3} maxRating={5}/></h6> </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > KiingZ</h5> <h6> <Rating icon='star' defaultRating={2} maxRating={5}/></h6>  </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Royal </h5> <h6> <Rating icon='star' defaultRating={4} maxRating={5}/> </h6> </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Luckas </h5> <h6> <Rating icon='star' defaultRating={3} maxRating={5}/></h6> </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > KiingZ </h5> <h6> <Rating icon='star' defaultRating={2} maxRating={5}/></h6>  </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Royal  </h5> <h6> <Rating icon='star' defaultRating={4} maxRating={5}/> </h6> </ListItem>
                                 <ListItem link='#' className='listRecentBarberShop'> < h5 > Begring </h5><h6> <Rating icon='star' defaultRating={1} maxRating={5}/> </h6> </ListItem>
-                                
                                 </List>
-                                
-                            <BlockFooter >
-                                <p>Berre</p> </BlockFooter >
-                        </div> </div ></Page>
+                            </div>
+                         </div ></Page>
 
         )
     }

@@ -64,8 +64,8 @@ class UserBarberPage extends Component {
                     <Link tabLink={tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
                     <Link tabLink={tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
                     <Link tabLink={tab3} routeTabId="tab-3" href="/messenger/">
-                        <Glyphicon glyph="glyphicon glyphicon-send" /></Link>
-                    <Link tabLink={tab4}> <Glyphicon glyph="glyphicon glyphicon-cog" /></Link>
+                        <Glyphicon glyph="glyphicon glyphicon-comment" /></Link>
+                    <Link tabLink={tab4}> <Glyphicon glyph="glyphicon glyphicon-comment" /></Link>
                 </Toolbar>
                 <Tabs>
                     <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + photo + ")" , 
