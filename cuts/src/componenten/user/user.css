@@ -1,0 +1,52 @@
+.test{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.headerPhotoRating{
+    text-align: center;
+    top: 0;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.883);
+    position: fixed;
+    height: 100%;
+}
+
+
+.sizeImage{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .sizeImageCarousel{
+  width: 256px;
+  height: 256px;
+  margin: 0 auto;
+  }
+  
+  .CarousselContainer{
+    widows: 100px;
+    background: rgba(4, 20, 32, 0.178);
+  }
+
+  .listRecentBarberShop{
+      background-color: rgba(255, 250, 250, 0.082);
+      border: 0.5px solid rgba(255, 255, 255, 0.144);
+      margin-bottom: 10px;
+  }
+
+  .navPL{
+    text-align: center;
+    top: 0;
+    width: 100%;
+    background-color:rgba(15, 0, 0, 0.918);
+    position: fixed;
+    height: 100%;
+  }
+
+  .listRecentBarberShop h5, h6{
+     margin: 10px;
+  }
+
+  

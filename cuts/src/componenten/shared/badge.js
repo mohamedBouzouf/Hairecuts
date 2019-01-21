@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
 
-class Badge extends Component {
-    render() {
-        return (
-            <div>
+// class Badge extends Component {
+//     render() {
+//         return (
+//             <div>
 
-            </div>
-        )
-    }
-}
+//             </div>
+//         )
+//     }
+// }
 
-export default Badge
+// export default Badge
