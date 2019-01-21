@@ -13,7 +13,7 @@ import {getLogin, boolEMAIL, boolRegister} from '../../Actions/login-action';
 class HomePage extends Component {
   componentDidMount() {
     // this.props.getLogin();
-    // console.log(this.props.login)
+    console.log(this.props.boolEMAIL.bind(this,this.props.login.loginScreenOpened))
     this.setState({ IsSignOut: false })
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);

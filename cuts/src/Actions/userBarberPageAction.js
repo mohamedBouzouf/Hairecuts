@@ -1,9 +1,9 @@
-import {GET_USER,SET_USERBARBER_IMAGE} from './types';
+import {GET_USERBARBER,SET_USERBARBER_IMAGE, SET_USERBARBER_NAME} from './types';
 
 export const getUser = () =>
 {
     return {
-        type: GET_USER
+        type: GET_USERBARBER
     };
 }
 
@@ -14,3 +14,12 @@ export const SetUserImage = (photo) =>
         photo: photo
     }
 }
+
+export const SetUserName = (name) =>
+{
+    return{
+        type: SET_USERBARBER_NAME,
+        name: name
+    }
+}
+

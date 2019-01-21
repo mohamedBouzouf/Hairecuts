@@ -13,7 +13,9 @@ import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {getUser, SetUserImage} from '../../Actions/userBarberPageAction';
+import {getUser, 
+    SetUserImage, 
+    SetUserName} from '../../Actions/userBarberPageAction';
 
 
 
@@ -25,7 +27,11 @@ class UserBarberPage extends Component {
             
             var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
             var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
-            console.log(this.props.SetUserImage(this,photo));
+            this.props.user.photo = photo;
+            this.props.user.name = name;
+
+            this.props.SetUserImage(this.props.user.photo);
+            this.props.SetUserName(this.props.user.name);
 
         })
     }
@@ -212,4 +218,4 @@ const mapStateToProps = (state) => ({
     user : state.userBarber
   });
 
-export default connect(mapStateToProps,{getUser,SetUserImage})(UserBarberPage);
+export default connect(mapStateToProps,{getUser,SetUserImage,SetUserName})(UserBarberPage);

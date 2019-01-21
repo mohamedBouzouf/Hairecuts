@@ -1,4 +1,4 @@
-import {GET_USER, SET_USERBARBER_IMAGE} from '../Actions/types';
+import {GET_USERBARBER, SET_USERBARBER_IMAGE, SET_USERBARBER_NAME} from '../Actions/types';
 const init = {
             isBottom: false,
             tab1: '#tab-1',
@@ -22,15 +22,19 @@ const init = {
 export default function(state = init, action){
 
     switch(action.type){
-        case GET_USER:
+        case GET_USERBARBER:
         return{
             ...state
         }
         case SET_USERBARBER_IMAGE:
-        return{
-            ...state,
-            photo: action.text
-        }
+        return Object.assign({}, state, {
+            photo: state.photo
+          })
+
+        case SET_USERBARBER_NAME:
+        return Object.assign({}, state, {
+            name: state.name
+          })
     
         default:
         return state;
