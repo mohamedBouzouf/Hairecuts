@@ -24,10 +24,10 @@ class UserBarberPage extends Component {
 
         firebase.auth().onAuthStateChanged(user => {
             
-            var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
-            var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
-            this.props.userBarber.photo = photo;
-            this.props.userBarber.name = name;
+            // var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
+            // var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
+            this.props.userBarber.photo = 'https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/17264402_1339727229399271_782552105993961646_n.jpg?_nc_cat=109&_nc_ht=scontent-bru2-1.xx&oh=0b5c5d417ccb9f114bb4321e974f341e&oe=5CBCC37C';
+            this.props.userBarber.name = 'Lionlockx Hair Studios' ;
 
             //this.props.SetUserImage(this.props.userBarber.photo);
             console.log(this.props);
@@ -187,11 +187,8 @@ class UserBarberPage extends Component {
                             </div>
                             <Popover colorTheme='black' className="popover-menu">
       <List>
-        <ListItem link="#" popoverClose title="Dialog" />
-        <ListItem link="#" popoverClose title="Tabs" />
-        <ListItem link="#" popoverClose title="Side Panels" />
-        <ListItem link="#" popoverClose title="List View" />
-        <ListItem link="#" popoverClose title="Form Inputs" />
+        <ListItem link="#" popoverClose title="No Need for the moment" />
+        <ListItem link="#" popoverClose title="No Need for the moment" />
       </List>
     </Popover>
                         </div>
