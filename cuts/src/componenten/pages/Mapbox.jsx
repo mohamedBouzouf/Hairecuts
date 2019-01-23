@@ -1,7 +1,8 @@
 import React from 'react';
-mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
-import { stores } from '../../sweetgreen.js';
+import { stores } from '../../sweetgreen';
 import Sidebar from './Sidebar.jsx';
+
+mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
 
 class Mapbox extends React.Component {
   constructor(props) {
