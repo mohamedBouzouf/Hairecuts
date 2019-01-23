@@ -16,6 +16,7 @@ import './user.css';
 import {connect} from 'react-redux';
 import {getUser,setUser} from '../../Actions/userAction';
 import firebase from '../../componenten/login/firebaseConfig';
+import { Button } from 'react-bootstrap';
 
 class User extends Component {
 
@@ -75,6 +76,10 @@ class User extends Component {
                                 <ListItem link='#' className='listRecentBarberShop'> < h5 > KiingZ </h5> <h6> <Rating icon='star' defaultRating={2} maxRating={5}/></h6>  </ListItem>
                                 <ListItem link='#' className='listRecentBarberShop'> < h5 > Royal  </h5> <h6> <Rating icon='star' defaultRating={4} maxRating={5}/> </h6> </ListItem>
                                 <ListItem link='#' className='listRecentBarberShop'> < h5 > Begring </h5><h6> <Rating icon='star' defaultRating={1} maxRating={5}/> </h6> </ListItem>
+                                <ListItem><Button bsStyle="primary" bsSize="large" onClick={() => { 
+                                    firebase.auth().signOut();
+                                    this.$f7.router.navigate('/userbarberpage/');
+                                } }>Sign Out</Button></ListItem>
                                 </List>
                             </div>
                          </div ></Page>
