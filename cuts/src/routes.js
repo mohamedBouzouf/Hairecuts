@@ -15,7 +15,7 @@ import Mapbox from './componenten/pages/Mapbox';
 export default [
   {
     path: '/',
-    component: Mapbox,
+    component: HomePage,
   },
   {
     path: '/home/',

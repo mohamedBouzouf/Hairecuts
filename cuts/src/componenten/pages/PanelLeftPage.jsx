@@ -8,17 +8,9 @@ export default () => (
   <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts-128_x_128.png')+")" , 
   backgroundPosition: "center"}}>
     <div className="navPL">
-    <Block strong style={{ margin: 0, backgroundColor:'white' }}>
-      <BlockHeader>
-        <BlockTitle>
-          <Image circle src={require('../../assets/cuts-resizes/cuts-24_x_24.png')}/> <p></p>
-          {/* <Divider/> */}
-        </BlockTitle>
-        {/* <Divider/> */}
-      </BlockHeader>
-    </Block>
+    
     <BlockTitle><h3 style={{color:'white'}}>User</h3></BlockTitle>
-    <List as='a' mediaList inset style={{ backgroundColor:'white' }}>
+    <List as='h5' mediaList inset style={{ backgroundColor:'white' }}>
       <ListItem link='/userbarberpage/userpage/' panelClose>
       <div className="item-content">
         <div className="item-media">

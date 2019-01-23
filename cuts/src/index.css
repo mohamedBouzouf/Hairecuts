@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.statusbar{
+  background-color: black;
+  transition: 400ms;
+}
+
+html.with-panel-left-cover .statusbar {
+  background: rgb(32, 0, 0);
+}
