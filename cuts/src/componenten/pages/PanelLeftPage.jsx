@@ -8,7 +8,7 @@ export default () => (
   <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts-128_x_128.png')+")" , 
   backgroundPosition: "center"}}>
     <div className="navPL">
-    <Block strong style={{ margin: 0 }}>
+    <Block strong style={{ margin: 0, backgroundColor:'white' }}>
       <BlockHeader>
         <BlockTitle>
           <Image circle src={require('../../assets/cuts-resizes/cuts-24_x_24.png')}/> <p></p>
@@ -18,7 +18,7 @@ export default () => (
       </BlockHeader>
     </Block>
     <BlockTitle><h3 style={{color:'white'}}>User</h3></BlockTitle>
-    <List as='a' mediaList inset>
+    <List as='a' mediaList inset style={{ backgroundColor:'white' }}>
       <ListItem link='/userbarberpage/userpage/' panelClose>
       <div className="item-content">
         <div className="item-media">
@@ -55,8 +55,8 @@ export default () => (
         </div>
     </div>
       </ListItem>
-    </List>
-    <List as='a' mediaList inset>
+    </List >
+    <List as='a' style={{ backgroundColor:'white' }} mediaList inset>
     <ListItem link='/userbarberpage/setting/'  panelClose>
     <div className="item-content">
         <div className="item-media">
@@ -69,7 +69,19 @@ export default () => (
         </div>
     </div>
     </ListItem>
-      <ListItem link='/home/' onClick={() => firebase.auth().signOut()} panelClose>
+    <ListItem link='/'  panelClose>
+    <div className="item-content">
+        <div className="item-media">
+        <Glyphicon glyph='glyphicon glyphicon-log-in'/>
+        </div>
+        <div className="item-inner">
+            <div className="item-title">
+            Sign In
+            </div>
+        </div>
+    </div>
+    </ListItem>
+      <ListItem link='/' onClick={() => firebase.auth().signOut()} panelClose>
       <div className="item-content">
         <div className="item-media">
         <Glyphicon glyph='glyphicon glyphicon-log-out'/>

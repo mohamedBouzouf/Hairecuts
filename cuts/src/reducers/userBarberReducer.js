@@ -5,16 +5,6 @@ const init = {
             tab2: '#tab-2',
             tab3: '#tab-3',
             tab4: '#tab-4',
-            photo: '',
-            photos: [
-                {
-                    New:[]
-                },{
-                    Best:[]
-                },{
-                    Old:[]
-                }
-            ],
             likes:0,
             dislikes:0, 
             IsFavorite: false,
