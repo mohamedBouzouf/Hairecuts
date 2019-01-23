@@ -9,12 +9,13 @@ import UserBarberPage from './componenten/user/UserBarberPage';
 import UserPage from './componenten/user/userPage';
 import Setting from './componenten/user/Setting/setting'
 import firebase from './componenten/login/firebaseConfig'
+import Mapbox from './componenten/pages/Mapbox';
 
 
 export default [
   {
     path: '/',
-    component: HomePage,
+    component: Mapbox,
   },
   {
     path: '/home/',
