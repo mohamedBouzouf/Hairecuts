@@ -13,6 +13,8 @@ import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import firebase from '../../componenten/login/firebaseConfig'
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 import {connect} from 'react-redux';
+import {getBarber, 
+    setBarber} from '../../Actions/barberAction';
 import {getUserBarber, 
     SetUserBarberChanges} from '../../Actions/userBarberPageAction';
 
@@ -59,18 +61,18 @@ class UserBarberPage extends Component {
         } = this.props.userBarber;
         
         return (         
-            <Page pageContent={false}>
-                <Toolbar tabbar bottomMd={!isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink={tab1} tabLinkActive> <Glyphicon glyph="glyphicon glyphicon-scissors" /></Link>
-                    <Link tabLink={tab2}> <Glyphicon glyph="glyphicon glyphicon-picture" /></Link>
+            <Page pageContent={false} style={{overflow:'hidden'}}>
+                <Toolbar  tabbar bottomMd={!isBottom} style={{ position: 'absolute' }} colorTheme='black'>
+                    <Link tabLink={tab1} tabLinkActive>  <i className="user outline iconIverse" style={{ fontSize: '24px' }} /></Link>
+                    <Link tabLink={tab2}>  <i className="fa fa-facebook iconIverse" style={{ fontSize: '24px' }} /></Link>
                     <Link tabLink={tab3} routeTabId="tab-3" href="/messenger/">
-                        <Glyphicon glyph="glyphicon glyphicon-comment" /></Link>
-                    <Link tabLink={tab4}> <Glyphicon glyph="glyphicon glyphicon-comment" /></Link>
+                    <i className="fa fa-comments-o iconIverse" style={{ fontSize: '24px' }} /></Link>
+                    <Link tabLink={tab4}>  <i className="fa fa-facebook iconIverse" style={{ fontSize: '24px' }} /></Link>
                 </Toolbar>
                 <Tabs>
                     <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + photo + ")" , 
                     backgroundPosition: "center", 
-                    backgroundSize:'cover'}} tabActive>
+                    backgroundSize:'cover',overflowY:'scroll', boxSizing:'content-box', paddingRight:'12px', width:"100%", height:"100%" }} tabActive>
                         <div className="layer1" >
                         < Link panelOpen="left" style={{margin: '0',
                      position: 'absolute', top: '15px', left:'15px', color:'white'}}
@@ -89,7 +91,17 @@ class UserBarberPage extends Component {
                                     <Image src={photo} circle className="sizeImage" />
                                     <h5 style={{ color: 'white' }}>{name}</h5>
                                     <Rating icon='star' defaultRating={5} maxRating={5} />
+                                    
                                     <Block>
+                                    <Row className='backgrid2' >
+                                            <Col ><Button bsStyle="primary" bsSize='lg' href="/" style={{color:'white'}}>
+                                            <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} /> 
+                                            </Button></Col>
+                                            <Col ><Button bsStyle="warning" bsSize='lg' href="/" >
+                                            <i className="fa fa-instagram iconIverse" style={{ fontSize: '17px' }} style={{color:'white'}} />
+                                            </Button></Col>
+                                        </Row>
+                                        <Divider/>
                                         <Row className='backgrid1' >
                                             <Col ><Card
                                                 header="2" color='orange' meta="barbers" /></Col>
@@ -99,11 +111,11 @@ class UserBarberPage extends Component {
                                                 meta="Likes" /></Col>
                                         </Row>
                                         <Divider />
-                                        <Row className='backgrid2' >
-                                            <Col ><Button bsStyle="primary" >
+                                        <Row className='backgrid1' >
+                                            <Col ><Button bsStyle="primary" bsSize='lg' >
                                                 <Glyphicon glyph="glyphicon glyphicon-envelope" />
                                             </Button></Col>
-                                            <Col ><Button bsStyle="success" >
+                                            <Col ><Button bsStyle="success" bsSize='lg'>
                                                 <Glyphicon glyph="glyphicon glyphicon-calendar" />
                                             </Button></Col>
                                         </Row>

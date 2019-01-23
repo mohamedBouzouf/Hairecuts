@@ -1,51 +1,51 @@
-import React, { Component } from 'react';
-import { Page, Swiper, SwiperSlide } from 'framework7-react';
-import { Image, Divider } from 'semantic-ui-react';
-
+import React, {Component} from 'react';
+import {Page,Swiper,SwiperSlide} from 'framework7-react';
+import {Image, Divider} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {getBarber, setBarber} from '../../../Actions/barberAction';
 
 import './photogalary.css';
 
-
 class PhotoGalaryBarberShop extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-
-            popupOpened: false
-        }
-    }
 
     componentDidMount() {
-        // simulate img loading
+        console.log(this.props.barber.photos.BestCuts);
     }
 
     render() {
+        const {
+            instagram,
+            rating,
+            facebook,
+            photos,
+            photo
+        } = this.props.barber;
         return (
-            <Page>
+            <Page style={{backgroundImage:"url(" + photo + ")" , 
+            backgroundPosition: "center", 
+            backgroundSize:'cover'}}>
                 <div className="layer1" >
                     <div className="PhotoRating">
                     </div>
                     <div className="layer2">
                         <Divider horizontal inverted>New Cuts</Divider>
                         <Swiper className="photogallery">
-                            <SwiperSlide><Image centered size='small' src='#' /></SwiperSlide>
-                            <SwiperSlide>Pieter</SwiperSlide>
-                            <SwiperSlide>Tom</SwiperSlide>
+                            { photos.NewCuts.map(photo => {
+                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
+                            } ) }
                         </Swiper>
                         <Divider horizontal inverted>Best Cuts</Divider>
                         <Swiper className="photogalleryblack">
-                            <SwiperSlide><Image centered size='medium' src='#' /></SwiperSlide>
-
-                            <SwiperSlide>Pieter</SwiperSlide>
-                            <SwiperSlide>Tom</SwiperSlide>
+                        { photos.BestCuts.map(photo => {
+                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
+                            } ) }
                         </Swiper>
-                        <Divider horizontal inverted>OR</Divider>
+                        <Divider horizontal inverted>Old Cuts</Divider>
                         <Swiper className="photogallery">
-                            <SwiperSlide><Image centered size='small' src='#'/>Old Cuts</SwiperSlide>
-                            <SwiperSlide>Pieter</SwiperSlide>
-                            <SwiperSlide>Tom</SwiperSlide>
+                        { photos.OldCuts.map(photo => {
+                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
+                            } ) }
                         </Swiper>
                     </div></div>
             </Page>
@@ -53,4 +53,8 @@ class PhotoGalaryBarberShop extends Component {
     }
 }
 
-export default PhotoGalaryBarberShop 
+const mapStateToProps = (state) => ({
+    barber : state.barber
+  });
+
+export default connect(mapStateToProps,{getBarber,setBarber})(PhotoGalaryBarberShop);
