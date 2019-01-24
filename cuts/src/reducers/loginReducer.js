@@ -1,13 +1,12 @@
-import { GET_HOME, BOOL_EMAIL, BOOL_REGISTER } from '../Actions/types';
+import { GET_LOGIN, SET_LOGIN, BOOL_EMAIL, BOOL_REGISTER } from '../Actions/types';
 
 const init = {
     loginScreenOpened: false,
     registerScreenOpened: false,
     username: '',
     password: '',
-    R_username: '',
-    R_password: '',
-    R_confirmpassword: '',
+    rusername: '',
+    rpassword: '',
     current: true,
     IsSignOut: true,
     image: require('../assets/logo/Cuts32_X_32W.png'),
@@ -17,10 +16,17 @@ const init = {
 export default function(state = init, action){
 
     switch(action.type){
-        case GET_HOME:
+        case GET_LOGIN:
         return{
             ...state
         }
+        case SET_LOGIN:
+        return Object.assign({}, state, {
+            username: state.username,
+            rusername: state.rusername,
+            password: state.password,
+            rpassword: state.rpassword
+        });
         case BOOL_EMAIL:
         return Object.assign({}, state, {
             loginScreenOpened: !state.loginScreenOpened

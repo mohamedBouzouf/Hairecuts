@@ -20,32 +20,20 @@ export default (props) => (
                         label="Username"
                         type="text"
                         placeholder="Your username"
-                        value={props.R_username} onInput={(e) => {
-                            this.setState({ R_username: e.target.value });
-                        }}
+                        value={props.rusername} 
+                        onInput={props.userHandle}
                     />
                     <ListInput
                         label="Password"
                         type="password"
                         placeholder="**********"
-                        value={props.R_password}
-                        onInput={(e) => {
-                            this.setState({ R_password: e.target.value });
-                        }}
-                    />
-                    <ListInput
-                        label="Confirm Password"
-                        type="password"
-                        placeholder="**********"
-                        value={props.confirmpassword}
-                        onInput={(e) => {
-                            this.setState({ R_confirmpassword: e.target.value });
-                        }}
+                        value={props.rpassword}
+                        onInput={props.passHandle}
                     />
                 </List>
                 <List>
                     <Button onClick={props.registrationSuccess}>
-                        Sign In</Button>
+                        Register</Button>
                     <BlockFooter>Some text about login information.<br />Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BlockFooter>
                 </List>
                 <div style={{ padding: '10px' }}>
