@@ -17,10 +17,21 @@ class Mapbox extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v9',
-      center: [-77.034084, 38.909671],
+      center: [4.351721, 50.850346],
       // initial zoom
       zoom: 14
     });
+
+    this.map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+          enableHighAccuracy: true
+      },
+      trackUserLocation: true
+
+  }));
+
+  this.map.addControl(new mapboxgl.NavigationControl())
+
     this.map.on('load', () => {
       this.map.addSource('places', {
         type: 'geojson',
@@ -43,6 +54,8 @@ class Mapbox extends React.Component {
       });
     });
   }
+
+  
 
   componentWillUnmount() {
     this.map.remove();
@@ -90,8 +103,8 @@ class Mapbox extends React.Component {
 
     let popup = new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.geometry.coordinates)
-      .setHTML('<h3>Sweetgreen</h3>' +
-        '<h4>' + currentFeature.properties.address + '</h4>')
+      .setHTML('<h3>Cuts</h3>' +
+        '<h4>' + currentFeature.properties.address + currentFeature.properties.name + '</h4>')
       .addTo(this.map);
   }
 
