@@ -28,8 +28,8 @@ class UserBarberPage extends Component {
             
             // var photo = (user === null) ? 'https://ae01.alicdn.com/kf/HTB1GM7_KpXXXXXJXpXXq6xXFXXXZ/Barbershop-Vinyl-Muurtattoo-Sticker-Scciors-KAPPER-Citaat-Art-Interieur-Mural-Muursticker-Decor-Haar-Winkel-Raamdecoratie.jpg_640x640.jpg' : firebase.auth().currentUser.photoURL;
             // var name = (user === null) ? 'No Name' : firebase.auth().currentUser.displayName;
-            this.props.userBarber.photo = 'https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/17264402_1339727229399271_782552105993961646_n.jpg?_nc_cat=109&_nc_ht=scontent-bru2-1.xx&oh=0b5c5d417ccb9f114bb4321e974f341e&oe=5CBCC37C';
-            this.props.userBarber.name = 'Lionlockx Hair Studios' ;
+            // this.props.userBarber.photo = 'https://scontent-bru2-1.xx.fbcdn.net/v/t1.0-9/17264402_1339727229399271_782552105993961646_n.jpg?_nc_cat=109&_nc_ht=scontent-bru2-1.xx&oh=0b5c5d417ccb9f114bb4321e974f341e&oe=5CBCC37C';
+            // this.props.userBarber.name = 'Lionlockx Hair Studios' ;
 
             //this.props.SetUserImage(this.props.userBarber.photo);
             console.log(this.props);
@@ -44,8 +44,6 @@ class UserBarberPage extends Component {
             tab2,
             tab3,
             tab4,
-            photo,
-            photos,
             likes,
             dislikes, 
             IsFavorite,
@@ -53,21 +51,28 @@ class UserBarberPage extends Component {
             followers,
             sendermail,
             sender,
-            rating,
             receiver,
-            name,
             id
 
         } = this.props.userBarber;
+
+        const {
+            instagram,
+            rating,
+            facebook,
+            name,
+            photos,
+            photo
+        } = this.props.barber;
         
         return (         
             <Page pageContent={false} style={{overflow:'hidden'}}>
                 <Toolbar  tabbar bottomMd={!isBottom} style={{ position: 'absolute' }} colorTheme='black'>
-                    <Link tabLink={tab1} tabLinkActive>  <i className="user outline iconIverse" style={{ fontSize: '24px' }} /></Link>
-                    <Link tabLink={tab2}>  <i className="fa fa-facebook iconIverse" style={{ fontSize: '24px' }} /></Link>
+                    <Link tabLink={tab1} tabLinkActive>  <i className="fa fa-cut iconIverse" style={{ fontSize: '24px' }} /></Link>
+                    <Link tabLink={tab2}>  <i className="fa fa-image iconIverse" style={{ fontSize: '24px' }} /></Link>
                     <Link tabLink={tab3} routeTabId="tab-3" href="/messenger/">
                     <i className="fa fa-comments-o iconIverse" style={{ fontSize: '24px' }} /></Link>
-                    <Link tabLink={tab4}>  <i className="fa fa-facebook iconIverse" style={{ fontSize: '24px' }} /></Link>
+
                 </Toolbar>
                 <Tabs>
                     <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + photo + ")" , 
@@ -94,10 +99,10 @@ class UserBarberPage extends Component {
                                     
                                     <Block>
                                     <Row className='backgrid2' >
-                                            <Col ><Button bsStyle="primary" bsSize='lg' href="/" style={{color:'white'}}>
+                                            <Col ><Button bsStyle="primary" bsSize='lg' href="www.google.com" style={{color:'white'}}>
                                             <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} /> 
                                             </Button></Col>
-                                            <Col ><Button bsStyle="warning" bsSize='lg' href="/" >
+                                            <Col ><Button bsStyle="warning" bsSize='lg' href={instagram} >
                                             <i className="fa fa-instagram iconIverse" style={{ fontSize: '17px' }} style={{color:'white'}} />
                                             </Button></Col>
                                         </Row>
@@ -213,11 +218,6 @@ class UserBarberPage extends Component {
                             <MessagebarberShop />
                         </PageContent>
                     </Tab>
-                    <Tab id="tab-4" className="page-content">
-                        <PageContent>
-                            <SettingBarberShop />
-                        </PageContent>
-                    </Tab>
                 </Tabs>
             </Page >
         )
@@ -225,7 +225,8 @@ class UserBarberPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    userBarber : state.userBarber
+    userBarber : state.userBarber,
+    barber: state.barber
   });
 
-export default connect(mapStateToProps,{getUserBarber,SetUserBarberChanges})(UserBarberPage);
+export default connect(mapStateToProps,{getUserBarber,SetUserBarberChanges, getBarber})(UserBarberPage);

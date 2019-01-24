@@ -42,7 +42,7 @@ export default function (props) {
     <Provider store={store}>
     <App params={f7params}>
       {/* Statusbar */}
-      <Statusbar />
+      <Statusbar style={{backgroundColor:"black"}}/>
 
       {/* Left Panel */}
       <Panel left cover>

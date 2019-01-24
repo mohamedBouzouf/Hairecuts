@@ -2,6 +2,7 @@ import React from 'react';
 import { stores } from '../../sweetgreen';
 import Sidebar from './Sidebar.jsx';
 import mapboxgl from 'mapbox-gl';
+import '../../styles.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
 
@@ -96,9 +97,9 @@ class Mapbox extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="mapContainer">
         <Sidebar flyToStore={this.flyToStore} createPopUp={this.createPopUp} generateListings={this.generateListings}/>
-        <div className="map pad2" ref={el => this.mapContainer = el} />
+        <div className="map" ref={el => this.mapContainer = el} />
       </div>
     );
   }

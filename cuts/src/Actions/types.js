@@ -1,6 +1,6 @@
 //Home Page Login page
-export const GET_HOME = 'GET_HOME';
-export const SET_HOME = 'SET_HOME';
+export const GET_LOGIN = 'GET_LOGIN';
+export const SET_LOGIN = 'SET_LOGIN';
 
 export const BOOL_EMAIL = 'BOOL_EMAIL';
 export const BOOL_REGISTER = 'BOOL_REGISTER';

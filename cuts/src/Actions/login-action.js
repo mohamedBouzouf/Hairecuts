@@ -1,9 +1,17 @@
-import { GET_HOME, BOOL_EMAIL, BOOL_REGISTER } from './types';
+import { GET_LOGIN, SET_LOGIN, BOOL_EMAIL, BOOL_REGISTER } from './types';
 
 export const getLogin = () => 
 {
     return{
-        type: GET_HOME
+        type: GET_LOGIN
+    };
+};
+
+export const setLogin = (input) => 
+{
+    return{
+        type: GET_LOGIN,
+        input: input
     };
 };
 
