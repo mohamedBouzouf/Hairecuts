@@ -15,6 +15,7 @@ import {Image, Glyphicon} from 'react-bootstrap';
 import './user.css';
 import {connect} from 'react-redux';
 import {getUser,setUser} from '../../Actions/userAction';
+import {getBarber} from '../../Actions/barberAction';
 import firebase from '../../componenten/login/firebaseConfig';
 import { Button } from 'react-bootstrap';
 
@@ -38,6 +39,14 @@ class User extends Component {
             name,
             firstTimeLoggedIn
         } = this.props.user;
+
+        const {
+            a,
+            b,
+            c
+        } = this.props.barber;
+
+
         return (
             <Page style={{backgroundImage:"url(" + profilePhoto + ")" , 
             backgroundPosition: "center", 
@@ -77,10 +86,10 @@ class User extends Component {
                             </List> <Divider />
                                 <h4>Recent visited Barbershops...</h4>
                                 <List>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Luckas </h5> <h6> <Rating icon='star' defaultRating={3} maxRating={5}/></h6> </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > KiingZ </h5> <h6> <Rating icon='star' defaultRating={2} maxRating={5}/></h6>  </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Royal  </h5> <h6> <Rating icon='star' defaultRating={4} maxRating={5}/> </h6> </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > Begring </h5><h6> <Rating icon='star' defaultRating={1} maxRating={5}/> </h6> </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {a.name} </h5> <h6> <Rating icon='star' defaultRating={a.rating} maxRating={5}/></h6> </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {b.name} </h5> <h6> <Rating icon='star' defaultRating={b.rating} maxRating={5}/></h6>  </ListItem>
+                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {c.name}  </h5> <h6> <Rating icon='star' defaultRating={c.rating} maxRating={5}/> </h6> </ListItem>
+                               
                                 <ListItem><Button bsStyle="primary" bsSize="large" onClick={() => { 
                                     firebase.auth().signOut();
                                     this.$f7.router.navigate('/userbarberpage/');
@@ -94,7 +103,8 @@ class User extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user : state.user
+    user : state.user,
+    barber: state.barber
 });
 
-export default connect(mapStateToProps,{getUser, setUser})(User);
+export default connect(mapStateToProps,{getUser,getBarber, setUser})(User);

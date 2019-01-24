@@ -58,7 +58,7 @@ class UserBarberPage extends Component {
             name,
             photos,
             photo
-        } = this.props.barber.b;
+        } = this.props.barber.c;
         
         return (         
             <Page pageContent={false} style={{overflow:'hidden'}}>
