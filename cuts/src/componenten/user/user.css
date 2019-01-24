@@ -4,6 +4,12 @@
     background-color: aqua;
 }
 
+.layer1{
+    padding-right: 12px;
+    overflow: scroll;
+    box-sizing: cover;
+}
+
 .headerPhotoRating{
     text-align: center;
     top: 0;

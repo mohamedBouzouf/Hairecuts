@@ -44,6 +44,7 @@ class HomePage extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       console.log(user);
+      console.log(firebase);
       if (user === null) {
       } else {
         this.$f7.router.navigate('/userbarberpage/');
@@ -105,7 +106,6 @@ class HomePage extends Component {
           confirmpassword={R_confirmpassword}
           registrationSuccess={() => {
             signUpWithEmail(rusername,rpassword)
-            this.$f7.routes.navigate('/home/');
           }}
           imagetiny={imagetiny}
           Show={registerScreenOpened}

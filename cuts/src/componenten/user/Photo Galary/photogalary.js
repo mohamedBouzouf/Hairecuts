@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Page,Swiper,SwiperSlide} from 'framework7-react';
 import {Image, Divider} from 'semantic-ui-react';
+import {Carousel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {getBarber, setBarber} from '../../../Actions/barberAction';
 
@@ -30,23 +31,26 @@ class PhotoGalaryBarberShop extends Component {
                     </div>
                     <div className="layer2">
                         <Divider horizontal inverted>New Cuts</Divider>
-                        <Swiper className="photogallery">
-                            { photos.NewCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="sizeImageCarousel">                                           
+                                                    { photos.OldCuts.map(photo => {
+                               return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
+                            } ) }          
+                                            </Carousel>
                         <Divider horizontal inverted>Best Cuts</Divider>
-                        <Swiper className="photogalleryblack">
-                        { photos.BestCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="sizeImageCarousel">                                           
+                                                    { photos.BestCuts.map(photo => {
+                               return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
+                            } ) }          
+                                            </Carousel>
                         <Divider horizontal inverted>Old Cuts</Divider>
-                        <Swiper className="photogallery">
-                        { photos.OldCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="sizeImageCarousel" >
+                                                                                                
+                                                    { photos.NewCuts.map(photo => {
+                                                        return <Carousel.Item> <Image centered size='small' src={photo}/></Carousel.Item>
+                                                    } ) }
+                                                
+                                            </Carousel>
+                        
                     </div></div>
             </Page>
         )

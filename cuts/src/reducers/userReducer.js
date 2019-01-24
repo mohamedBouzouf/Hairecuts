@@ -28,7 +28,8 @@ export default function(state = init, action){
         case SET_USER_CHANGES:
         return Object.assign({}, state, {
             photo: state.profilePhoto,
-            name: state.name
+            name: state.name,
+            firstTimeLoggedIn: state.firstTimeLoggedIn
           })
         default:
         return state;
