@@ -297,48 +297,7 @@ export const stores =  {
 -----------------------------------------------------------
 
  const init = {
-    id:'2',
-    name: 'De Wakko Kapper',
-    photo:require('../assets/LoinLockx/logo.jpg'),
-    likes:0,
-    dislikes:0,
-    score:0,
-    photos: {
-            NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
-            require('../assets/LoinLockx/foto2.jpg'),
-            require('../assets/LoinLockx/foto4.jpg')
-        ],
-            BestCuts:[require('../assets/LoinLockx/best1.jpg'),
-            require('../assets/LoinLockx/best3.jpg'),
-            require('../assets/LoinLockx/best4.jpg')],
-            OldCuts:[ require('../assets/LoinLockx/other.jpg'),
-            require('../assets/LoinLockx/other1.jpg')]
-
-        
-    },
-    comments:[{
-        id:'',
-        title: '',
-        text: '',
-    }],
-    email:'',
-    instagram:'https://www.instagram.com/explore/locations/1019076878/de-wakko-kapper?hl=nl',
-    rating:4,
-    facebook:'https://www.facebook.com/dewakkokapper/',
-    signInTimes:0,
-    firstTimeLoggedIn:'',
-    lastTimeLoggedIn:'',
-    likes:0,
-    dislikes:0, 
-    IsFavorite: 0,
-    appointment: Date,
-    phone : 02 503 05 97,
-    followers: 0,
-    address: Dinantplein 1, 1000 Brussel
-    "coordinates": [
-                      4.357910,
-                      50.854431
-                  ]
+   
 
 }
 
