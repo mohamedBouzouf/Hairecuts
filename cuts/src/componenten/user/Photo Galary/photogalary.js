@@ -30,26 +30,28 @@ class PhotoGalaryBarberShop extends Component {
                     <div className="PhotoRating">
                     </div>
                     <div className="layer2">
+                    <Divider/>
                         <Divider horizontal inverted>New Cuts</Divider>
-                        <Carousel className="sizeImageCarousel">                                           
+                        <Carousel className="sizeImageCarouselPhoto">                                           
                                                     { photos.OldCuts.map(photo => {
                                return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
                             } ) }          
                                             </Carousel>
                         <Divider horizontal inverted>Best Cuts</Divider>
-                        <Carousel className="sizeImageCarousel">                                           
+                        <Carousel className="izeImageCarouselPhoto">                                           
                                                     { photos.BestCuts.map(photo => {
                                return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
                             } ) }          
                                             </Carousel>
                         <Divider horizontal inverted>Old Cuts</Divider>
-                        <Carousel className="sizeImageCarousel" >
+                        <Carousel className="izeImageCarouselPhoto" >
                                                                                                 
                                                     { photos.NewCuts.map(photo => {
                                                         return <Carousel.Item> <Image centered size='small' src={photo}/></Carousel.Item>
                                                     } ) }
                                                 
                                             </Carousel>
+                                            <Divider/>
                         
                     </div></div>
             </Page>

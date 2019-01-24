@@ -162,7 +162,7 @@ class UserBarberPage extends Component {
                                         <Divider/>
                                         <Row className='backgrid1' >
                                             <Col >
-                                            <Label size="large" color='blue'> 
+                                            <Label size="big" color='blue'> 
                                             < Link> 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
                                             </Link>
@@ -170,7 +170,7 @@ class UserBarberPage extends Component {
                                             </Label>
                                             </Col>
                                             <Col >
-                                            <Label size="large" color="red" > 
+                                            <Label size="big" color="red" > 
                                             < Link> 
                                                 <Glyphicon glyph="glyphicon glyphicon-thumbs-down" />
                                             </Link>
@@ -178,7 +178,7 @@ class UserBarberPage extends Component {
                                             </Label>
                                             </Col>
                                             <Col>
-                                            <Label size="large" color="black"> 
+                                            <Label size="big" color="black"> 
                                             <Link> 
                                                 <Glyphicon glyph="user" />
                                             </Link>
@@ -186,7 +186,7 @@ class UserBarberPage extends Component {
                                             </Label>
                                             </Col>
                                             <Col >
-                                            <Label size="large" color="orange">
+                                            <Label size="big" color="orange">
                                             <Link panelOpen="left"> 
                                                 <Glyphicon glyph="glyphicon glyphicon-star" />
                                             </Link >
