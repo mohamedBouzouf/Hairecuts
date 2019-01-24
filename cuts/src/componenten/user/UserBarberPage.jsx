@@ -26,8 +26,8 @@ class UserBarberPage extends Component {
 
         firebase.auth().onAuthStateChanged(user => {
 
-            
-            console.log(this.props);
+
+            // console.log(this.props);
             this.props.SetUserBarberChanges(this.props.userBarber);
 
         })
@@ -72,7 +72,7 @@ class UserBarberPage extends Component {
                     <Tab id="tab-1" className="page-content" style={{backgroundImage:"url(" + photo + ")" , 
                     backgroundPosition: "center", 
                     backgroundSize:'cover', width:'100%' }} tabActive>
-                        <PageContent>
+                        <PageContent >
                         <div className="layer1" >
                         < Link panelOpen="left" style={{margin: '0',
                      position: 'absolute', top: '15px', left:'15px', color:'white'}}
@@ -87,7 +87,7 @@ class UserBarberPage extends Component {
                             <div className="layer2">
                                 <div style={{
                                     textAlign: "center"
-                                }}>
+                                      }}>
                                     <Image src={photo} circle className="sizeImage" />
                                     <h5 style={{ color: 'white' }}>{name}</h5>
                                     <Rating icon='star' defaultRating={5} maxRating={5} />

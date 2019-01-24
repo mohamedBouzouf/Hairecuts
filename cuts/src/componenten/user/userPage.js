@@ -43,9 +43,9 @@ class User extends Component {
             backgroundPosition: "center", 
             backgroundSize:'cover'}}>
 
-                <div className="headerPhotoRating" style={{overflow:'hidden'}}  >
+                <div className="headerPhotoRating">
                             </div>
-                            <div className="layer2" style={{overflow:'hidden'}} >
+                            <div className="layer2"  >
                     <Link 
                         style={
                             {
@@ -59,7 +59,7 @@ class User extends Component {
                         "/></Link> 
                     
                         <Header as='h2' icon textAlign='center'>
-                        <Image src={profilePhoto} circle className="sizeImage" />
+                <Image src={profilePhoto} circle className="sizeImage"/>
                             </Header>  
                             <Divider />
                         <div style={
@@ -67,8 +67,7 @@ class User extends Component {
                                 marginTop: '20px',
                                 marginBottom: '20px',
                                 textAlign: 'center',
-                               overflowY:'scroll',
-                               paddingRight:'12px'
+                              
                             }
                         } >
                             <List>
