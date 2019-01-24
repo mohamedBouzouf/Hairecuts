@@ -54,7 +54,7 @@ class User extends Component {
 
                 <div className="headerPhotoRating">
                             </div>
-                            <div className="layer2"  >
+                            <div className="layer2">
                     <Link 
                         style={
                             {
@@ -66,7 +66,6 @@ class User extends Component {
                             }
                         } back><Glyphicon glyph="glyphicon glyphicon-menu-left	
                         "/></Link> 
-                    
                         <Header as='h2' icon textAlign='center'>
                 <Image src={profilePhoto} circle className="sizeImage"/>
                             </Header>  
@@ -96,8 +95,8 @@ class User extends Component {
                                 } }>Sign Out</Button></ListItem>
                                 </List>
                             </div>
-                         </div ></Page>
-
+                         </div>
+                         </Page>
         )
     }
 }
