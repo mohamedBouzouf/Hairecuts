@@ -16,6 +16,7 @@ export const stores =  {
           "address": "Dinantplein 1, 1000 Brussel",
           "city": "Brussel",
           "country": "De Wakko Kapper",
+          "Name": "De Wakko Kapper",
           "crossStreet": "Dinantplein 1",
           "postalCode": "1000",
           "state": "Brussel."
@@ -36,7 +37,8 @@ export const stores =  {
           "address": "Nieuwstraat 123,",
           "city": "Brussel",
           "country": "H&L",
-          "crossStreet": "at 22nd St NW",
+          "Name":"H&L",
+          "crossStreet": "Nieuwstraat 123",
           "postalCode": "1000",
           "state": "1000"
         }
@@ -56,6 +58,7 @@ export const stores =  {
           "address": "Sint-Goriksplein 20",
           "city": "Brussel",
           "country": "Bxl Kapper",
+          "Name":"BXL Kapper",
           "crossStreet": "at Dupont Circle",
           "postalCode": "20036",
           "state": "D.C."
@@ -74,11 +77,12 @@ export const stores =  {
           "phoneFormatted": "(02) 337-9338",
           "phone": "02 217 52 45",
           "address": "Nieuwbrug 42, 1000 Brussel",
-          "city": "Washington DC",
+          "city": "Brussel",
           "country": "Herenkapper Enzo",
-          "crossStreet": "at 34th St NW",
+          "Name": "Herenkapper Enzo",
+          "crossStreet": "Nieuwbrug 42",
           "postalCode": "1000",
-          "state": "D.C."
+          "state": "Brussel"
         }
       },
       {
@@ -95,7 +99,8 @@ export const stores =  {
           "phone": "02 512 25 81",
           "address": "Naamsestraat 86, 1000 Brussel",
           "city": "La Maison Roger",
-          "country": "United States",
+          "country": "La Maison Roger",
+          "Name": "La Maison Roger",
           "crossStreet": "btwn 2nd & 3rd Sts. SE",
           "postalCode": "20003",
           "state": "D.C."
@@ -106,16 +111,17 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -76.933492720127,
-            38.99225245786
+            4.361830,
+            50.839081
           ]
         },
         "properties": {
-          "address": "8204 Baltimore Ave",
-          "city": "College Park",
-          "country": "United States",
-          "postalCode": "20740",
-          "state": "MD"
+          "address": "Rue Rogierstraat 144",
+          "city": "Brussel",
+          "country": "Prestige Coiffure",
+          "Name":"Prestige COiffure",
+          "postalCode": "1000",
+          "state": "Brussel"
         }
       },
       {
@@ -123,19 +129,20 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -77.097083330154,
-            38.980979
+            4.365430,
+            50.862220
           ]
         },
         "properties": {
+          "id":"",
           "phoneFormatted": "(301) 654-7336",
           "phone": "3016547336",
-          "address": "4831 Bethesda Ave",
-          "cc": "US",
-          "city": "Bethesda",
-          "country": "United States",
+          "address": "Chaussée de Bruxelles 632",
+          "cc": "België",
+          "city": "Brusel",
+          "country": "Benjamin Male Hairstyle",
           "postalCode": "20814",
-          "state": "MD"
+          "state": "Brussel"
         }
       },
       {
@@ -143,8 +150,8 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -77.359425054188,
-            38.958058116661
+            4.400780,
+            50.711350
           ]
         },
         "properties": {
@@ -152,8 +159,9 @@ export const stores =  {
           "phone": "5712030082",
           "address": "11935 Democracy Dr",
           "city": "Reston",
-          "country": "United States",
-          "crossStreet": "btw Explorer & Library",
+          "country": "Rodolphe barber & bodycare",
+          "crossStreet": "Louizalaan 85, 1050 Brussel",
+          "Name":"Rodolphe barber & bodycare",
           "postalCode": "20190",
           "state": "VA"
         }
@@ -163,18 +171,18 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -77.10853099823,
-            38.880100922392
+            4.358460,
+            50.831970
           ]
         },
         "properties": {
           "phoneFormatted": "(703) 522-2016",
           "phone": "7035222016",
-          "address": "4075 Wilson Blvd",
-          "city": "Arlington",
-          "country": "United States",
-          "crossStreet": "at N Randolph St.",
-          "postalCode": "22203",
+          "address": "Sint-Katelijnestraat 41, 1000 Brussel",
+          "city": "Brussel",
+          "country": "De kwaf",
+          "crossStreet": "Sint-Katelijnestraat 41, 1000 Brussel",
+          "postalCode": "1000",
           "state": "VA"
         }
       },
@@ -183,18 +191,19 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -75.28784,
-            40.008008
+            4.347790,
+            50.850250
           ]
         },
         "properties": {
           "phoneFormatted": "(610) 642-9400",
           "phone": "6106429400",
-          "address": "68 Coulter Ave",
+          "address": "Europakruispunt, 1000 Brussel",
           "city": "Ardmore",
-          "country": "United States",
-          "postalCode": "19003",
-          "state": "PA"
+          "country": "Coiffure Louasse",
+          "Name":"Coiffure Louasse",
+          "postalCode": "1000",
+          "state": "Brussel"
         }
       },
       {
@@ -202,18 +211,18 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -75.20121216774,
-            39.954030175164
+            4.356550,
+            50.845810
           ]
         },
         "properties": {
           "phoneFormatted": "(215) 386-1365",
           "phone": "2153861365",
-          "address": "3925 Walnut St",
-          "city": "Philadelphia",
-          "country": "United States",
-          "postalCode": "19104",
-          "state": "PA"
+          "address": "Koningsstraat 188, 1000 Brussel",
+          "city": "Brussel",
+          "country": "Shine Design",
+          "postalCode": "1000",
+          "state": "Brussel"
         }
       },
       {
@@ -221,8 +230,8 @@ export const stores =  {
         "geometry": {
           "type": "Point",
           "coordinates": [
-            -77.043959498405,
-            38.903883387232
+            4.364650,
+            50.851640
           ]
         },
         "properties": {
@@ -238,4 +247,207 @@ export const stores =  {
       }
     ]
   }
+
+  //BertonBerton
+
+  /*
+
+  const init = {
+    id:'1',
+    name: 'Lionlockx Hair Studios',
+    photo:require('../assets/LoinLockx/logo.jpg'),
+    likes:0,
+    dislikes:0,
+    score:0,
+    photos: {
+            NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
+            require('../assets/LoinLockx/foto2.jpg'),
+            require('../assets/LoinLockx/foto4.jpg')
+        ],
+            BestCuts:[require('../assets/LoinLockx/best1.jpg'),
+            require('../assets/LoinLockx/best3.jpg'),
+            require('../assets/LoinLockx/best4.jpg')],
+            OldCuts:[ require('../assets/LoinLockx/other.jpg'),
+            require('../assets/LoinLockx/other1.jpg')]
+
+        
+    },
+    comments:[{
+        id:'',
+        title: '',
+        text: '',
+    }],
+    email:'',
+    instagram:'https://www.instagram.com/lionlox/',
+    rating:4,
+    facebook:'https://www.facebook.com/LIONLOCKX',
+    signInTimes:0,
+    firstTimeLoggedIn:'',
+    lastTimeLoggedIn:'',
+    likes:0,
+    dislikes:0, 
+    IsFavorite: 0,
+    appointment: Date,
+    followers: 0
+}
+
+
+
+
+-----------------------------------------------------------
+
+ const init = {
+    id:'2',
+    name: 'De Wakko Kapper',
+    photo:require('../assets/LoinLockx/logo.jpg'),
+    likes:0,
+    dislikes:0,
+    score:0,
+    photos: {
+            NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
+            require('../assets/LoinLockx/foto2.jpg'),
+            require('../assets/LoinLockx/foto4.jpg')
+        ],
+            BestCuts:[require('../assets/LoinLockx/best1.jpg'),
+            require('../assets/LoinLockx/best3.jpg'),
+            require('../assets/LoinLockx/best4.jpg')],
+            OldCuts:[ require('../assets/LoinLockx/other.jpg'),
+            require('../assets/LoinLockx/other1.jpg')]
+
+        
+    },
+    comments:[{
+        id:'',
+        title: '',
+        text: '',
+    }],
+    email:'',
+    instagram:'https://www.instagram.com/explore/locations/1019076878/de-wakko-kapper?hl=nl',
+    rating:4,
+    facebook:'https://www.facebook.com/dewakkokapper/',
+    signInTimes:0,
+    firstTimeLoggedIn:'',
+    lastTimeLoggedIn:'',
+    likes:0,
+    dislikes:0, 
+    IsFavorite: 0,
+    appointment: Date,
+    phone : 02 503 05 97,
+    followers: 0,
+    address: Dinantplein 1, 1000 Brussel
+    "coordinates": [
+                      4.357910,
+                      50.854431
+                  ]
+
+}
+
+
+
+
+----------------------------------------------------------
+
+
+const init = {
+    id:'3',
+    name: 'H&L',
+    photo:require('../assets/LoinLockx/logo.jpg'),
+    likes:0,
+    dislikes:0,
+    score:0,
+    photos: {
+            NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
+            require('../assets/LoinLockx/foto2.jpg'),
+            require('../assets/LoinLockx/foto4.jpg')
+        ],
+            BestCuts:[require('../assets/LoinLockx/best1.jpg'),
+            require('../assets/LoinLockx/best3.jpg'),
+            require('../assets/LoinLockx/best4.jpg')],
+            OldCuts:[ require('../assets/LoinLockx/other.jpg'),
+            require('../assets/LoinLockx/other1.jpg')]
+
+        
+    },
+    comments:[{
+        id:'',
+        title: '',
+        text: '',
+    }],
+    email:'',
+    instagram:'https://www.instagram.com/explore/locations/1019076878/de-wakko-kapper?hl=nl',
+    rating:4,
+    facebook:'https://www.instagram.com/le_salon_hl/?hl=fr',
+    signInTimes:0,
+    firstTimeLoggedIn:'',
+    lastTimeLoggedIn:'',
+    likes:0,
+    dislikes:0, 
+    IsFavorite: 0,
+    appointment: Date,
+    phone : 02 503 05 97,
+    followers: 0,
+    address: Nieuwstraat 123, 1000 Brussel
+    "coordinates": [
+                      4.346790,
+                      50.847810
+                  ]
+
+}
+
+--------------------------------------------------------------
+
+
+
+
+const init = {
+    id:'4',
+    name: 'H&L',
+    photo:require('../assets/LoinLockx/logo.jpg'),
+    likes:0,
+    dislikes:0,
+    score:0,
+    photos: {
+            NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
+            require('../assets/LoinLockx/foto2.jpg'),
+            require('../assets/LoinLockx/foto4.jpg')
+        ],
+            BestCuts:[require('../assets/LoinLockx/best1.jpg'),
+            require('../assets/LoinLockx/best3.jpg'),
+            require('../assets/LoinLockx/best4.jpg')],
+            OldCuts:[ require('../assets/LoinLockx/other.jpg'),
+            require('../assets/LoinLockx/other1.jpg')]
+
+        
+    },
+    comments:[{
+        id:'',
+        title: '',
+        text: '',
+    }],
+    email:'',
+    instagram:'https://www.instagram.com/explore/locations/1019076878/de-wakko-kapper?hl=nl',
+    rating:4,
+    facebook:'https://www.instagram.com/le_salon_hl/?hl=fr',
+    signInTimes:0,
+    firstTimeLoggedIn:'',
+    lastTimeLoggedIn:'',
+    likes:0,
+    dislikes:0, 
+    IsFavorite: 0,
+    appointment: Date,
+    phone : 02 503 05 97,
+    followers: 0,
+    address: Nieuwstraat 123, 1000 Brussel
+    "coordinates": [
+                      4.346790,
+                      50.847810
+                  ]
+
+}
+
+
+**/
+
+
+  
 
