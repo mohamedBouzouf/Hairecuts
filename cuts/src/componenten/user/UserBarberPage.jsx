@@ -28,7 +28,7 @@ class UserBarberPage extends Component {
 
 
             // console.log(this.props);
-            this.props.SetUserBarberChanges(this.props.userBarber);
+            console.log(this.props.barber.b.BestCuts);
 
         })
     }
@@ -58,7 +58,7 @@ class UserBarberPage extends Component {
             name,
             photos,
             photo
-        } = this.props.barber;
+        } = this.props.barber.b;
         
         return (         
             <Page pageContent={false} style={{overflow:'hidden'}}>
@@ -90,7 +90,7 @@ class UserBarberPage extends Component {
                                       }}>
                                     <Image src={photo} circle className="sizeImage" />
                                     <h5 style={{ color: 'white' }}>{name}</h5>
-                                    <Rating icon='star' defaultRating={5} maxRating={5} />
+                                    <Rating icon='star' defaultRating={rating} maxRating={5} />
                                     
                                     <Block>
                                     <Row className='backgrid2' >

@@ -1,7 +1,7 @@
 import {GET_BARBER,SET_BARBER_CHANGES} from '../Actions/types';
 
 const init = {
-    "Lionlockx": {id:'1',
+    a : {id:'1',
 name: 'Lionlockx Hair Studios',
 photo:require('../assets/LoinLockx/logo.jpg'),
 likes:0,
@@ -10,21 +10,25 @@ score:0,
 photos: {
         NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
         require('../assets/LoinLockx/foto2.jpg'),
-        require('../assets/LoinLockx/foto4.jpg')
+        require('../assets/LoinLockx/foto4.jpg'),
+        require('../assets/LoinLockx/foto5.jpg'),
+        require('../assets/LoinLockx/foto6.jpg'),
+
     ],
         BestCuts:[require('../assets/LoinLockx/best1.jpg'),
         require('../assets/LoinLockx/best3.jpg'),
-        require('../assets/LoinLockx/best4.jpg')],
+        require('../assets/LoinLockx/best4.jpg'),
+        require('../assets/LoinLockx/best6.jpg'),
+        require('../assets/LoinLockx/best7.jpg')],
         OldCuts:[ require('../assets/LoinLockx/other.jpg'),
-        require('../assets/LoinLockx/other1.jpg')]
+        require('../assets/LoinLockx/other1.jpg'),
+        require('../assets/LoinLockx/other2.jpg'),
+        require('../assets/LoinLockx/other4.jpg'),
+        require('../assets/LoinLockx/other5.jpg'),
+        require('../assets/LoinLockx/other6.jpg')]
 
     
 },
-comments:[{
-    id:'',
-    title: '',
-    text: '',
-}],
 email:'',
 instagram:'https://www.instagram.com/lionlox/',
 rating:4,
@@ -42,7 +46,7 @@ coordinates: [
                   4.327910,
                   50.854421
               ]},
-"DeWakkoKapper": {
+b : {
                 id:'2',
                 name: 'De Wakko Kapper',
                 photo:require('../assets/DeWakkoKapper/logo.png'),
@@ -58,26 +62,33 @@ coordinates: [
                         require('../assets/DeWakkoKapper/foto6.jpg'),
                         require('../assets/DeWakkoKapper/foto7.jpg'),
                         require('../assets/DeWakkoKapper/foto8.jpg'),
-                        require('../assets/DeWakkoKapper/foto9.jpg'),
                         require('../assets/DeWakkoKapper/foto10.jpg')
                     ],
                         BestCuts:[require('../assets/DeWakkoKapper/m1.jpg'),
                         require('../assets/DeWakkoKapper/m2.jpg'),
                         require('../assets/DeWakkoKapper/m3.jpg'),
-                        require('../assets/DeWakkoKapper/m4.jpg'),
-                        require('../assets/DeWakkoKapper/m4.jpg'),
-                        require('../assets/DeWakkoKapper/m4.jpg'),
-                        require('../assets/DeWakkoKapper/m4.jpg'),],
-                        OldCuts:[ require('../assets/LoinLockx/other.jpg'),
-                        require('../assets/LoinLockx/other1.jpg')]
+                        require('../assets/DeWakkoKapper/m5.jpg'),
+                        require('../assets/DeWakkoKapper/m6.jpg'),
+                        require('../assets/DeWakkoKapper/m7.jpg'),
+                        require('../assets/DeWakkoKapper/m8.jpg'),
+                        require('../assets/DeWakkoKapper/m9.jpg'),
+                        require('../assets/DeWakkoKapper/m10.jpg'),
+                        require('../assets/DeWakkoKapper/m11.jpg')],
+                        OldCuts:[ require('../assets/DeWakkoKapper/v1.jpg'),
+                        require('../assets/DeWakkoKapper/v2.jpg'),
+                        require('../assets/DeWakkoKapper/v3.jpg'),
+                        require('../assets/DeWakkoKapper/v4.jpg'),
+                        require('../assets/DeWakkoKapper/v5.jpg'),
+                        require('../assets/DeWakkoKapper/v6.jpg'),
+                        require('../assets/DeWakkoKapper/v7.jpg'),
+                        require('../assets/DeWakkoKapper/v8.jpg'),
+                        require('../assets/DeWakkoKapper/v9.jpg'),
+                        require('../assets/DeWakkoKapper/v10.jpg'),
+                        require('../assets/DeWakkoKapper/v12.jpg'),
+                       ]
             
                     
                 },
-                comments:[{
-                    id:'',
-                    title: '',
-                    text: '',
-                }],
                 email:'',
                 instagram:'https://www.instagram.com/explore/locations/1019076878/de-wakko-kapper?hl=nl',
                 rating:3,
@@ -97,22 +108,33 @@ coordinates: [
                                   50.854431
                               ]
               },
-"henl":{ id:'3',
+ c : { id:'3',
 name: 'H&L Coiffure',
-photo:require('../assets/LoinLockx/logo.jpg'),
+photo:require('../assets/henl/logo.png'),
 likes:0,
 dislikes:0,
 score:0,
 photos: {
-        NewCuts:[require('../assets/LoinLockx/foto1.jpg'),
-        require('../assets/LoinLockx/foto2.jpg'),
-        require('../assets/LoinLockx/foto4.jpg')
+        NewCuts:[require('../assets/henl/foto1.jpg'),
+        require('../assets/henl/foto2.jpg'),
+        require('../assets/henl/foto3.jpg'),
+        require('../assets/henl/foto4.jpg'),
+        require('../assets/henl/foto5.jpg'),
+        require('../assets/henl/foto6.jpg'),
     ],
-        BestCuts:[require('../assets/LoinLockx/best1.jpg'),
-        require('../assets/LoinLockx/best3.jpg'),
-        require('../assets/LoinLockx/best4.jpg')],
-        OldCuts:[ require('../assets/LoinLockx/other.jpg'),
-        require('../assets/LoinLockx/other1.jpg')]
+        BestCuts:[require('../assets/henl/b1.jpg'),
+        require('../assets/henl/b2.jpg'),
+        require('../assets/henl/b3.jpg'),
+        require('../assets/henl/b4.jpg'),
+        require('../assets/henl/b5.jpg'),
+        require('../assets/henl/b6.jpg')],
+        OldCuts:[ require('../assets/henl/c1.jpg'),
+        require('../assets/henl/c2.jpg'),
+        require('../assets/henl/c3.jpg'),
+        require('../assets/henl/c4.jpg'),
+        require('../assets/henl/c5.jpg'),
+        require('../assets/henl/c6.jpg'),
+        require('../assets/henl/c7.jpg'),]
 
     
 },

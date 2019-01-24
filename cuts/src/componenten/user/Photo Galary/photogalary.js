@@ -11,17 +11,14 @@ class PhotoGalaryBarberShop extends Component {
 
 
     componentDidMount() {
-        console.log(this.props.barber.photos.BestCuts);
+        console.log(this.props.barber.b.photos.BestCuts);
     }
 
     render() {
         const {
-            instagram,
-            rating,
-            facebook,
             photos,
             photo
-        } = this.props.barber;
+        } = this.props.barber.b;
         return (
             <Page style={{backgroundImage:"url(" + photo + ")" , 
             backgroundPosition: "center", 

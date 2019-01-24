@@ -35,8 +35,8 @@ export default [
     component: UserBarberPage,
   },
   {
-    path: '/userbarberpage/setting/',
-    component: Setting,
+    path: '/map/',
+    component: Mapbox,
   },
   {
     path: '/userbarberpage/userpage/',
