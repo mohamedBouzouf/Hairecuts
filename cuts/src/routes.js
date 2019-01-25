@@ -10,7 +10,7 @@ import UserPage from './componenten/user/userPage';
 import Setting from './componenten/user/Setting/setting'
 import firebase from './componenten/login/firebaseConfig'
 import Mapbox from './componenten/pages/Mapbox';
-import ContactForm from './componenten/sendingmail/ContactForm';
+import contactForm from './componenten/sendingmail/ContactForm';
 
 
 export default [
@@ -59,24 +59,13 @@ export default [
     path: '/about/',
     component: AboutPage,
   },
-<<<<<<< HEAD
   {
     path: '/sendingmail/',
-    component: ContactForm,
+    component: contactForm,
   },
   {
     path: '(.*)',
     component: NotFoundPage,
   },
-=======
-  // {
-  //   path: '/dynamic-route/blog/:blogId/post/:postId/',
-  //   component: DynamicRoutePage,
-  // },
-  // {
-  //   path: '(.*)',
-  //   component: NotFoundPage,
-  // },
->>>>>>> Berton
 ];
 
