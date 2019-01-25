@@ -18,7 +18,7 @@ class PhotoGalaryBarberShop extends Component {
         const {
             photos,
             photo
-        } = this.props.barber.byHash.b;
+        } = this.props.barber[1];
         return (
             <Page style={{backgroundImage:"url(" + photo + ")" , 
             backgroundPosition: "center", 

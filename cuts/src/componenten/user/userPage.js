@@ -46,12 +46,10 @@ class User extends Component {
             c
         } = this.props.barber;
 
-
         return (
             <Page style={{backgroundImage:"url(" + profilePhoto + ")" , 
             backgroundPosition: "center", 
             backgroundSize:'cover'}}>
-
                 <div className="headerPhotoRating">
                             </div>
                             <div className="layer2">

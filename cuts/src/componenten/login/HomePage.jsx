@@ -47,7 +47,8 @@ class HomePage extends Component {
       console.log(firebase);
       if (user === null) {
       } else {
-        this.$f7.router.navigate('/userbaberpage/');
+        
+        this.$f7.router.navigate("/map/");
         this.$f7.loginScreen.close();
       }
     })

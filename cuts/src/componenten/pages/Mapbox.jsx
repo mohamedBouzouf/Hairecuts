@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import {getBarber, 
   setBarber, Update} from '../../Actions/barberAction';
 import { Button } from 'react-bootstrap';
+import firebase from 'firebase';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
 var arr = [];
@@ -18,8 +19,8 @@ class Mapbox extends React.Component {
     this.flyToStore = this.flyToStore.bind(this);
     this.createPopUp = this.createPopUp.bind(this);
     this.generateListings = this.generateListings.bind(this);
-    for(key in this.props.barber.byHash){
-      arr.push(this.props.barber.byHash[key]);
+    for(key in this.props.barber){
+      arr.push(this.props.barber[key]);
       
     }
   }
@@ -38,7 +39,7 @@ class Mapbox extends React.Component {
       zoom: 14
     });
 
-   
+    
     
     this.map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
@@ -121,46 +122,28 @@ class Mapbox extends React.Component {
   }
 
   test(user){
-    
-      if(this.props.barber.byHash.a.id = user){
-        this.props.barber.byHash.a.clicked = 1;
-        this.props.barber.byHash.b.clicked = 0;
-        this.props.barber.byHash.c.clicked = 0;
-        this.props.Update(this.props.barber.a);
-        this.$f7.router.navigate('/userbarberpage/');
-       
-      }else{
-        if(this.props.barber.byHash.b.id = user){
-          this.props.barber.byHash.a.clicked = 0;
-          this.props.barber.byHash.a.clicked = 0;
-          this.props.barber.byHash.a.clicked = 1;
-          this.props.Update(this.props.byHash.byHash.b);
-          this.$f7.router.navigate('/userbarberpage/');
+    const ref = firebase.database().ref();
+    var Qm = ref.child('pages');
 
-         
+    if(this.props.barber[0].id === user){
+      Qm.update({page1: 1,
+      page2:0,page3: 0});
         }else{
-          if(this.props.barber.byHash.c.id = user){
-            this.props.barber.b.clicked = 0;
-            this.props.barber.a.clicked = 0;
-            this.props.barber.c.clicked = 1;
-            this.props.Update(this.props.barber.byHash.c);
-            this.$f7.router.navigate('/userbarberpage/');
-
-            
-            
-          }
+          if(this.props.barber[1].id === user){
+            Qm.update({page1: 0,
+            page2:1,page3: 0});
+              }else{
+                if(this.props.barber[2].id === user){
+                  Qm.update({page1: 0,
+                  page2:0,page3: 1});
+                    }
+              }
         }
-      }
+     
+      console.log(firebase.auth().currentUser.uid);
 
       
-
-     
-        
-        
-        // this.$f7.router.navigate('/userbarberpage/');
-     
-
-     
+  
   
   }
 
@@ -188,7 +171,7 @@ class Mapbox extends React.Component {
       barbers,
       flex,
       photo
-  } = this.props.barber.byHash.c;
+  } = this.props.barber[2];
     return (
       <div className="mapContainer">
         <Sidebar flyToStore={this.flyToStore} createPopUp={this.createPopUp} generateListings={this.generateListings}/>

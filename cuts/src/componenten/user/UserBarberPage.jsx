@@ -26,10 +26,6 @@ class UserBarberPage extends Component {
 
         firebase.auth().onAuthStateChanged(user => {
 
-
-            // console.log(this.props);
-       
-
         })
     }
     render() {
@@ -51,7 +47,7 @@ class UserBarberPage extends Component {
 
         } = this.props.userBarber;
 
-        if(this.props.barber.byHash.a.clicked = 1){
+        if(this.props.barber[0].clicked = 1){
             const {
                 instagram,
                 rating,
@@ -61,7 +57,7 @@ class UserBarberPage extends Component {
                 barbers,
                 flex,
                 photo
-            } = this.props.barber.byHash.a;
+            } = this.props.barber[0];
 
             return (         
                 <Page pageContent={false} style={{overflow:'hidden'}}>
@@ -209,7 +205,7 @@ class UserBarberPage extends Component {
             )
         }
 
-        if(this.props.barber.a.clicked = 1){
+        if(this.props.barbera.clicked = 1){
             const {
                 instagram,
                 rating,
@@ -219,7 +215,7 @@ class UserBarberPage extends Component {
                 barbers,
                 flex,
                 photo
-            } = this.props.barber.a;
+            } = this.props.barbera;
             
             return (         
                 <Page pageContent={false} style={{overflow:'hidden'}}>
@@ -367,7 +363,7 @@ class UserBarberPage extends Component {
             )
         }
 
-        if(this.props.barber.a.clicked = 1){
+        if(this.props.barbera.clicked = 1){
             const {
                 instagram,
                 rating,
@@ -377,7 +373,7 @@ class UserBarberPage extends Component {
                 barbers,
                 flex,
                 photo
-            } = this.props.barber.a;
+            } = this.props.barbera;
             
             return (         
                 <Page pageContent={false} style={{overflow:'hidden'}}>
