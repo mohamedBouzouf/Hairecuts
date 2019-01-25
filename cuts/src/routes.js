@@ -36,8 +36,8 @@ export default [
     component: UserBarberPage,
   },
   {
-    path: '/userbarberpage/setting/',
-    component: Setting,
+    path: '/map/',
+    component: Mapbox,
   },
   /*{
     path: '/userbarberpage/userpage/',
@@ -59,6 +59,7 @@ export default [
     path: '/about/',
     component: AboutPage,
   },
+<<<<<<< HEAD
   {
     path: '/sendingmail/',
     component: ContactForm,
@@ -67,5 +68,15 @@ export default [
     path: '(.*)',
     component: NotFoundPage,
   },
+=======
+  // {
+  //   path: '/dynamic-route/blog/:blogId/post/:postId/',
+  //   component: DynamicRoutePage,
+  // },
+  // {
+  //   path: '(.*)',
+  //   component: NotFoundPage,
+  // },
+>>>>>>> Berton
 ];
 

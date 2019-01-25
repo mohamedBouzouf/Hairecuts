@@ -4,6 +4,16 @@
     background-color: aqua;
 }
 
+.layer1{
+   
+    
+    box-sizing: cover;
+}
+
+::-webkit-scrollbar {
+    display:none;
+}
+
 .headerPhotoRating{
     text-align: center;
     top: 0;
@@ -21,10 +31,16 @@
   }
   
   .sizeImageCarousel{
-  width: 128px;
-  height: 128px;
+  width: 150px;
+  height: 150px;
   margin: 0 auto;
   }
+
+  .sizeImageCarouselPhoto{
+    width: 128px;
+    height: 128px;
+    margin: 0 auto;
+    }
 
  
   

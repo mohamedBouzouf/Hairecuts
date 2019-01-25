@@ -60,6 +60,10 @@
   overflow: hidden;
 }
 
+::-webkit-scrollbar {
+    display:none;
+}
+
 .ant-carousel .slick-slide h3 {
   color: #fff;
 }

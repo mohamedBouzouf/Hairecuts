@@ -19,5 +19,6 @@ export const SET_USER_CHANGES = 'SET_USER_CHANGES';
 //User
 export const GET_BARBER = 'GET_BARBER';
 export const SET_BARBER_CHANGES = 'SET_BARBER_CHANGES';
+export const SET_BARBER_UPDATE = 'SET_BARBER_UPDATE';
 
 
