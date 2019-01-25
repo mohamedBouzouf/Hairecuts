@@ -1,10 +1,13 @@
-import {GET_BARBER,SET_BARBER_CHANGES} from '../Actions/types';
+import {GET_BARBER, SET_BARBER_CHANGES, SET_BARBER_UPDATE} from '../Actions/types';
 
 const init = {
+    byId: ['a', 'b', 'c'],
+    byHash:{
     a : {id:'1',
-name: 'Lionlockx Hair Studios',
+name: 'Lionlockx Hair',
 photo:require('../assets/LoinLockx/logo.jpg'),
 likes:0,
+clicked:0,
 dislikes:0,
 score:0,
 photos: {
@@ -43,10 +46,10 @@ flex:1,
 IsFavorite: 0,
 appointment: Date,
 followers: 0,
-address: "Dinantplein 1, 1000 Brussel",
+address: "Warmoesberg 26, 1000 Brussel",
 coordinates: [
-                  4.327910,
-                  50.854421
+                  4.356506,
+                  50.849019
               ]},
 b : {
                 id:'2',
@@ -54,6 +57,7 @@ b : {
                 photo:require('../assets/DeWakkoKapper/logo.png'),
                 likes:0,
                 dislikes:0,
+                clicked:0,
                 score:0,
                 photos: {
                         NewCuts:[require('../assets/DeWakkoKapper/foto1.jpg'),
@@ -106,6 +110,7 @@ b : {
                 appointment: Date,
                 phone : "0250305970",
                 followers: 0,
+                city:"Brussels",
                 address: "Dinantplein 1, 1000 Brussel",
                 coordinates: [
                                   4.357910,
@@ -117,6 +122,7 @@ name: 'H&L Coiffure',
 photo:require('../assets/henl/logo.png'),
 likes:0,
 dislikes:0,
+clicked:0,
 score:0,
 photos: {
         NewCuts:[require('../assets/henl/foto1.jpg'),
@@ -161,12 +167,13 @@ flex:2,
 IsFavorite: 0,
 appointment: Date,
 phone : "02 503 05 97",
+city: "Brussel",
 followers: 0,
 address: "Nieuwstraat 123, 1000 Brussel",
 coordinates: [
                   4.346790,
                   50.847810
-              ]}
+              ]}}
     
 }
 
@@ -180,8 +187,20 @@ export default function(state = init, action){
         case SET_BARBER_CHANGES:
         return Object.assign({}, state, {
             photo: state.profilePhoto,
-            name: state.name
+            name: state.name,
+            // clicked:state.a.clicked,
+            
           })
+            case SET_BARBER_UPDATE:
+        {
+                state.byId[action.id] = {
+                  ...state.byHash[action.id],
+                  ...action.payload
+                }
+                return {
+                  ...state
+                }
+              }  
         default:
         return state;
 

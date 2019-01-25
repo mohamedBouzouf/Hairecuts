@@ -16,6 +16,7 @@ body {
     position:absolute;
     width:33.3333%;
     height:100%;
+    background-color: rgba(34, 1, 1, 0.733);
     top:0;left:0;
     overflow:hidden;
     border-right:1px solid rgba(0,0,0,0.25);
@@ -24,6 +25,10 @@ body {
     padding:20px;
   }
 
+  .details{
+    color: lightgray;
+    font-size: 12px;
+  }
   .map {
     position:absolute;
     left:33.3333%;
@@ -54,7 +59,7 @@ body {
     min-height:60px;
     line-height:60px;
     padding:0 10px;
-    background-color: #004b269a;
+    background-color: #000000c4;
     color: #fff;
   }
 
@@ -62,6 +67,7 @@ body {
     height:100%;
     overflow:auto;
     padding-bottom:60px;
+    
   }
 
   .listings .item {
@@ -136,7 +142,7 @@ body {
     padding:1%;
   }
   .mapboxgl-popup-content h3 {
-    background:#4f6e269b;
+    background-color: rgba(34, 1, 1, 0.733);
     color:#fff;
     margin:0;
     display:block;
