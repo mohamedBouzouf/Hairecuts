@@ -1,5 +1,5 @@
 body {
-    color:#404040;
+    color:#ffffff;
     font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
     margin:0;
     padding:0;
@@ -54,7 +54,7 @@ body {
     min-height:60px;
     line-height:60px;
     padding:0 10px;
-    background-color: #00853e;
+    background-color: #004b269a;
     color: #fff;
   }
 
@@ -74,7 +74,7 @@ body {
   .listings .item:last-child { border-bottom:none; }
   .listings .item .title {
     display:block;
-    color:#00853e;
+    color:#ffffff;
     font-weight:700;
   }
 
@@ -136,7 +136,7 @@ body {
     padding:1%;
   }
   .mapboxgl-popup-content h3 {
-    background:#91c949;
+    background:#4f6e269b;
     color:#fff;
     margin:0;
     display:block;

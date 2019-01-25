@@ -28,7 +28,7 @@ class UserBarberPage extends Component {
 
 
             // console.log(this.props);
-            console.log(this.props.barber.b.BestCuts);
+            console.log(this.props.barber.b.toString());
 
         })
     }
@@ -95,11 +95,13 @@ class UserBarberPage extends Component {
                                     <Rating icon='star' defaultRating={rating} maxRating={5}/>                                    
                                     <Block>
                                     <Row className='backgrid2' >
-                                            <Col ><Button bsStyle="primary" bsSize='lg' href={facebook} style={{color:'white'}}>
+                                            <Col ><Button bsStyle="primary" bsSize='lg'  style={{color:'white'}}>
                                             <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} /> 
+                                            <a href={facebook}/>
                                             </Button></Col>
-                                            <Col ><Button bsStyle="warning" bsSize='lg' href={instagram} >
+                                            <Col ><Button bsStyle="warning" bsSize='lg'  >
                                             <i className="fa fa-instagram iconIverse" style={{ fontSize: '17px' }} style={{color:'white'}} />
+                                            <a href={instagram}/>
                                             </Button></Col>
                                         </Row>
                                         <Divider/>
@@ -125,38 +127,23 @@ class UserBarberPage extends Component {
                                             <Carousel className="sizeImageCarousel" >
                                                 <Carousel.Item>
                                                     <Image src={photos.BestCuts[1]} />
-                                                    <Carousel.Caption>
-                                                        <h3>Waves</h3>
-                                                        <p>the new flow</p>
-                                                    </Carousel.Caption>
+                                                   
                                                 </Carousel.Item>
                                                 <Carousel.Item>
                                                     <Image src={photos.NewCuts[1]} />
-                                                    <Carousel.Caption>
-                                                        <h3>Dreads</h3>
-                                                        <p>the new flow</p>
-                                                    </Carousel.Caption>
+                                                    
                                                 </Carousel.Item>
                                                 <Carousel.Item>
                                                     <Image src={photos.OldCuts[1]} />
-                                                    <Carousel.Caption>
-                                                        <h3>Weaves</h3>
-                                                        <p>the new flow</p>
-                                                    </Carousel.Caption>
+                                                   
                                                 </Carousel.Item>
                                                 <Carousel.Item>
                                                     <Image src={photos.NewCuts[0]} />
-                                                    <Carousel.Caption>
-                                                        <h3>Fades</h3>
-                                                        <p>the new flow</p>
-                                                    </Carousel.Caption>
+                                                   
                                                 </Carousel.Item>
                                                 <Carousel.Item>
                                                     <Image src={photos.BestCuts[0]} />
-                                                    <Carousel.Caption>
-                                                        <h3>Specials</h3>
-                                                        <p>the new flow</p>
-                                                    </Carousel.Caption>
+                                                
                                                 </Carousel.Item>
                                             </Carousel>
                                         </div>
