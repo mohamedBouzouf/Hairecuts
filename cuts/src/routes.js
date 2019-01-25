@@ -10,6 +10,7 @@ import UserPage from './componenten/user/userPage';
 import Setting from './componenten/user/Setting/setting'
 import firebase from './componenten/login/firebaseConfig'
 import Mapbox from './componenten/pages/Mapbox';
+import ContactForm from './componenten/sendingmail/ContactForm';
 
 
 export default [
@@ -38,10 +39,10 @@ export default [
     path: '/userbarberpage/setting/',
     component: Setting,
   },
-  {
+  /*{
     path: '/userbarberpage/userpage/',
     component: UserPage,
-  },
+  },*/
   {
     path: '/messenger/',
     component: MessageBarberShop,
@@ -58,10 +59,10 @@ export default [
     path: '/about/',
     component: AboutPage,
   },
-  // {
-  //   path: '/dynamic-route/blog/:blogId/post/:postId/',
-  //   component: DynamicRoutePage,
-  // },
+  {
+    path: '/sendingmail/',
+    component: ContactForm,
+  },
   {
     path: '(.*)',
     component: NotFoundPage,

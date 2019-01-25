@@ -8,5 +8,7 @@ export default combineReducers({
     userBarber: userBarberReducer,
     login: loginReducer,
     user: userReducer,
-    barber: barberReducer
+    barber: barberReducer, 
+    contact,
+  form: reduxFormReducer
 });
