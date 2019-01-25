@@ -57,6 +57,8 @@ class UserBarberPage extends Component {
             facebook,
             name,
             photos,
+            barbers,
+            flex,
             photo
         } = this.props.barber.c;
         
@@ -90,11 +92,10 @@ class UserBarberPage extends Component {
                                       }}>
                                     <Image src={photo} circle className="sizeImage" />
                                     <h5 style={{ color: 'white' }}>{name}</h5>
-                                    <Rating icon='star' defaultRating={rating} maxRating={5} />
-                                    
+                                    <Rating icon='star' defaultRating={rating} maxRating={5}/>                                    
                                     <Block>
                                     <Row className='backgrid2' >
-                                            <Col ><Button bsStyle="primary" bsSize='lg' href="www.google.com" style={{color:'white'}}>
+                                            <Col ><Button bsStyle="primary" bsSize='lg' href={facebook} style={{color:'white'}}>
                                             <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} /> 
                                             </Button></Col>
                                             <Col ><Button bsStyle="warning" bsSize='lg' href={instagram} >
@@ -104,10 +105,10 @@ class UserBarberPage extends Component {
                                         <Divider/>
                                         <Row className='backgrid1' >
                                             <Col ><Card
-                                                header="2" color='orange' meta="barbers" /></Col>
+                                                header={barbers} color='orange' meta="barbers" /></Col>
                                             <Col ><Card
-                                                header="2" color='blue' meta="Flex" /></Col>
-                                            <Col ><Card header={followers+'k'} color='green' raised
+                                                header={flex} color='blue' meta="Flex" /></Col>
+                                            <Col ><Card header={followers} color='green' raised
                                                 meta="Likes" /></Col>
                                         </Row>
                                         <Divider />
@@ -123,35 +124,35 @@ class UserBarberPage extends Component {
                                         <div className="CarousselContainer">
                                             <Carousel className="sizeImageCarousel" >
                                                 <Carousel.Item>
-                                                    <Image src={photo} />
+                                                    <Image src={photos.BestCuts[1]} />
                                                     <Carousel.Caption>
                                                         <h3>Waves</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={photo} />
+                                                    <Image src={photos.NewCuts[1]} />
                                                     <Carousel.Caption>
                                                         <h3>Dreads</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={photo} />
+                                                    <Image src={photos.OldCuts[1]} />
                                                     <Carousel.Caption>
                                                         <h3>Weaves</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={photo} />
+                                                    <Image src={photos.NewCuts[0]} />
                                                     <Carousel.Caption>
                                                         <h3>Fades</h3>
                                                         <p>the new flow</p>
                                                     </Carousel.Caption>
                                                 </Carousel.Item>
                                                 <Carousel.Item>
-                                                    <Image src={photo} />
+                                                    <Image src={photos.BestCuts[0]} />
                                                     <Carousel.Caption>
                                                         <h3>Specials</h3>
                                                         <p>the new flow</p>
