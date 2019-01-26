@@ -230,7 +230,7 @@ class MessagebarberShop extends Component {
         }
         self.setState({ attachments });
     }
-    sendMessagee() {
+    sendMessage() {
         const self = this;
         const text = self.messagebar.getValue().replace(/\n/g, '<br>').trim();
         const messagesToSend = [];
