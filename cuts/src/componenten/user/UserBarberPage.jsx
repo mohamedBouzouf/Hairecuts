@@ -176,8 +176,8 @@ class UserBarberPage extends Component {
                                                 <i className="fa fa-facebook iconIverse" style={{ fontSize: '17px' }} />
                                                 </Button></Link></Col>
                                                 <Col >
-                                                <Link external href={instagram} color='white'><Button bsStyle="warning" bsSize='lg'>
-                                                <i className="fa fa-instagram iconIverse" style={{ fontSize: '17px' }} style={{color:'white'}}/>
+                                                <Link external href={instagram} color='white'><Button bsStyle="warning" bsSize='lg' style={{color:'white'}}>
+                                                <i className="fa fa-instagram iconIverse" style={{ fontSize: '17px' }} />
                                                 </Button></Link></Col>
                                             </Row>
                                             <Divider/>
