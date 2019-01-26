@@ -1,9 +1,9 @@
 import HomePage from './componenten/login/HomePage';
-import AboutPage from './componenten/pages/AboutPage';
+// import AboutPage from './componenten/pages/AboutPage';
 // import DynamicRoutePage from './componenten/pages/DynamicRoutePage';
 // import NotFoundPage from './componenten/pages/NotFoundPage';
 import PanelLeftPage from './componenten/pages/PanelLeftPage';
-import PanelRightPage from './componenten/pages/PanelRightPage';
+// import PanelRightPage from './componenten/pages/PanelRightPage';
 import MessageBarberShop from './componenten/user/Message/message';
 import UserBarberPage from './componenten/user/UserBarberPage';
 import UserPage from './componenten/user/userPage';

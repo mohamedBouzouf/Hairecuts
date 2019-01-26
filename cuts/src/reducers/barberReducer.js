@@ -4,8 +4,7 @@ const init = [
     {id:'1',
         name: 'Lionlockx Hair',
         photo:require('../assets/LoinLockx/logo.jpg'),
-        likes:0,
-        clicked:false,
+       
         dislikes:0,
         score:0,
         photos: {
@@ -38,7 +37,6 @@ const init = [
                 firstTimeLoggedIn:'',
                 lastTimeLoggedIn:'',
                 likes:0,
-                dislikes:0, 
                 barbers:3,
                 flex:1,
                 IsFavorite: 0,
@@ -103,8 +101,6 @@ const init = [
                             followers: 9,
                             flex:2,
                             lastTimeLoggedIn:'',
-                            likes:0,
-                            dislikes:0, 
                             IsFavorite: 0,
                             appointment: Date,
                             phone : "0250305970",
@@ -118,8 +114,6 @@ const init = [
             { id:'3',
             name: 'H&L Coiffure',
             photo:require('../assets/henl/logo.png'),
-            likes:0,
-            dislikes:0,
             clickedh:false,
             score:0,
             photos: {

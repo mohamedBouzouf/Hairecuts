@@ -5,7 +5,7 @@ import firebase from '../login/firebaseConfig'
 import '../user/user.css';
 
 export default () => (
-  <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts128_x_128.png')+")" , 
+  <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts-128_x_128.png')+")" , 
   backgroundPosition: "center"}}>
     <div className="navPL">
     
