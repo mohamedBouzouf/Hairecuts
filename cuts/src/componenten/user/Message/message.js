@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
-import { Icon } from 'antd';
+import {  Glyphicon } from 'react-bootstrap';
 import {
     Link,
     Message,
@@ -111,11 +111,11 @@ class MessagebarberShop extends Component {
                     <Link
                         slot="inner-start"
                         onClick={() => { this.setState({ sheetVisible: !this.state.sheetVisible }) }}
-                    ><Icon type="camera" theme="filled" /></Link>
+                    ><Glyphicon  glyph="glyphicon glyphicon-camera" /></Link>
                     <Link
                         slot="inner-end"
                         onClick={this.sendMessage.bind(this)}
-                    ><Icon type="caret-right" /></Link>
+                    ><Glyphicon  glyph="glyphicon glyphicon-menu-hamburger" /></Link>
                     <MessagebarAttachments>
                         {this.state.attachments.map((image, index) => (
                             <MessagebarAttachment
@@ -168,9 +168,6 @@ class MessagebarberShop extends Component {
                             avatar={this.state.typingMessage.avatar}
                         ></Message>
                     )}
-
-
-                    {/* <Blur className='headercuts' img={photo} blurRadius={8} /> */}
                 </Messages>
             </Page>
         )

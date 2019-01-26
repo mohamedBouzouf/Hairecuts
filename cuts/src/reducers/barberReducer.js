@@ -55,7 +55,7 @@ const init = [
                             photo:require('../assets/DeWakkoKapper/logo.png'),
                             likes:0,
                             dislikes:0,
-                            clicked:false,
+                            clickedd:false,
                             score:0,
                             photos: {
                                     NewCuts:[require('../assets/DeWakkoKapper/foto1.jpg'),
@@ -100,6 +100,7 @@ const init = [
                             signInTimes:0,
                             firstTimeLoggedIn:'',
                             barbers:4,
+                            followers: 9,
                             flex:2,
                             lastTimeLoggedIn:'',
                             likes:0,
@@ -107,7 +108,6 @@ const init = [
                             IsFavorite: 0,
                             appointment: Date,
                             phone : "0250305970",
-                            followers: 0,
                             city:"Brussels",
                             address: "Dinantplein 1, 1000 Brussel",
                             coordinates: [
@@ -120,7 +120,7 @@ const init = [
             photo:require('../assets/henl/logo.png'),
             likes:0,
             dislikes:0,
-            clicked:false,
+            clickedh:false,
             score:0,
             photos: {
                     NewCuts:[require('../assets/henl/foto1.jpg'),
@@ -152,6 +152,7 @@ const init = [
             facebook:'https://www.facebook.com/hlcoiffure/',
             signInTimes:0,
             firstTimeLoggedIn:'',
+            followers: 4,
             lastTimeLoggedIn:'',
             likes:0,
             dislikes:0,
@@ -159,9 +160,9 @@ const init = [
             flex:2,
             IsFavorite: 0,
             appointment: Date,
-            phone : "02 503 05 97",
+            phone : "025030597",
             city: "Brussel",
-            followers: 0,
+
             address: "Nieuwstraat 123, 1000 Brussel",
             coordinates: [
                             4.346790,

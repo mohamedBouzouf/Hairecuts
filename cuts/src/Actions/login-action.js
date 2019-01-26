@@ -1,4 +1,4 @@
-import { GET_LOGIN, SET_LOGIN, BOOL_EMAIL, BOOL_REGISTER } from './types';
+import { GET_LOGIN, BOOL_EMAIL, BOOL_REGISTER } from './types';
 
 export const getLogin = () => 
 {

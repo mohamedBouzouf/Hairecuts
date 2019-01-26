@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import {getBarber, 
   setBarber, Update} from '../../Actions/barberAction';
 import { Button } from 'react-bootstrap';
-import firebase from 'firebase';
+// import firebase from 'firebase';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
 var arr = [];
@@ -21,14 +21,8 @@ class Mapbox extends React.Component {
     this.generateListings = this.generateListings.bind(this);
     for(key in this.props.barber){
       arr.push(this.props.barber[key]);
-      
     }
   }
-
-
-
-  
-
   
   componentDidMount() {
     this.map = new mapboxgl.Map({
@@ -39,7 +33,6 @@ class Mapbox extends React.Component {
       zoom: 14
     });
 
-    
     
     this.map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
@@ -78,6 +71,7 @@ class Mapbox extends React.Component {
 
   componentWillUnmount() {
     this.map.remove();
+    this.mapContainer.remove();
   }
 
   flyToStore(currentFeature) {
@@ -104,7 +98,6 @@ class Mapbox extends React.Component {
               var activeItem = document.getElementsByClassName('active');
               if (activeItem[0]) {
                 activeItem[0].classList.remove('active');
-                
               }
               
             }}>
@@ -121,30 +114,28 @@ class Mapbox extends React.Component {
     return listing;
   }
 
-  test(user){
-    const ref = firebase.database().ref();
-    var Qm = ref.child('pages');
-
+  test(user){ 
     if(this.props.barber[0].id === user){
-      Qm.update({page1: 1,
-      page2:0,page3: 0});
-        }else{
-          if(this.props.barber[1].id === user){
-            Qm.update({page1: 0,
-            page2:1,page3: 0});
-              }else{
-                if(this.props.barber[2].id === user){
-                  Qm.update({page1: 0,
-                  page2:0,page3: 1});
-                    }
-              }
-        }
-     
-      console.log(firebase.auth().currentUser.uid);
-
-      
-  
-  
+      this.props.barber[0].clicked = 1;
+      this.props.barber[1].clickedd = 0;
+      this.props.barber[2].clickedh = 0;
+      console.log("a");
+      this.props.setBarber(this.props.barber[0].clicked)
+    }else if (this.props.barber[1].id === user){
+      this.props.barber[0].clicked = 0;
+      this.props.barber[1].clickedd = 1;
+      this.props.barber[2].clickedh = 0;
+      console.log("b");
+      this.props.setBarber(this.props.barber[1].clickedd)
+    }else if(this.props.barber[2].id === user){
+      this.props.barber[0].clicked = 0;
+      this.props.barber[1].clickedd = 0;
+      this.props.barber[2].clickedh = 1;
+      console.log("c");
+      this.props.setBarber(this.props.barber[2].clickedh)
+    }
+   
+    this.$f7router.navigate("/userbarberpage/");
   }
 
   createPopUp(currentFeature) {
@@ -156,22 +147,12 @@ class Mapbox extends React.Component {
 
     let popup = new mapboxgl.Popup({ closeOnClick: false })
       .setLngLat(currentFeature.coordinates)
-      .setHTML(`<h3> <img src="${currentFeature.photo}" height="32" width="32" onClick=${this.test.bind(this)} > ${currentFeature.name} </h3> 
+      .setHTML(`<h3> <img src="${currentFeature.photo}" height="32" width="32"> ${currentFeature.name} </h3> 
         <h4> ${currentFeature.address} ${currentFeature.name} + </h4>`)
       .addTo(this.map);
   }
 
   render() {
-    const {
-      instagram,
-      rating,
-      facebook,
-      name,
-      photos,
-      barbers,
-      flex,
-      photo
-  } = this.props.barber[2];
     return (
       <div className="mapContainer">
         <Sidebar flyToStore={this.flyToStore} createPopUp={this.createPopUp} generateListings={this.generateListings}/>

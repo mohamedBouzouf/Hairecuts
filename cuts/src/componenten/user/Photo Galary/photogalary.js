@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {getBarber, setBarber} from '../../../Actions/barberAction';
 
 import './photogalary.css';
-
+var i = 0;
 class PhotoGalaryBarberShop extends Component {
 
 
@@ -15,10 +15,20 @@ class PhotoGalaryBarberShop extends Component {
     }
 
     render() {
+        if(this.props.barber[0].clicked === 1)
+        {
+            i = 0;
+        }else if(this.props.barber[1].clickedd === 1)
+        {
+            i = 1;
+        }else if(this.props.barber[2].clickedh === 1)
+        {
+            i = 2;
+        }
         const {
             photos,
             photo
-        } = this.props.barber[1];
+        } = this.props.barber[i];
         return (
             <Page style={{backgroundImage:"url(" + photo + ")" , 
             backgroundPosition: "center", 
