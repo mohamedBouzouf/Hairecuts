@@ -12,6 +12,7 @@ import firebase from './componenten/login/firebaseConfig'
 import Mapbox from './componenten/pages/Mapbox';
 
 
+
 export default [
   {
     path: '/',
@@ -50,14 +51,14 @@ export default [
     path: '/panel-left/',
     component: PanelLeftPage,
   },
-  {
-    path: '/panel-right/',
-    component: PanelRightPage,
-  },
-  {
-    path: '/about/',
-    component: AboutPage,
-  },
+  // {
+  //   path: '/panel-right/',
+  //   component: PanelRightPage,
+  // },
+  // {
+  //   path: '/about/',
+  //   component: AboutPage,
+  // },
   // {
   //   path: '/dynamic-route/blog/:blogId/post/:postId/',
   //   component: DynamicRoutePage,

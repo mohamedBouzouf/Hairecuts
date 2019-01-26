@@ -16,7 +16,7 @@ body {
     position:absolute;
     width:33.3333%;
     height:100%;
-    background-color: rgba(34, 1, 1, 0.733);
+    background-color: rgba(22, 0, 0, 0.979);
     top:0;left:0;
     overflow:hidden;
     border-right:1px solid rgba(0,0,0,0.25);
@@ -175,6 +175,3 @@ body {
     border-bottom-color: #91c949;
   }
 
-  a.mapboxgl-ctrl-logo{
-    display: none;
-  }

@@ -8,6 +8,7 @@ import {getBarber,
   setBarber, Update} from '../../Actions/barberAction';
 import { Button } from 'react-bootstrap';
 // import firebase from 'firebase';
+import {Page} from 'framework7-react';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVycnlqb25nIiwiYSI6ImNqOW93OXB0YzFnaHcyd240ZmlvMTc3eDYifQ.ZLuZbS7D2OcCUxT642-6xA';
 var arr = [];
@@ -19,21 +20,26 @@ class Mapbox extends React.Component {
     this.flyToStore = this.flyToStore.bind(this);
     this.createPopUp = this.createPopUp.bind(this);
     this.generateListings = this.generateListings.bind(this);
+    
+    if(arr.length === 0 ){
+      
     for(key in this.props.barber){
       arr.push(this.props.barber[key]);
-    }
+    }}
   }
   
+  componentWillMount(){
+    
+  }
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapContainer,
       style: 'mapbox://styles/mapbox/streets-v9',
       center: [4.351721, 50.850346],
       // initial zoom
-      zoom: 14
+      zoom: 4
     });
 
-    
     this.map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
           enableHighAccuracy: true
@@ -42,14 +48,16 @@ class Mapbox extends React.Component {
 
   }));
 
-  this.map.addControl(new mapboxgl.NavigationControl())
+  
+
+  
 
     this.map.on('load', () => {
       this.map.addSource('places', {
         type: 'geojson',
         data: stores
       });
-      // console.log(this.map);
+     
       const map = this.map;
 
       arr.forEach(function(marker) {
@@ -64,6 +72,8 @@ class Mapbox extends React.Component {
         .setLngLat(marker.coordinates)
         .addTo(map);
       });
+
+      this.map.addControl(new mapboxgl.NavigationControl());
     });
   }
 
@@ -71,7 +81,6 @@ class Mapbox extends React.Component {
 
   componentWillUnmount() {
     this.map.remove();
-    this.mapContainer.remove();
   }
 
   flyToStore(currentFeature) {
@@ -83,7 +92,13 @@ class Mapbox extends React.Component {
 
   generateListings() {
     let i = -1;
-    let listing = arr.map((feature) => {
+
+    let listing = [];
+
+    while(listing.length > 0) {
+      listing.pop();
+  }
+    listing = arr.map((feature) => {
       i += 1;
       feature.clicked = i;
       
@@ -111,6 +126,7 @@ class Mapbox extends React.Component {
         </div>
       )
     });
+  
     return listing;
   }
 
@@ -119,23 +135,23 @@ class Mapbox extends React.Component {
       this.props.barber[0].clicked = 1;
       this.props.barber[1].clickedd = 0;
       this.props.barber[2].clickedh = 0;
-      console.log("a");
-      this.props.setBarber(this.props.barber[0].clicked)
+      
+      // this.props.setBarber(this.props.barber[0].clicked)
     }else if (this.props.barber[1].id === user){
       this.props.barber[0].clicked = 0;
       this.props.barber[1].clickedd = 1;
       this.props.barber[2].clickedh = 0;
-      console.log("b");
-      this.props.setBarber(this.props.barber[1].clickedd)
+      
+      // this.props.setBarber(this.props.barber[1].clickedd)
     }else if(this.props.barber[2].id === user){
       this.props.barber[0].clicked = 0;
       this.props.barber[1].clickedd = 0;
       this.props.barber[2].clickedh = 1;
-      console.log("c");
-      this.props.setBarber(this.props.barber[2].clickedh)
+      
+      // this.props.setBarber(this.props.barber[2].clickedh)
     }
-   
-    this.$f7router.navigate("/userbarberpage/");
+    
+    this.$f7router.navigate("/userbarberpage/", {clearPreviousHistory: true});
   }
 
   createPopUp(currentFeature) {
@@ -154,10 +170,12 @@ class Mapbox extends React.Component {
 
   render() {
     return (
+      <Page>
       <div className="mapContainer">
         <Sidebar flyToStore={this.flyToStore} createPopUp={this.createPopUp} generateListings={this.generateListings}/>
         <div className="map" ref={el => this.mapContainer = el} />
       </div>
+      </Page>
     );
   }
 };

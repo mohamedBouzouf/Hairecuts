@@ -2,12 +2,10 @@ import React, {
     Component
 } from 'react';
 import {
-    Link,
-    BlockFooter, Page
+    Link,Page
 } from 'framework7-react';
 import {
     Header,
-    Icon,
     Divider,
     List,ListItem, Rating
 } from 'semantic-ui-react';
@@ -34,17 +32,20 @@ class User extends Component {
         })
     }
     render() {
+        var arr = [];
+        var key = {};
+        for(key in this.props.barber){
+            arr.push(this.props.barber[key]);
+
+        };
+        
+        
         const {
             profilePhoto,
             name,
             firstTimeLoggedIn
         } = this.props.user;
-
-        const {
-            a,
-            b,
-            c
-        } = this.props.barber;
+       
 
         return (
             <Page style={{backgroundImage:"url(" + profilePhoto + ")" , 
@@ -78,15 +79,15 @@ class User extends Component {
                         } >
                             <List>
                                 <List.Item > < h3 > {name} </h3></List.Item>
-                                <List.Item > < h3 > Lid sinds {firstTimeLoggedIn} </h3></List.Item>
+                                <List.Item > < h3 > {firstTimeLoggedIn} </h3></List.Item>
                                 <List.Item> Aantal keren aangemeld: 10 </List.Item>
                             </List> <Divider />
                                 <h4>Recent visited Barbershops...</h4>
                                 <List>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {a.name} </h5> <h6> <Rating icon='star' defaultRating={a.rating} maxRating={5}/></h6> </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {b.name} </h5> <h6> <Rating icon='star' defaultRating={b.rating} maxRating={5}/></h6>  </ListItem>
-                                <ListItem link='#' className='listRecentBarberShop'> < h5 > {c.name}  </h5> <h6> <Rating icon='star' defaultRating={c.rating} maxRating={5}/> </h6> </ListItem>
-                               
+                                    { arr.map((user, i )=>{
+                                        return <ListItem key={i} link='#' className='listRecentBarberShop'> < h5 > {user.name} </h5> <h6> <Rating icon='star' defaultRating={user.rating} maxRating={5}/></h6> </ListItem>
+                                    } )
+                                    }
                                 <ListItem><Button bsStyle="primary" bsSize="large" onClick={() => { 
                                     firebase.auth().signOut();
                                     this.$f7.router.navigate('/userbarberpage/');

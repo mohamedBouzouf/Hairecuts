@@ -5,43 +5,107 @@ import {
     Block, Page,
     Toolbar,Tabs, Tab, PageContent, List, ListItem,Popover
 } from 'framework7-react';
+
 import { Image, Button, Carousel, Glyphicon } from 'react-bootstrap';
 import './user.css';
 import MessagebarberShop from './Message/message';
+import firebase from 'firebase';
 import PhotoGalaryBarberShop from './Photo Galary/photogalary';
 import { Divider, Card, Label,Rating } from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {getBarber, setBarber} from '../../Actions/barberAction';
+import {getBarber, setBarber, setUserNumber} from '../../Actions/barberAction';
 import {getUserBarber, 
     SetUserBarberChanges} from '../../Actions/userBarberPageAction';
 
 var i = 0;
+
 class UserBarberPage extends Component {
     
     constructor(props){
-        super(props)
+        super(props);
+        this.state = {
+            like: 0 ,
+            dislikes: 0,
+            followers: 0,
+            isfavorite: false
+    
+        }
        
+    
     }
 
     componentDidMount() {
-       
+    
     }
+
+    Followers(){
+        var user = firebase.auth().currentUser;
+        if(user !== null){
+  
+
+        if(this.state.followers === 0){
+            this.setState({followers : 1});
+            firebase.database().ref().child("posts").child("followers").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("followers").child(user.uid).child("newfollower").set("1");
+        }else if(this.state.followers === 1){
+            this.setState({followers : 0});
+            firebase.database().ref().child("posts").child("followers").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("followers").child(user.uid).child("unfollowed").set("1");
+        }
+
+    }}
+
     Likes(){
-        if(this.props.barber[i].likes === 0){
-            this.props.barber[i].likes += 1;
-            this.props.barber[i].dislikes = 0;
-            this.props.setBarber(this.props.barber);
+        var user = firebase.auth().currentUser;
+         
+        if(user !== null){
+   
+
+        if(this.state.like === 0){
+            
+            this.setState({like: 1,
+            dislikes: 0});
+            firebase.database().ref().child("posts").child("likes").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("likes").child(user.uid).child("geliked").set("1");
+        }
+
+    }}
+
+    Dislikes(){
+        var user = firebase.auth().currentUser;
+         
+        if(user !== null){
+ 
+
+      if(this.state.dislikes === 0 ){
+            
+            this.setState({like: 0,
+                dislikes: 1});
+            firebase.database().ref().child("posts").child("likes").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("likes").child(user.uid).child("gedisliked").set("1");
+        }
+
+    }}
+
+    Favorite(){
+        var user = firebase.auth().currentUser;
+        if(user !== null){
+        if(this.state.isfavorite === false){
+            this.setState({isfavorite : true});
+            firebase.database().ref().child("posts").child("favorite").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("favorite").child(user.uid).child("isfavorite").set("true");
+          }else{
+            this.setState({isfavorite : false });
+            firebase.database().ref().child("posts").child("favorite").child(user.uid).remove();
+            firebase.database().ref().child("posts").child("favorite").child(user.uid).child("isfavorite").set("false");
+          }
         }
     }
-    Dislikes(){
-        if(this.props.barber[i].likes === 1){
-            this.props.barber[i].likes -= 1;
-            this.props.barber[i].dislikes += 1;
-            this.props.setBarber(this.props.barber);
-        } 
-    }
+
+
     
     render() {
+       
         if(this.props.barber[0].clicked === 1)
         {
             i = 0;
@@ -65,15 +129,14 @@ class UserBarberPage extends Component {
                 rating,
                 facebook,
                 name,
-                likes,
-                dislikes,
-                followers,
                 photos,
                 barbers,
                 phone,
                 flex,
                 photo
             } = this.props.barber[i];
+          
+
           
             
             return (         
@@ -123,7 +186,7 @@ class UserBarberPage extends Component {
                                                     header={barbers} color='orange' meta="barbers" /></Col>
                                                 <Col ><Card
                                                     header={flex} color='blue' meta="Flex" /></Col>
-                                                <Col ><Card header={likes} color='green' raised
+                                                <Col ><Card header={this.state.like} color='green' raised
                                                     meta="Likes" /></Col>
                                             </Row>
                                             <Divider />
@@ -133,7 +196,8 @@ class UserBarberPage extends Component {
                                                     <Glyphicon glyph="glyphicon glyphicon-earphone" />
                                                     </Link>
                                                 </Button></Col>
-                                                <Col ><Button bsStyle="success" bsSize='lg'>
+                                                <Col ><Button bsStyle="success" bsSize='lg' >
+                                                {/* <Button bsStyle="success" bsSize='lg' onClick={() => this.$f7router.navigate('/agenda/')}></Button> */}
                                                     <Glyphicon glyph="glyphicon glyphicon-calendar" />
                                                 </Button></Col>
                                             </Row>
@@ -165,36 +229,43 @@ class UserBarberPage extends Component {
                                             <Divider/>
                                             <Row className='backgrid1' >
                                                 <Col >
-                                                <Label size="big" color='blue'> 
-                                                < Link onClick={this.Likes.bind(this)}> 
+                                                <Label size="big" color='blue' image> 
+                                                <Link onClick={this.Likes.bind(this)}> 
                                                     <Glyphicon glyph="glyphicon glyphicon-thumbs-up" />
+                                            
+                                                <Label.Detail>{this.state.like}</Label.Detail>
                                                 </Link>
-                                                <Label.Detail>{likes}</Label.Detail>
                                                 </Label>
                                                 </Col>
                                                 <Col >
-                                                <Label size="big" color="red" > 
+                                                <Label size="big" color="red" image> 
                                                 <Link onClick={this.Dislikes.bind(this)}> 
                                                     <Glyphicon glyph="glyphicon glyphicon-thumbs-down" />
+                                                
+                                                <Label.Detail>{this.state.dislikes}</Label.Detail>
                                                 </Link>
-                                                <Label.Detail>{dislikes}</Label.Detail>
                                                 </Label>
                                                 </Col>
                                                 <Col>
-                                                <Label size="big" color="black"> 
-                                                <Link> 
+                                                <Label size="big" color="black" image> 
+                                                <Link onClick={this.Followers.bind(this)}> 
                                                     <Glyphicon glyph="user" />
+                                               
+                                                <Label.Detail>{this.state.followers}</Label.Detail>
                                                 </Link>
-                                                <Label.Detail>{followers}</Label.Detail>
                                                 </Label>
                                                 </Col>
                                                 <Col >
-                                                <Label size="big" color="orange">
-                                                <Link panelOpen="left"> 
-                                                    <Glyphicon glyph="glyphicon glyphicon-star" />
-                                                </Link >
+                                                <Link  onClick={this.Favorite.bind(this)}> 
+                                                { this.state.isfavorite ? 
+                                                    (<Label size="big" color="orange">
+                                                    <Glyphicon glyph="glyphicon glyphicon-star" /> 
                                                 </Label>
-                                                </Col>  
+                                                ) : (<Label size="big" color="grey">
+                                                    <Glyphicon glyph="glyphicon glyphicon-star" />
+                                                </Label>)}
+                                                </Link>
+                                                </Col> 
                                             </Row>
                                             <Divider/>
                                         </Block>
@@ -219,6 +290,7 @@ class UserBarberPage extends Component {
                             </PageContent>
                         </Tab>
                     </Tabs>
+                
                 </Page >
             )
     }
@@ -233,4 +305,4 @@ const mapStateToProps = (state) => ({
     barber: state.barber
   });
 
-export default connect(mapStateToProps,{getUserBarber,setBarber,SetUserBarberChanges, getBarber})(UserBarberPage);
+export default connect(mapStateToProps,{getUserBarber,setBarber,SetUserBarberChanges, setUserNumber,getBarber})(UserBarberPage);

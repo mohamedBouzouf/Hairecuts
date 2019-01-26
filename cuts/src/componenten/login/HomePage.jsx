@@ -43,10 +43,10 @@ class HomePage extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
+     
       if (user === null) {
       } else {
-        this.$f7.router.navigate("/map/");
+        this.$f7.router.navigate("/map/", {reloadCurrent: true});
         this.$f7.loginScreen.close();
       }
     })

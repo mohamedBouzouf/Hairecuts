@@ -1,4 +1,4 @@
-import { GET_BARBER, SET_BARBER_CHANGES, SET_BARBER_UPDATE } from './types';
+import { GET_BARBER, SET_BARBER_CHANGES, SET_BARBER_UPDATE, SET_USERBARBER_CHANGES } from './types';
 
 export const getBarber = () => 
 {
@@ -12,6 +12,14 @@ export const setBarber = (user) =>
     return {
         type: SET_BARBER_CHANGES,
         user: user
+    }
+}
+
+export const setUserNumber = (number) =>
+{
+    return{
+        type: SET_USERBARBER_CHANGES,
+        number: number
     }
 }
 

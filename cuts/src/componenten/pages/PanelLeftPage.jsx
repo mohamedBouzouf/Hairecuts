@@ -1,11 +1,11 @@
 import React from 'react';
-import {Page, Block, BlockHeader, BlockTitle, List, ListItem} from 'framework7-react';
-import {Image, Glyphicon} from 'react-bootstrap';
+import {Page,BlockTitle, List, ListItem} from 'framework7-react';
+import {Glyphicon} from 'react-bootstrap';
 import firebase from '../login/firebaseConfig'
 import '../user/user.css';
 
 export default () => (
-  <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts-128_x_128.png')+")" , 
+  <Page style={{backgroundImage:"url("+ require('../../assets/cuts-resizes/cuts128_x_128.png')+")" , 
   backgroundPosition: "center"}}>
     <div className="navPL">
     
@@ -35,7 +35,7 @@ export default () => (
         </div>
     </div>
       </ListItem>
-      <ListItem link='/userbarberpage/map' panelClose>
+      <ListItem  link='/map/' panelClose>
       <div className="item-content">
         <div className="item-media">
         <Glyphicon glyph='glyphicon glyphicon-map-marker'/>
@@ -49,7 +49,7 @@ export default () => (
       </ListItem>
     </List >
     <List as='a' style={{ backgroundColor:'white' }} mediaList inset>
-    <ListItem link='/userbarberpage/setting/'  panelClose>
+    {/* <ListItem link='/userbarberpage/setting/'  panelClose>
     <div className="item-content">
         <div className="item-media">
         <Glyphicon glyph='glyphicon glyphicon-cog'/>
@@ -60,7 +60,7 @@ export default () => (
             </div>
         </div>
     </div>
-    </ListItem>
+    </ListItem> */}
     <ListItem link='/'  panelClose>
     <div className="item-content">
         <div className="item-media">

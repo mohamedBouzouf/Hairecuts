@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Page,Swiper,SwiperSlide} from 'framework7-react';
+import {Page} from 'framework7-react';
 import {Image, Divider} from 'semantic-ui-react';
 import {Carousel} from 'react-bootstrap';
 import {connect} from 'react-redux';
@@ -40,21 +40,21 @@ class PhotoGalaryBarberShop extends Component {
                     <Divider/>
                         <Divider horizontal inverted>New Cuts</Divider>
                         <Carousel className="sizeImageCarouselPhoto">                                           
-                                                    { photos.OldCuts.map(photo => {
-                               return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
+                                                    { photos.OldCuts.map((photo,i) => {
+                               return <Carousel.Item  key={i}>  <Image centered size='small' src={photo}/> </Carousel.Item>
                             } ) }          
                                             </Carousel>
                         <Divider horizontal inverted>Best Cuts</Divider>
                         <Carousel className="izeImageCarouselPhoto">                                           
-                                                    { photos.BestCuts.map(photo => {
-                               return <Carousel.Item>  <Image centered size='small' src={photo}/> </Carousel.Item>
+                                                    { photos.BestCuts.map((photo,i) => {
+                               return <Carousel.Item key={i}>  <Image centered size='small' src={photo} /> </Carousel.Item>
                             } ) }          
                                             </Carousel>
                         <Divider horizontal inverted>Old Cuts</Divider>
                         <Carousel className="izeImageCarouselPhoto" >
                                                                                                 
-                                                    { photos.NewCuts.map(photo => {
-                                                        return <Carousel.Item> <Image centered size='small' src={photo}/></Carousel.Item>
+                                                    { photos.NewCuts.map((photo,i)=> {
+                                                        return <Carousel.Item key={i}> <Image centered size='small' src={photo} /></Carousel.Item>
                                                     } ) }
                                                 
                                             </Carousel>

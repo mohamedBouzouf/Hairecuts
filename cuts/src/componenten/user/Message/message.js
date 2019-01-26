@@ -115,7 +115,7 @@ class MessagebarberShop extends Component {
                     <Link
                         slot="inner-end"
                         onClick={this.sendMessage.bind(this)}
-                    ><Glyphicon  glyph="glyphicon glyphicon-menu-hamburger" /></Link>
+                    ><Glyphicon  glyph="glyphicon glyphicon-menu-right" /></Link>
                     <MessagebarAttachments>
                         {this.state.attachments.map((image, index) => (
                             <MessagebarAttachment
