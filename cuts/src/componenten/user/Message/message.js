@@ -77,7 +77,7 @@ class MessagebarberShop extends Component {
             })
 
            
-            console.log(firebase.auth().currentUser.uid);
+            // console.log(firebase.auth().currentUser.uid);
 
             
         })

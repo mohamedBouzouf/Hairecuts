@@ -209,7 +209,7 @@ class UserBarberPage extends Component {
                                                        
                                                     </Carousel.Item>
                                                     <Carousel.Item>
-                                                        <Image src={photos.NewCuts[1]} />
+                                                        <Image src={photos.NewCuts[4]} />
                                                         
                                                     </Carousel.Item>
                                                     <Carousel.Item>
@@ -217,7 +217,7 @@ class UserBarberPage extends Component {
                                                        
                                                     </Carousel.Item>
                                                     <Carousel.Item>
-                                                        <Image src={photos.NewCuts[0]} />
+                                                        <Image src={photos.OldCuts[3]} />
                                                        
                                                     </Carousel.Item>
                                                     <Carousel.Item>
