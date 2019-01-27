@@ -58,11 +58,17 @@ class MessagebarberShop extends Component {
             responseInProgress: false,
         }
     }
+
+  
     componentWillMount(){
         const ref = firebase.database().ref();
         var Qm = ref.child('messages');
+        var Qm1 = Qm.child('0');
+        var Qm2 = Qm.child('1');
+        var Qm3 = Qm.child('2');
         
-        Qm.on('value', snapchot => {
+       if(this.props.group === 0){
+        Qm1.on('value', snapchot => {
             
             var d = snapchot.val()
             var arr = [];
@@ -70,17 +76,47 @@ class MessagebarberShop extends Component {
             arr.push(d[key])
         }
         var data = JSON.stringify(arr);
-            localStorage.setItem('messages', data);
+            localStorage.setItem('messages/0', data);
             this.setState({
-                messagesData: JSON.parse(localStorage.getItem('messages')),
+                messagesData: JSON.parse(localStorage.getItem('messages/0')),
                 loading: false
-            })
-
-           
-            // console.log(firebase.auth().currentUser.uid);
-
-            
+            }) .bind(this)           
         })
+       }else if(this.props.group === 1){
+        Qm2.on('value', snapchot => {
+            
+            var d = snapchot.val()
+            var arr = [];
+        for(var key in d){
+            arr.push(d[key])
+        }
+        var data = JSON.stringify(arr);
+            localStorage.setItem('messages/1', data);
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages/1')),
+                loading: false
+            })            
+        }).bind(this)
+       }else if(this.props.group === 2){
+        Qm3.on('value', snapchot => {
+            
+            var d = snapchot.val()
+            var arr = [];
+        for(var key in d){
+            arr.push(d[key])
+        }
+        var data = JSON.stringify(arr);
+            localStorage.setItem('messages/2', data);
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages/2')),
+                loading: false
+            })            
+        }).bind(this)
+       }
+        
+
+        
+
 
         var appStatus = false;
             var conRef = firebase.database().ref('.info/connected');
@@ -99,6 +135,12 @@ class MessagebarberShop extends Component {
     }
 
     render() {
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var day = d.getDay();
+        var month = d.getMonth();
+      let today =`From group: ${this.props.namegroup} - Today: ${day}/${month} ${h}:${m}`;
         return (
             <Page>
 
@@ -139,7 +181,7 @@ class MessagebarberShop extends Component {
 
                 <Messages ref={(el) => { this.messagesComponent = el }}>
 
-                    <MessagesTitle textColor='black'><b>Sunday, Feb 9,</b> 12:58</MessagesTitle>
+                    <MessagesTitle textColor='black'><b>{today}</b></MessagesTitle>
 
                     {this.state.messagesData.map((message, index) => (
                         <Message
@@ -216,6 +258,7 @@ class MessagebarberShop extends Component {
         attachments.splice(index, 1);
         self.setState({ attachments });
     }
+
     handleAttachment(e) {
         const self = this;
         const attachments = self.state.attachments;
@@ -328,7 +371,7 @@ class MessagebarberShop extends Component {
         
         if (text.trim().length) {
           var timeStampMessage = Math.floor(Date.now());
-          firebase.database().ref().child('messages').child(timeStampMessage).set({
+          firebase.database().ref().child('messages').child(this.props.number).child(timeStampMessage).set({
             text,
               type: 'sent',
               name: firebase.auth().currentUser.displayName,

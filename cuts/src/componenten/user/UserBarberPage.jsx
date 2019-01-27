@@ -27,7 +27,8 @@ class UserBarberPage extends Component {
             like: 0 ,
             dislikes: 0,
             followers: 0,
-            isfavorite: false
+            isfavorite: false,
+            show: false
     
         }
        
@@ -38,11 +39,13 @@ class UserBarberPage extends Component {
     
     }
 
+    componentWillUnmount(){
+
+    }
+
     Followers(){
         var user = firebase.auth().currentUser;
         if(user !== null){
-  
-
         if(this.state.followers === 0){
             this.setState({followers : 1});
             firebase.database().ref().child("posts").child("followers").child(user.uid).remove();
@@ -105,7 +108,6 @@ class UserBarberPage extends Component {
 
     
     render() {
-       
         if(this.props.barber[0].clicked === 1)
         {
             i = 0;
@@ -116,6 +118,7 @@ class UserBarberPage extends Component {
         {
             i = 2;
         }
+
         const {
             isBottom,
             tab1,
@@ -286,7 +289,7 @@ class UserBarberPage extends Component {
                         </Tab>
                         <Tab id="tab-3" className="page-content" h>
                             <PageContent>
-                                <MessagebarberShop />
+                              <MessagebarberShop number={i} namegroup={name} group={i}/>
                             </PageContent>
                         </Tab>
                     </Tabs>
