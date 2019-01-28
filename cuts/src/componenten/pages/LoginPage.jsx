@@ -35,7 +35,6 @@ export default (props) => (
               <Button className="colorbuttonLogin" bsSize='large' onClick={props.IsClick}  >
                 Login with Email
                   </Button>
-              {/* <Link className="colorbuttonLogin fon" color="white" onClick={props.IsClick}>Login with Email</Link> */}
             </Grid.Column>
             <Grid.Column width={16} >
               <Divider />

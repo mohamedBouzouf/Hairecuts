@@ -6,16 +6,9 @@ const init = {
             tab3: '#tab-3',
             tab4: '#tab-4',
             likes:0,
-            dislikes:0, 
             IsFavorite: false,
             appointment: Date,
-            followers: 0,
-            sendermail: '',
-            sender:'',
-            rating:0,
-            receiver:'',
-            name: '',
-            id: ''
+            
 }
 
 export default function(state = init, action){

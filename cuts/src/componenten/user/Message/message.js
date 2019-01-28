@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Icon } from 'antd';
+import firebase from 'firebase';
+import {  Glyphicon } from 'react-bootstrap';
 import {
     Link,
     Message,
@@ -18,6 +19,7 @@ import './message.css';
 
 
 class MessagebarberShop extends Component {
+
     constructor(props) {
         super(props);
 
@@ -25,59 +27,7 @@ class MessagebarberShop extends Component {
             attachments: [],
             sheetVisible: false,
             typingMessage: null,
-            messagesData: [
-                {
-                    type: 'sent',
-                    text: 'Hi, Kate',
-                },
-                {
-                    type: 'sent',
-                    text: 'How are you?',
-                },
-                {
-                    name: 'Kate',
-                    type: 'received',
-                    text: 'Hi, I am good!',
-                    avatar: '',
-                },
-                {
-                    name: 'Blue Ninja',
-                    type: 'received',
-                    text: 'Hi there, I am also fine, thanks! And how are you?',
-                    avatar: '',
-                },
-                {
-                    type: 'sent',
-                    text: 'Hey, Blue Ninja! Glad to see you ;)',
-                },
-                {
-                    type: 'sent',
-                    text: 'Hey, look, cutest kitten ever!',
-                },
-                {
-                    type: 'sent',
-                    image: '',
-
-                },
-                {
-                    name: 'Kate',
-                    type: 'received',
-                    text: 'Nice!',
-                    avatar: '',
-                },
-                {
-                    name: 'Kate',
-                    type: 'received',
-                    text: 'Like it very much!',
-                    avatar: '',
-                },
-                {
-                    name: 'Blue Ninja',
-                    type: 'received',
-                    text: 'Awesome!',
-                    avatar: '',
-                },
-            ],
+            messagesData:[],
             images: [
                 '', ''
             ],
@@ -109,7 +59,88 @@ class MessagebarberShop extends Component {
         }
     }
 
+  
+    componentWillMount(){
+        const ref = firebase.database().ref();
+        var Qm = ref.child('messages');
+        var Qm1 = Qm.child('0');
+        var Qm2 = Qm.child('1');
+        var Qm3 = Qm.child('2');
+        
+       if(this.props.group === 0){
+        Qm1.on('value', snapchot => {
+            
+            var d = snapchot.val()
+            var arr = [];
+        for(var key in d){
+            arr.push(d[key])
+        }
+        var data = JSON.stringify(arr);
+            localStorage.setItem('messages/0', data);
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages/0')),
+                loading: false
+            }) .bind(this)           
+        })
+       }else if(this.props.group === 1){
+        Qm2.on('value', snapchot => {
+            
+            var d = snapchot.val()
+            var arr = [];
+        for(var key in d){
+            arr.push(d[key])
+        }
+        var data = JSON.stringify(arr);
+            localStorage.setItem('messages/1', data);
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages/1')),
+                loading: false
+            })            
+        }).bind(this)
+       }else if(this.props.group === 2){
+        Qm3.on('value', snapchot => {
+            
+            var d = snapchot.val()
+            var arr = [];
+        for(var key in d){
+            arr.push(d[key])
+        }
+        var data = JSON.stringify(arr);
+            localStorage.setItem('messages/2', data);
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages/2')),
+                loading: false
+            })            
+        }).bind(this)
+       }
+        
+
+        
+
+
+        var appStatus = false;
+            var conRef = firebase.database().ref('.info/connected');
+            conRef.on('value', function(snap){
+                if(snap.val() === true){
+                    appStatus = true
+                }
+        });
+
+        if(!appStatus){
+            this.setState({
+                messagesData: JSON.parse(localStorage.getItem('messages')),
+                loading: false
+            })
+        }
+    }
+
     render() {
+        var d = new Date();
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var day = d.getDay();
+        var month = d.getMonth();
+      let today =`From group: ${this.props.namegroup} - Today: ${day}/${month} ${h}:${m}`;
         return (
             <Page>
 
@@ -122,11 +153,11 @@ class MessagebarberShop extends Component {
                     <Link
                         slot="inner-start"
                         onClick={() => { this.setState({ sheetVisible: !this.state.sheetVisible }) }}
-                    ><Icon type="camera" theme="filled" /></Link>
+                    ><Glyphicon  glyph="glyphicon glyphicon-camera" /></Link>
                     <Link
                         slot="inner-end"
                         onClick={this.sendMessage.bind(this)}
-                    ><Icon type="caret-right" /></Link>
+                    ><Glyphicon  glyph="glyphicon glyphicon-menu-right" /></Link>
                     <MessagebarAttachments>
                         {this.state.attachments.map((image, index) => (
                             <MessagebarAttachment
@@ -150,12 +181,12 @@ class MessagebarberShop extends Component {
 
                 <Messages ref={(el) => { this.messagesComponent = el }}>
 
-                    <MessagesTitle textColor='black'><b>Sunday, Feb 9,</b> 12:58</MessagesTitle>
+                    <MessagesTitle textColor='black'><b>{today}</b></MessagesTitle>
 
                     {this.state.messagesData.map((message, index) => (
                         <Message
                             key={index}
-                            type={message.type}
+                            type={this.TypeBericht(message.type, message.userid)}
                             image={message.image}
                             name={message.name}
                             avatar={message.avatar}
@@ -179,9 +210,6 @@ class MessagebarberShop extends Component {
                             avatar={this.state.typingMessage.avatar}
                         ></Message>
                     )}
-
-
-                    {/* <Blur className='headercuts' img={photo} blurRadius={8} /> */}
                 </Messages>
             </Page>
         )
@@ -230,6 +258,7 @@ class MessagebarberShop extends Component {
         attachments.splice(index, 1);
         self.setState({ attachments });
     }
+
     handleAttachment(e) {
         const self = this;
         const attachments = self.state.attachments;
@@ -303,6 +332,99 @@ class MessagebarberShop extends Component {
             }, 4000);
         }, 1000);
     }
+    sendMessage() {
+        const self = this;
+        //const text = self.state.msgText.replace(/\n/g, '<br>').trim();      
+        const text = self.messagebar.getValue().replace(/\n/g, '<br>').trim();
+        const messagesToSend = [];
+        /*self.state.attachments.forEach((attachment) => {
+          messagesToSend.push({
+            image: attachment,
+          });
+        });*/
+  
+          ///console.log(this.state.naam)
+          //firebase.database().ref().child('messages').push
+          //messagesToSend.push
+          var user = firebase.auth().currentUser;
+          if(user !== null){
+  
+            //Controleer om te zien of jij de enige die momenteel aan het schrijven bent
+            //Indien ja deze data wordt onmiddelijk afgewist.
+            //this.DeleteIsTyping();
+  
+            // Save image OP de FIREBASE
+        self.state.attachments.forEach((attachment) => {
+          var timeStampImage = Math.floor(Date.now());
+          //console.log("The value voor image "+ localStorage.getItem('firebaseChildren'));
+          firebase.database().ref().child('messages').child(timeStampImage).set({
+            image: attachment,
+              type: 'sent',
+              name: firebase.auth().currentUser.displayName,
+              avatar: firebase.auth().currentUser.photoURL,
+              userid: user.uid
+          });
+          
+          //console.log(attachment); 
+        });
+        
+        
+        if (text.trim().length) {
+          var timeStampMessage = Math.floor(Date.now());
+          firebase.database().ref().child('messages').child(this.props.number).child(timeStampMessage).set({
+            text,
+              type: 'sent',
+              name: firebase.auth().currentUser.displayName,
+              avatar: firebase.auth().currentUser.photoURL,
+              userid: user.uid
+          });
+  
+        }
+        //Clear de message bar
+         self.messagebar.clear();
+    
+        // Focus area
+        if (text.length) self.messagebar.focus();
+    
+          
+        }
+  
+        self.setState({
+          // Reset attachments
+          attachments: [],
+          // Hide sheet
+          sheetVisible: false,
+          msgText:""
+        });
+  
+        if (messagesToSend.length === 0) {
+          return;
+        }
+              
+        // Mock response
+        if (self.state.responseInProgress) return;
+        self.setState({
+          responseInProgress: true,
+        })
+       
+      }
+      
+      TypeBericht(type, userid){
+        var myType = 'received';
+        var user = firebase.auth().currentUser;
+  
+        if(user !== null){
+          if(type === "sent" && userid === user.uid){
+            //console.log(type);
+            return type;
+          }else{
+            return myType;
+          }  
+        }else{
+          return myType;        
+        }
+            
+      }
 }
 
 export default MessagebarberShop

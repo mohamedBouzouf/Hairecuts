@@ -11,7 +11,7 @@ import { Image } from 'semantic-ui-react';
 import { Button } from 'react-bootstrap';
 
 export default (props) => (
-    <LoginScreen className="login-screen App" opened={props.loginScreenOpened} onLoginScreenClosed={() => { this.setState({ loginScreenOpened: false }) }}>
+    <LoginScreen className="login-screen App" opened={props.loginScreenOpened}>
         <Page loginScreen>
             <LoginScreenTitle>Login</LoginScreenTitle>
             <div style={{ padding: '20px' }}>
@@ -20,18 +20,15 @@ export default (props) => (
                         label="Username"
                         type="text"
                         placeholder="Your username"
-                        value={props.username} onInput={(e) => {
-                            this.setState({ username: e.target.value });
-                        }}
+                        value={props.username}
+                        onInput={props.userHandle}                       
                     />
                     <ListInput
                         label="Password"
                         type="password"
                         placeholder="**********"
                         value={props.password}
-                        onInput={(e) => {
-                            this.setState({ password: e.target.value });
-                        }}
+                        onInput={props.passHandle}
                     />
                 </List>
                 <List>

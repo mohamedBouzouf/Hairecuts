@@ -1,26 +1,34 @@
 import React, {Component} from 'react';
-import {Page,Swiper,SwiperSlide} from 'framework7-react';
+import {Page} from 'framework7-react';
 import {Image, Divider} from 'semantic-ui-react';
+import {Carousel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {getBarber, setBarber} from '../../../Actions/barberAction';
 
 import './photogalary.css';
-
+var i = 0;
 class PhotoGalaryBarberShop extends Component {
 
 
     componentDidMount() {
-        console.log(this.props.barber.photos.BestCuts);
+        
     }
 
     render() {
+        if(this.props.barber[0].clicked === 1)
+        {
+            i = 0;
+        }else if(this.props.barber[1].clickedd === 1)
+        {
+            i = 1;
+        }else if(this.props.barber[2].clickedh === 1)
+        {
+            i = 2;
+        }
         const {
-            instagram,
-            rating,
-            facebook,
             photos,
             photo
-        } = this.props.barber;
+        } = this.props.barber[i];
         return (
             <Page style={{backgroundImage:"url(" + photo + ")" , 
             backgroundPosition: "center", 
@@ -29,24 +37,29 @@ class PhotoGalaryBarberShop extends Component {
                     <div className="PhotoRating">
                     </div>
                     <div className="layer2">
+                    <Divider/>
                         <Divider horizontal inverted>New Cuts</Divider>
-                        <Swiper className="photogallery">
-                            { photos.NewCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="sizeImageCarouselPhoto">                                           
+                                                    { photos.OldCuts.map((photo,i) => {
+                               return <Carousel.Item  key={i}>  <Image centered size='small' src={photo}/> </Carousel.Item>
+                            } ) }          
+                                            </Carousel>
                         <Divider horizontal inverted>Best Cuts</Divider>
-                        <Swiper className="photogalleryblack">
-                        { photos.BestCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="izeImageCarouselPhoto">                                           
+                                                    { photos.BestCuts.map((photo,i) => {
+                               return <Carousel.Item key={i}>  <Image centered size='small' src={photo} /> </Carousel.Item>
+                            } ) }          
+                                            </Carousel>
                         <Divider horizontal inverted>Old Cuts</Divider>
-                        <Swiper className="photogallery">
-                        { photos.OldCuts.map(photo => {
-                               return <SwiperSlide><Image centered size='small' src={photo}/></SwiperSlide>
-                            } ) }
-                        </Swiper>
+                        <Carousel className="izeImageCarouselPhoto" >
+                                                                                                
+                                                    { photos.NewCuts.map((photo,i)=> {
+                                                        return <Carousel.Item key={i}> <Image centered size='small' src={photo} /></Carousel.Item>
+                                                    } ) }
+                                                
+                                            </Carousel>
+                                            <Divider/>
+                        
                     </div></div>
             </Page>
         )

@@ -7,19 +7,47 @@ import EmailPage from '../pages/EmailPage';
 import LoginPage from '../pages/LoginPage';
 import {connect} from 'react-redux';
 // import PropTypes from 'prop-types';
-import {getLogin, boolEMAIL, boolRegister} from '../../Actions/login-action';
+import {getLogin,setLogin, boolEMAIL, boolRegister} from '../../Actions/login-action';
+
 
 
 class HomePage extends Component {
+
+  constructor(props){
+    super(props);
+    this.handlePassChange = this.handlePassChange.bind(this);
+    this.handleUserChange = this.handleUserChange.bind(this);
+    this.handleRegUserChange = this.handleRegUserChange.bind(this);
+    this.handleRegPassChange = this.handleRegPassChange.bind(this);
+  }
+
+  handleUserChange(event) {
+    this.props.login.username = event.target.value;
+    this.props.setLogin(this.props.login);
+  }
+
+  handlePassChange(event) {
+    this.props.login.password = event.target.value;
+    this.props.setLogin(this.props.login);
+  }
+
+  handleRegUserChange(event) {
+    this.props.login.rusername = event.target.value;
+    this.props.setLogin(this.props.login);
+  }
+
+  handleRegPassChange(event) {
+    this.props.login.rpassword = event.target.value; 
+    this.props.setLogin(this.props.login); 
+  }
+
   componentDidMount() {
-    // this.props.getLogin();
-    console.log(this.props.boolEMAIL.bind(this,this.props.login.loginScreenOpened))
-    this.setState({ IsSignOut: false })
     firebase.auth().onAuthStateChanged(user => {
-      console.log(user);
+     
       if (user === null) {
       } else {
-        this.$f7.router.navigate('/userbarberpage/');
+        this.$f7.router.navigate("/map/", {reloadCurrent: true});
+        this.$f7.loginScreen.close();
       }
     })
   }
@@ -30,15 +58,15 @@ class HomePage extends Component {
       loginScreenOpened,
       registerScreenOpened,
       username,
-      R_username,
+      rusername,
       password,
-      R_password, 
+      rpassword, 
       imagetiny,
       R_confirmpassword
     } = this.props.login;
 
     const { signInWithGoogle,
-      signInWithFacebook} =this.props;
+      signInWithFacebook, signInWithEmail,signUpWithEmail} =this.props;
 
     // const { email, password } = this.state;
     return (
@@ -58,63 +86,54 @@ class HomePage extends Component {
         <EmailPage loginScreenOpened={loginScreenOpened}
           username={username}
           password={password}
-          signIn={this.signIn.bind(this)}
+          signIn={() => {
+            signInWithEmail(username,password)
+            
+          }}
           imagetiny={imagetiny}
-          Show={loginScreenOpened} />
+          Show={loginScreenOpened}
+          userHandle={this.handleUserChange}
+          passHandle={this.handlePassChange} />
         {/* /*
                         Register Screen
 
           */}
         <RegisterPage
           registerScreenOpened={registerScreenOpened}
-          R_username={R_username}
-          R_password={R_password}
+          rusername={rusername}
+          rpassword={rpassword}
           confirmpassword={R_confirmpassword}
-          registrationSuccess={this.registrationSuccess.bind(this)}
+          registrationSuccess={() => {
+            signUpWithEmail(rusername,rpassword)
+          }}
           imagetiny={imagetiny}
           Show={registerScreenOpened}
-        />   
+          userHandle={this.handleRegUserChange}
+          passHandle={this.handleRegPassChange}
+        /> 
+
       </div>
     );
 
   }
 
-  signIn() {
-    const self = this;
-    const app = self.$f7;
-    if (self.state === null) {
-      return null;
-    }
-    if ((self.state.username === 'berre') && (self.state.password === 'test123')) {
-      app.dialog.alert(`${self.state.username}`, 'Welcome back ', () => {
-        app.loginScreen.close();
-        this.setState({
-          current: false
-        })
-        this.$f7.view.main.router.navigate('/map/');
-      });
-    } else {
-      app.dialog.alert(`The username (${self.state.username})
-             doesn't exists in or system, Did you already registered?`, 'Login',
-        () => {
-          this.setState({
-            registerScreenOpened: true
-          })
-        })
-    }
-  }
+  
   signInFacebook() { return this.signInWithFacebook }
   signInGoogle() {
     return this.signInWithGoogle
   }
+
   SignOut() {
     firebase.auth().signOut();
   }
+
+
+ 
   registrationSuccess() {
     const self = this;
     const app = self.$f7;
-    if ((self.state.R_username === 'berre') && (self.state.R_password === self.state.R_confirmpassword)) {
-      app.dialog.alert(`Username: ${self.state.R_username}`, 'Welcome ! ', () => {
+    if ((self.state.rusername === 'berre') && (self.state.rpassword === self.state.R_confirmpassword)) {
+      app.dialog.alert(`Username: ${self.state.rusername}`, 'Welcome ! ', () => {
         app.loginScreen.close();
         this.$f7.view.main.router.navigate('/map/');
       });
@@ -123,7 +142,7 @@ class HomePage extends Component {
 };
 const authConfig = {
   email: {
-    verifyOnSignup: false, // Sends verification email to user upon sign up
+    verifyOnSignup: true, // Sends verification email to user upon sign up
     saveUserInDatabase: true // Saves user in database at /users ref
   },
   google: {
@@ -160,4 +179,4 @@ const mapStateToProps = (state) => ({
 
 
 
-export default connect(mapStateToProps,{getLogin,boolEMAIL,boolRegister})(withFirebaseAuth(HomePage, firebase, authConfig));
+export default connect(mapStateToProps,{getLogin,boolEMAIL,setLogin,boolRegister})(withFirebaseAuth(HomePage, firebase, authConfig));
