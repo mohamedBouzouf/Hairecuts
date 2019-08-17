@@ -1,0 +1,45 @@
+{
+  "short_name": "Cuts",
+  "name": "Barbershop App",
+  "icons": [
+    {
+      "src": "cuts-resizes/cuts-16_X_16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-24_X_24.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-32_X_32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-64_X_64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-128_X_128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-256_X_256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "cuts-resizes/cuts-512_X_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

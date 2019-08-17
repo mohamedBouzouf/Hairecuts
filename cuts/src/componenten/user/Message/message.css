@@ -1,0 +1,17 @@
+.headercuts{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    -webkit-object-fit: cover;
+    -moz-object-fit: cover;
+    -o-object-fit: cover;
+    object-fit: cover;
+    overflow: hidden;
+    position: fixed;
+}
+::-webkit-scrollbar {
+    display:none;
+}
